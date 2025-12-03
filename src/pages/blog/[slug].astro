@@ -1,0 +1,492 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => {
+    // Get slug from post ID (just the filename without folder)
+    const parts = post.id.split('/');
+    const slug = parts[parts.length - 1];
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+// Get slug from post ID (just the filename without folder)
+function getSlug(id: string): string {
+  const parts = id.split('/');
+  return parts[parts.length - 1];
+}
+
+// Extract category from the post ID (folder name)
+function getCategory(id: string): string {
+  const parts = id.split('/');
+  if (parts.length > 1) {
+    return parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+  }
+  return 'General';
+}
+
+const { post } = Astro.props;
+const { slug } = Astro.params;
+
+// Render the markdown content
+const { Content } = await render(post);
+
+// Calculate read time
+function calculateReadTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+}
+
+const readTime = calculateReadTime(post.body || '');
+const category = getCategory(post.id);
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-IE', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
+// Get related posts (same category)
+const allPosts = await getCollection('blog');
+const relatedPosts = allPosts
+  .filter(p => getSlug(p.id) !== slug && getCategory(p.id) === category)
+  .slice(0, 2);
+
+// Category colors
+const categoryColors: Record<string, { bg: string; text: string; glow: string }> = {
+  Security: { bg: 'rgba(244, 54, 84, 0.15)', text: '#F43654', glow: 'rgba(244, 54, 84, 0.3)' },
+  Performance: { bg: 'rgba(59, 130, 246, 0.15)', text: '#3B82F6', glow: 'rgba(59, 130, 246, 0.3)' },
+  Maintenance: { bg: 'rgba(244, 140, 84, 0.15)', text: '#F48C54', glow: 'rgba(244, 140, 84, 0.3)' },
+  Hosting: { bg: 'rgba(34, 197, 94, 0.15)', text: '#22C55E', glow: 'rgba(34, 197, 94, 0.3)' },
+  Compliance: { bg: 'rgba(168, 85, 247, 0.15)', text: '#A855F7', glow: 'rgba(168, 85, 247, 0.3)' },
+};
+
+const catStyle = categoryColors[category] || categoryColors.Security;
+---
+
+<Layout
+  title={`${post.data.title} | SparkHost.ie Blog`}
+  description={post.data.excerpt}
+>
+  <Header currentPath="/blog" />
+
+  <main class="blog-post">
+    <!-- Hero Section with Gradient Background -->
+    <section class="relative pt-32 pb-16 overflow-hidden">
+      <!-- Background Effects -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-deep-navy)] via-[var(--color-midnight)] to-transparent"></div>
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-[var(--color-spark-red)]/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-20 right-1/4 w-80 h-80 bg-[var(--color-spark-orange)]/8 rounded-full blur-3xl"></div>
+
+      <div class="container relative z-10">
+        <div class="max-w-3xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="mb-8 animate-fade-in">
+            <ol class="flex items-center gap-2 text-sm">
+              <li>
+                <a href="/" class="text-white/40 hover:text-[var(--color-spark-orange)] transition-colors">Home</a>
+              </li>
+              <li class="text-white/20">/</li>
+              <li>
+                <a href="/blog" class="text-white/40 hover:text-[var(--color-spark-orange)] transition-colors">Blog</a>
+              </li>
+              <li class="text-white/20">/</li>
+              <li class="text-white/60 truncate max-w-[250px]">{post.data.title}</li>
+            </ol>
+          </nav>
+
+          <!-- Category & Meta -->
+          <div class="flex flex-wrap items-center gap-4 mb-6 animate-fade-in-up">
+            <span
+              class="category-badge px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider"
+              style={`background: ${catStyle.bg}; color: ${catStyle.text}; box-shadow: 0 0 20px ${catStyle.glow};`}
+            >
+              {category}
+            </span>
+            <div class="flex items-center gap-4 text-sm text-white/40">
+              <span class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {formatDate(post.data.publishedDate)}
+              </span>
+              <span class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {readTime}
+              </span>
+            </div>
+          </div>
+
+          <!-- Title -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1] animate-fade-in-up stagger-1" style="font-family: var(--font-display);">
+            {post.data.title}
+          </h1>
+
+          <!-- Excerpt -->
+          <p class="text-xl md:text-2xl text-white/60 leading-relaxed mb-10 animate-fade-in-up stagger-2">
+            {post.data.excerpt}
+          </p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-4 animate-fade-in-up stagger-3">
+            <div class="relative">
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[var(--color-spark-red)] to-[var(--color-spark-orange)] flex items-center justify-center text-white font-bold text-lg" style="font-family: var(--font-display);">
+                SH
+              </div>
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-[var(--color-deep-navy)]"></div>
+            </div>
+            <div>
+              <p class="font-semibold text-white">{post.data.author}</p>
+              <p class="text-sm text-white/40">SparkHost.ie</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative bottom edge -->
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-16 bg-white relative">
+      <!-- Subtle top shadow -->
+      <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-50 to-transparent pointer-events-none"></div>
+
+      <div class="container relative z-10">
+        <div class="max-w-3xl mx-auto">
+          <article class="prose-spark">
+            <Content />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-1/2 left-0 w-64 h-64 bg-[var(--color-spark-red)]/5 rounded-full blur-3xl -translate-y-1/2"></div>
+      <div class="absolute top-1/2 right-0 w-64 h-64 bg-[var(--color-spark-orange)]/5 rounded-full blur-3xl -translate-y-1/2"></div>
+
+      <div class="container relative z-10">
+        <div class="max-w-2xl mx-auto">
+          <div class="cta-card relative p-8 md:p-12 rounded-3xl overflow-hidden">
+            <!-- Card background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-deep-navy)] to-[var(--color-midnight)]"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 400 400%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] opacity-[0.03]"></div>
+
+            <!-- Gradient accent -->
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-spark-red)] to-[var(--color-spark-orange)]"></div>
+
+            <div class="relative z-10 text-center">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 mb-6">
+                <svg class="w-8 h-8 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+
+              <h3 class="text-2xl md:text-3xl font-bold text-white mb-4" style="font-family: var(--font-display);">
+                Want Us to Handle This For You?
+              </h3>
+              <p class="text-white/60 mb-8 text-lg max-w-md mx-auto leading-relaxed">
+                SparkHost takes care of your WordPress hosting, security, and maintenance — so you can focus on your business.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/pricing" class="btn-spark">
+                  <span>View Plans</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <a href="/contact" class="btn-outline-dark">Book a Free Call</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Posts -->
+    {relatedPosts.length > 0 && (
+      <section class="py-20 bg-[var(--color-deep-navy)]">
+        <div class="container">
+          <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-4 mb-10">
+              <div class="h-px flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
+              <h2 class="text-2xl font-bold text-white" style="font-family: var(--font-display);">
+                Related Articles
+              </h2>
+              <div class="h-px flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              {relatedPosts.map((related) => {
+                const relCategory = getCategory(related.id);
+                const relCatStyle = categoryColors[relCategory] || categoryColors.Security;
+                return (
+                  <a href={`/blog/${getSlug(related.id)}`} class="related-card group card-glass p-6 block">
+                    <span
+                      class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4"
+                      style={`background: ${relCatStyle.bg}; color: ${relCatStyle.text};`}
+                    >
+                      {relCategory}
+                    </span>
+                    <h3 class="text-lg font-bold text-white mb-3 group-hover:text-[var(--color-spark-orange)] transition-colors leading-tight" style="font-family: var(--font-display);">
+                      {related.data.title}
+                    </h3>
+                    <p class="text-sm text-white/40 flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {formatDate(related.data.publishedDate)}
+                    </p>
+
+                    <!-- Arrow indicator -->
+                    <div class="absolute bottom-6 right-6 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all">
+                      <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Back to Blog -->
+    <section class="py-12 bg-[var(--color-deep-navy)] border-t border-white/5">
+      <div class="container">
+        <div class="text-center">
+          <a href="/blog" class="inline-flex items-center gap-3 text-white/60 hover:text-[var(--color-spark-orange)] font-medium transition-all group">
+            <span class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[var(--color-spark-orange)]/10 transition-colors">
+              <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </span>
+            <span>Back to All Articles</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Animations */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+
+  /* Category badge glow animation */
+  .category-badge {
+    animation: badge-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes badge-pulse {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+  }
+
+  /* Article Content Styling - Refined Typography */
+  .prose-spark {
+    color: #374151;
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .prose-spark :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    color: #111827;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .prose-spark :global(h2)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    bottom: 0.25em;
+    width: 4px;
+    background: linear-gradient(180deg, var(--color-spark-red), var(--color-spark-orange));
+    border-radius: 2px;
+  }
+
+  .prose-spark :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1F2937;
+  }
+
+  .prose-spark :global(p) {
+    margin-bottom: 1.5rem;
+    color: #4B5563;
+  }
+
+  .prose-spark :global(p):first-of-type {
+    font-size: 1.25rem;
+    color: #374151;
+  }
+
+  .prose-spark :global(ul),
+  .prose-spark :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+  }
+
+  .prose-spark :global(ul) {
+    list-style: none;
+  }
+
+  .prose-spark :global(ol) {
+    list-style: none;
+    counter-reset: item;
+  }
+
+  .prose-spark :global(ol li) {
+    counter-increment: item;
+  }
+
+  .prose-spark :global(ol li)::before {
+    content: counter(item) ".";
+    font-weight: 700;
+    color: var(--color-spark-red);
+    margin-right: 0.75rem;
+    font-family: var(--font-display);
+  }
+
+  .prose-spark :global(li) {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    color: #4B5563;
+    position: relative;
+    padding-left: 1.75rem;
+  }
+
+  .prose-spark :global(ul li)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--color-spark-red), var(--color-spark-orange));
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+
+  .prose-spark :global(strong) {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .prose-spark :global(a) {
+    color: var(--color-spark-red);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .prose-spark :global(a)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-spark-red), var(--color-spark-orange));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .prose-spark :global(a:hover)::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Block quotes if needed */
+  .prose-spark :global(blockquote) {
+    border-left: 4px solid var(--color-spark-orange);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #6B7280;
+  }
+
+  /* Dark button variant for light backgrounds */
+  .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: white;
+    font-family: var(--font-display);
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-outline-dark:hover {
+    border-color: var(--color-spark-orange);
+    color: var(--color-spark-orange);
+    transform: translateY(-2px);
+  }
+
+  /* Related card positioning */
+  .related-card {
+    position: relative;
+  }
+</style>

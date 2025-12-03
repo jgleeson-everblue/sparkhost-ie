@@ -1,0 +1,432 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const standardFeatures = {
+  hosting: [
+    'High-performance UK/EU VPS servers',
+    '99.9% uptime guarantee',
+    '30GB SSD storage',
+    'Unlimited bandwidth',
+    'Free SSL certificate (HTTPS)',
+    'Daily automated backups (7-day retention)',
+    'Monthly full snapshot',
+  ],
+  security: [
+    'WordPress core updates (automatic)',
+    'Plugin & theme updates (automatic)',
+    'Malware scanning & removal',
+    'Cloudflare firewall protection',
+    'DDoS protection',
+    'Security hardening (Wordfence)',
+  ],
+  support: [
+    'WhatsApp & email support',
+    '24-hour response time (99% same-day)',
+    'Monthly uptime & security reports',
+    'Up to 1 hour/month light content edits',
+  ],
+};
+
+const managedExtras = {
+  infrastructure: [
+    '100GB SSD storage',
+    'CDN integration (global performance)',
+    'Staging environment for safe testing',
+  ],
+  security: [
+    'Patchstack real-time threat detection',
+    'Web Application Firewall (WAF)',
+    'Security audit logs',
+    'Vulnerability scanning',
+    'Emergency security response',
+  ],
+  performance: [
+    'Image optimisation & compression',
+    'Speed optimisation',
+    'Performance monitoring & reporting',
+  ],
+  content: [
+    '3 hours/month included changes',
+    'Text updates, page edits, new content',
+    'Image uploads & optimisation',
+    'Menu & navigation changes',
+    'Form updates',
+    'Blog post publishing',
+  ],
+  prioritySupport: [
+    'Weekly performance reports',
+    'Monthly strategy calls (optional)',
+    'Proactive monitoring & alerts',
+  ],
+};
+
+const notIncluded = [
+  'New page designs or layouts',
+  'Custom feature development',
+  'Plugin customisation or development',
+  'Theme redesigns or major changes',
+  'E-commerce setup (quoted separately)',
+  'SEO campaigns or content strategy',
+];
+---
+
+<Layout
+  title="Services - SparkHost.ie | WordPress Hosting & Maintenance Ireland"
+  description="Detailed breakdown of SparkHost's WordPress hosting and maintenance services. Standard and Managed plans with transparent pricing."
+>
+  <Header currentPath="/services" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+      <div class="container">
+        <div class="max-w-3xl">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Our Services</span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
+            What's <span class="text-gradient-spark">Actually Included</span>
+          </h1>
+          <p class="text-xl text-white/60 leading-relaxed">
+            No hidden fees. No surprise charges. Here's exactly what you get with SparkHost — and what you don't. Complete transparency, always.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Standard Tier Section -->
+    <section class="py-16">
+      <div class="container">
+        <!-- Tier Header -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 pb-8 border-b border-white/10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-4">
+              <span class="w-2 h-2 rounded-full bg-green-400"></span>
+              <span class="text-sm text-white/70">Most Popular for Small Businesses</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display);">Standard Plan</h2>
+            <p class="text-white/60">Professional hosting and maintenance for businesses that need reliability without complexity.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl md:text-5xl font-bold" style="font-family: var(--font-display);">€40</span>
+              <span class="text-white/50">/month + VAT</span>
+            </div>
+            <p class="text-sm text-[var(--color-spark-orange)]">Or €432/year + VAT (save €48)</p>
+          </div>
+        </div>
+
+        <!-- Feature Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Hosting & Infrastructure -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Hosting & Infrastructure</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {standardFeatures.hosting.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Security & Maintenance -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Security & Maintenance</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {standardFeatures.security.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Support</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {standardFeatures.support.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div class="mt-5 p-3 rounded-lg bg-white/5 border border-white/10">
+              <p class="text-xs text-white/50">
+                <strong class="text-white/70">Light content edit:</strong> Text changes, typos, swapping images — quick fixes that take minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <a href="/pricing" class="btn-outline">
+            Get Started with Standard
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container">
+      <div class="h-px bg-gradient-to-r from-transparent via-[var(--color-spark-red)]/30 to-transparent"></div>
+    </div>
+
+    <!-- Managed Tier Section -->
+    <section class="py-16">
+      <div class="container">
+        <!-- Tier Header -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 pb-8 border-b border-white/10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 border border-[var(--color-spark-red)]/30 mb-4">
+              <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span class="text-sm text-[var(--color-spark-orange)]">Best for Growing Businesses</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display);">Managed Plan</h2>
+            <p class="text-white/60">Everything in Standard, plus hands-on content management and advanced protection.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl md:text-5xl font-bold text-gradient-spark" style="font-family: var(--font-display);">€249</span>
+              <span class="text-white/50">/month + VAT</span>
+            </div>
+            <p class="text-sm text-white/40">Additional hours: €80/hour</p>
+          </div>
+        </div>
+
+        <!-- Everything in Standard banner -->
+        <div class="mb-8 p-4 rounded-xl bg-[var(--color-spark-red)]/10 border border-[var(--color-spark-red)]/20">
+          <p class="text-white/80 flex items-center gap-2">
+            <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <strong>Everything in Standard</strong>, plus:
+          </p>
+        </div>
+
+        <!-- Feature Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Enhanced Infrastructure -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/30 to-[var(--color-spark-orange)]/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Enhanced Infrastructure</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {managedExtras.infrastructure.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Advanced Security -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/30 to-[var(--color-spark-orange)]/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Advanced Security</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {managedExtras.security.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Performance -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/30 to-[var(--color-spark-orange)]/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Performance</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {managedExtras.performance.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Content Management -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/30 to-[var(--color-spark-orange)]/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Content Management</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {managedExtras.content.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Priority Support -->
+          <div class="card-glass p-6">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/30 to-[var(--color-spark-orange)]/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Priority Support</h3>
+            </div>
+            <ul class="space-y-2.5">
+              {managedExtras.prioritySupport.map(item => (
+                <li class="flex items-start gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <a href="/pricing" class="btn-spark">
+            <span>Get Started with Managed</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's NOT Included -->
+    <section class="py-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="text-center mb-10">
+            <span class="inline-block text-white/50 text-sm font-semibold tracking-wider uppercase mb-4">Transparency</span>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">
+              What's <span class="text-white/50">Not</span> Included
+            </h2>
+            <p class="text-white/60">
+              We're honest about scope. These services are quoted separately.
+            </p>
+          </div>
+
+          <div class="card-glass p-6 md:p-8">
+            <div class="grid sm:grid-cols-2 gap-3">
+              {notIncluded.map(item => (
+                <div class="flex items-center gap-2 text-white/60 text-sm">
+                  <svg class="w-4 h-4 text-white/30 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  {item}
+                </div>
+              ))}
+            </div>
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <p class="text-white/70 text-sm mb-3">
+                <strong class="text-white">Need more than hosting?</strong> Our sister company Everblue Digital handles web design, SEO, Google Ads, and custom development.
+              </p>
+              <a href="https://everbluedigital.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[var(--color-spark-orange)] hover:text-[var(--color-spark-red)] font-medium transition-colors text-sm">
+                Visit Everblue Digital
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">
+            Ready to Get Started?
+          </h2>
+          <p class="text-lg text-white/60 mb-8 max-w-xl mx-auto">
+            Compare plans side-by-side or book a free call to discuss your needs.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/pricing" class="btn-spark">
+              <span>Compare Plans</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

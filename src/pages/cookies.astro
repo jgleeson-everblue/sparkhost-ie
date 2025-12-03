@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '3 December 2024';
+---
+
+<Layout
+  title="Cookie Policy | SparkHost.ie"
+  description="How SparkHost.ie uses cookies and similar technologies on our website."
+>
+  <Header currentPath="/cookies" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Legal</span>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
+            Cookie Policy
+          </h1>
+          <p class="text-white/60">
+            Last updated: {lastUpdated}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="pb-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="prose prose-invert max-w-none space-y-8">
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">What Are Cookies?</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>Cookies are small text files stored on your device when you visit a website. They help websites remember your preferences and understand how you use the site.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">How We Use Cookies</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>SparkHost.ie uses cookies to:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Remember your preferences and settings</li>
+                  <li>Understand how visitors use our website</li>
+                  <li>Improve our website and services</li>
+                  <li>Provide embedded content (e.g., Cal.com booking widget)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Types of Cookies We Use</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-6">
+                <div>
+                  <h3 class="text-white font-semibold mb-2">Essential Cookies</h3>
+                  <p class="mb-2">Required for the website to function. Cannot be disabled.</p>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-xs">
+                      <thead>
+                        <tr class="border-b border-white/10">
+                          <th class="text-left py-2 pr-4 text-white">Cookie</th>
+                          <th class="text-left py-2 pr-4 text-white">Purpose</th>
+                          <th class="text-left py-2 text-white">Duration</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b border-white/5">
+                          <td class="py-2 pr-4">cookie_consent</td>
+                          <td class="py-2 pr-4">Stores your cookie preferences</td>
+                          <td class="py-2">1 year</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-white font-semibold mb-2">Analytics Cookies</h3>
+                  <p class="mb-2">Help us understand how visitors use our website.</p>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-xs">
+                      <thead>
+                        <tr class="border-b border-white/10">
+                          <th class="text-left py-2 pr-4 text-white">Cookie</th>
+                          <th class="text-left py-2 pr-4 text-white">Purpose</th>
+                          <th class="text-left py-2 text-white">Duration</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b border-white/5">
+                          <td class="py-2 pr-4">_ga</td>
+                          <td class="py-2 pr-4">Google Analytics - distinguishes users</td>
+                          <td class="py-2">2 years</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                          <td class="py-2 pr-4">_ga_*</td>
+                          <td class="py-2 pr-4">Google Analytics - maintains session state</td>
+                          <td class="py-2">2 years</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-white font-semibold mb-2">Functional Cookies</h3>
+                  <p class="mb-2">Enable enhanced functionality and personalisation.</p>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-xs">
+                      <thead>
+                        <tr class="border-b border-white/10">
+                          <th class="text-left py-2 pr-4 text-white">Cookie</th>
+                          <th class="text-left py-2 pr-4 text-white">Purpose</th>
+                          <th class="text-left py-2 text-white">Duration</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b border-white/5">
+                          <td class="py-2 pr-4">Cal.com cookies</td>
+                          <td class="py-2 pr-4">Enables booking widget functionality</td>
+                          <td class="py-2">Session</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Third-Party Cookies</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>Some cookies are set by third-party services we use:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li><strong class="text-white">Google Analytics:</strong> Website analytics (you can opt out at <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">tools.google.com/dlpage/gaoptout</a>)</li>
+                  <li><strong class="text-white">Cal.com:</strong> Booking widget functionality</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Managing Cookies</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>You can control cookies through:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li><strong class="text-white">Browser settings:</strong> Most browsers let you block or delete cookies</li>
+                  <li><strong class="text-white">Our cookie banner:</strong> Choose which non-essential cookies to accept</li>
+                </ul>
+                <p class="mt-3">Note: Blocking some cookies may affect website functionality.</p>
+
+                <div class="mt-4 space-y-2">
+                  <p><strong class="text-white">Browser cookie settings:</strong></p>
+                  <ul class="list-disc list-inside space-y-1 ml-2">
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">Firefox</a></li>
+                    <li><a href="https://support.apple.com/en-ie/guide/safari/sfri11471/mac" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">Safari</a></li>
+                    <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">Edge</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Changes to This Policy</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We may update this Cookie Policy from time to time. Check this page for the latest version.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Contact</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>For questions about our use of cookies:</p>
+                <p><strong class="text-white">Email:</strong> <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a></p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">More Information</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>For more about how we handle your data, see our <a href="/privacy" class="text-[var(--color-spark-orange)] hover:underline">Privacy Policy</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

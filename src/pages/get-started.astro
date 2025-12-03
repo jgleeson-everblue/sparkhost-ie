@@ -1,0 +1,364 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const steps = [
+  { number: '01', title: 'Book a Call', desc: 'Schedule a free 30-minute consultation to discuss your needs.' },
+  { number: '02', title: 'We Review', desc: 'We assess your current site and provide an honest recommendation.' },
+  { number: '03', title: 'Migration', desc: 'We handle everything — files, database, emails, DNS. Zero downtime.' },
+  { number: '04', title: 'Go Live', desc: 'Your site runs on SparkHost with full maintenance and support.' },
+];
+---
+
+<Layout
+  title="Get Started with SparkHost.ie | Free Consultation"
+  description="Ready to stop worrying about your WordPress site? Book a free call or tell us about your website and we'll get back to you within 4 hours."
+>
+  <Header currentPath="/get-started" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Get Started</span>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
+            Let's Get Your Site <span class="text-gradient-spark">Sorted</span>
+          </h1>
+          <p class="text-xl text-white/60">
+            Tell us about your website and we'll get back to you within 4 hours during business hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Form Section -->
+    <section class="pb-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <form id="get-started-form" class="card-glass p-6 md:p-8 space-y-6">
+            <!-- Step 1: Your Details -->
+            <div>
+              <h2 class="text-lg font-bold mb-4" style="font-family: var(--font-display);">Your Details</h2>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-white mb-2">Name <span class="text-[var(--color-spark-red)]">*</span></label>
+                  <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-[var(--color-spark-orange)] focus:outline-none transition-colors" placeholder="Your name" />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-white mb-2">Email <span class="text-[var(--color-spark-red)]">*</span></label>
+                  <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-[var(--color-spark-orange)] focus:outline-none transition-colors" placeholder="you@company.ie" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Your Website -->
+            <div class="pt-4">
+              <h2 class="text-lg font-bold mb-4" style="font-family: var(--font-display);">Your Website</h2>
+              <div class="space-y-4">
+                <div>
+                  <label for="website" class="block text-sm font-medium text-white mb-2">Website URL <span class="text-[var(--color-spark-red)]">*</span></label>
+                  <input type="url" id="website" name="website" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-[var(--color-spark-orange)] focus:outline-none transition-colors" placeholder="https://yourwebsite.ie" />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-white mb-3">Is your site built with WordPress?</label>
+                  <div class="flex gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="is_wordpress" value="yes" class="w-4 h-4 text-[var(--color-spark-orange)] bg-white/5 border-white/20" />
+                      <span class="text-sm text-white/70">Yes</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="is_wordpress" value="no" class="w-4 h-4 text-[var(--color-spark-orange)] bg-white/5 border-white/20" />
+                      <span class="text-sm text-white/70">No</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="is_wordpress" value="unsure" class="w-4 h-4 text-[var(--color-spark-orange)] bg-white/5 border-white/20" />
+                      <span class="text-sm text-white/70">Not sure</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="current_host" class="block text-sm font-medium text-white mb-2">Current hosting provider <span class="text-white/40">(optional)</span></label>
+                  <input type="text" id="current_host" name="current_host" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-[var(--color-spark-orange)] focus:outline-none transition-colors" placeholder="e.g. Blacknight, GoDaddy, Bluehost..." />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: What do you need? -->
+            <div class="pt-4">
+              <h2 class="text-lg font-bold mb-4" style="font-family: var(--font-display);">What do you need?</h2>
+              <div class="space-y-3">
+                <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg bg-white/5 border border-white/10 hover:border-[var(--color-spark-orange)]/50 transition-colors">
+                  <input type="checkbox" name="needs" value="hosting" class="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--color-spark-orange)]" />
+                  <div>
+                    <span class="block font-medium text-sm">Hosting & Maintenance</span>
+                    <span class="block text-xs text-white/50">Updates, backups, security, uptime monitoring</span>
+                  </div>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg bg-white/5 border border-white/10 hover:border-[var(--color-spark-orange)]/50 transition-colors">
+                  <input type="checkbox" name="needs" value="migration" class="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--color-spark-orange)]" />
+                  <div>
+                    <span class="block font-medium text-sm">Migration from current host</span>
+                    <span class="block text-xs text-white/50">We move everything with zero downtime</span>
+                  </div>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg bg-white/5 border border-white/10 hover:border-[var(--color-spark-orange)]/50 transition-colors">
+                  <input type="checkbox" name="needs" value="speed" class="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--color-spark-orange)]" />
+                  <div>
+                    <span class="block font-medium text-sm">Speed improvements</span>
+                    <span class="block text-xs text-white/50">My site is running slow</span>
+                  </div>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg bg-white/5 border border-white/10 hover:border-[var(--color-spark-orange)]/50 transition-colors">
+                  <input type="checkbox" name="needs" value="security" class="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--color-spark-orange)]" />
+                  <div>
+                    <span class="block font-medium text-sm">Security concerns</span>
+                    <span class="block text-xs text-white/50">Malware, hacking, or SSL issues</span>
+                  </div>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer p-3 rounded-lg bg-white/5 border border-white/10 hover:border-[var(--color-spark-orange)]/50 transition-colors">
+                  <input type="checkbox" name="needs" value="other" class="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--color-spark-orange)]" />
+                  <div>
+                    <span class="block font-medium text-sm">Something else</span>
+                    <span class="block text-xs text-white/50">I'll explain in the message below</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="pt-4">
+              <label for="message" class="block text-sm font-medium text-white mb-2">Anything else you'd like us to know? <span class="text-white/40">(optional)</span></label>
+              <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-[var(--color-spark-orange)] focus:outline-none transition-colors resize-none" placeholder="Tell us more about your situation..."></textarea>
+            </div>
+
+            <!-- Privacy & Submit -->
+            <div class="pt-4 space-y-4">
+              <div class="flex items-start gap-3">
+                <input type="checkbox" id="privacy" name="privacy" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--color-spark-orange)]" />
+                <label for="privacy" class="text-sm text-white/60">
+                  I agree to the <a href="/privacy" class="text-[var(--color-spark-orange)] hover:underline">Privacy Policy</a>.
+                </label>
+              </div>
+
+              <button type="submit" class="btn-spark w-full justify-center" id="submit-btn">
+                <span id="btn-text">Submit Request</span>
+                <svg id="btn-arrow" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+
+              <div id="success-message" class="hidden p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-center text-sm">
+                <p class="font-semibold">Request submitted!</p>
+                <p class="text-green-400/70">We'll be in touch within 4 hours during business hours.</p>
+              </div>
+
+              <div id="error-message" class="hidden p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-center text-sm">
+                <p class="font-semibold">Something went wrong</p>
+                <p class="text-red-400/70">Please email us at hello@sparkhost.ie</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16">
+      <div class="container">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">
+            How It <span class="text-gradient-spark">Works</span>
+          </h2>
+          <p class="text-white/60 max-w-lg mx-auto">
+            From first contact to go-live, here's what to expect.
+          </p>
+        </div>
+
+        <div class="container-wide mx-auto">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {steps.map(step => (
+              <div class="card-glass p-5 text-center">
+                <div class="text-3xl font-bold text-gradient-spark mb-3" style="font-family: var(--font-display);">{step.number}</div>
+                <h3 class="font-semibold mb-2">{step.title}</h3>
+                <p class="text-sm text-white/60">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Or Book a Call -->
+    <section class="py-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="card-glass p-6 md:p-8">
+            <div class="text-center mb-6">
+              <h2 class="text-xl font-bold mb-2" style="font-family: var(--font-display);">Prefer to Talk First?</h2>
+              <p class="text-white/60 text-sm">Book a free 30-minute call. No sales pitch, just honest advice.</p>
+            </div>
+            <div id="sparkhost-booking" class="min-h-[500px] rounded-lg overflow-hidden"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section class="py-12">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="card-glass p-5 text-center">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-sm mb-1">Quick Response</h3>
+              <p class="text-white/60 text-xs">Within 4 hours</p>
+            </div>
+
+            <div class="card-glass p-5 text-center">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-sm mb-1">Free Migration</h3>
+              <p class="text-white/60 text-xs">We move everything</p>
+            </div>
+
+            <div class="card-glass p-5 text-center">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center mx-auto mb-3">
+                <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold text-sm mb-1">No Lock-in</h3>
+              <p class="text-white/60 text-xs">Cancel anytime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init", "sparkhost", {origin: "https://app.cal.com"});
+  Cal.ns["sparkhost"]("inline", {
+    elementOrSelector: "#sparkhost-booking",
+    config: {"layout": "month_view", "theme": "dark"},
+    calLink: "everblue/30min",
+  });
+</script>
+
+<script>
+  const form = document.getElementById('get-started-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnArrow = document.getElementById('btn-arrow');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    successMessage?.classList.add('hidden');
+    errorMessage?.classList.add('hidden');
+
+    if (btnText) btnText.textContent = 'Submitting...';
+    btnArrow?.classList.add('hidden');
+    submitBtn?.setAttribute('disabled', 'true');
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      successMessage?.classList.remove('hidden');
+      form.reset();
+    } catch (error) {
+      errorMessage?.classList.remove('hidden');
+    } finally {
+      if (btnText) btnText.textContent = 'Submit Request';
+      btnArrow?.classList.remove('hidden');
+      submitBtn?.removeAttribute('disabled');
+    }
+  });
+</script>
+
+<style>
+  input[type="checkbox"],
+  input[type="radio"] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    position: relative;
+  }
+  input[type="checkbox"] {
+    border-radius: 0.25rem;
+  }
+  input[type="radio"] {
+    border-radius: 50%;
+  }
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background: var(--color-spark-orange);
+    border-color: var(--color-spark-orange);
+  }
+  input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+  }
+</style>

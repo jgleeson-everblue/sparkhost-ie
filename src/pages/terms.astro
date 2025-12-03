@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '3 December 2024';
+---
+
+<Layout
+  title="Terms of Service | SparkHost.ie"
+  description="Terms and conditions for using SparkHost.ie WordPress hosting and maintenance services."
+>
+  <Header currentPath="/terms" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Legal</span>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
+            Terms of Service
+          </h1>
+          <p class="text-white/60">
+            Last updated: {lastUpdated}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="pb-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="prose prose-invert max-w-none space-y-8">
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">1. Introduction</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>These Terms of Service ("Terms") govern your use of SparkHost.ie services operated by Everblue Digital ("we", "us", "our").</p>
+                <p>By using our services, you agree to these Terms. If you don't agree, please don't use our services.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">2. Services</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>SparkHost.ie provides WordPress hosting and maintenance services, including:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Web hosting on managed VPS infrastructure</li>
+                  <li>WordPress core, theme, and plugin updates</li>
+                  <li>Daily backups and restoration services</li>
+                  <li>Security monitoring and malware removal</li>
+                  <li>Technical support during Irish business hours</li>
+                  <li>Light content edits (as defined in your plan)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">3. Account Registration</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>To use our services, you must:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Provide accurate and complete information</li>
+                  <li>Be at least 18 years old or have legal authority to enter contracts</li>
+                  <li>Keep your account credentials secure</li>
+                  <li>Notify us immediately of any unauthorised access</li>
+                </ul>
+                <p>You are responsible for all activity under your account.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">4. Payment Terms</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Prices are quoted in Euros (€) and exclude VAT unless stated</li>
+                  <li>Irish VAT (23%) applies to all services</li>
+                  <li>Monthly plans are billed in advance on the same date each month</li>
+                  <li>Annual plans are billed in full at the start of the term</li>
+                  <li>Payment is due within 7 days of invoice</li>
+                  <li>We accept Direct Debit, credit/debit cards, and bank transfer</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">5. Cancellation & Refunds</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Monthly plans: Cancel anytime with 30 days notice. No penalty.</li>
+                  <li>Annual plans: No refund for unused months, but you retain service until the term ends.</li>
+                  <li>We may terminate accounts for breach of these Terms or non-payment.</li>
+                  <li>Upon cancellation, we'll assist with transferring your site to another provider.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">6. Acceptable Use</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>You agree not to use our services for:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Illegal activities or content</li>
+                  <li>Malware, spam, or phishing operations</li>
+                  <li>Content that infringes intellectual property rights</li>
+                  <li>Content promoting violence, hatred, or discrimination</li>
+                  <li>Cryptocurrency mining or resource-intensive automated processes</li>
+                  <li>Any activity that degrades service for other customers</li>
+                </ul>
+                <p class="mt-3">We reserve the right to suspend or terminate accounts that violate these terms.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">7. Your Responsibilities</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>You are responsible for:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>The content you publish on your website</li>
+                  <li>Maintaining valid contact information</li>
+                  <li>Responding to our requests for information (e.g., domain renewal notices)</li>
+                  <li>Ensuring you have rights to all content, images, and plugins on your site</li>
+                  <li>Complying with GDPR and other applicable laws for your website</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">8. Our Responsibilities</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We will:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Maintain 99.9% uptime (excluding scheduled maintenance)</li>
+                  <li>Perform daily backups and retain them per your plan</li>
+                  <li>Apply security updates in a timely manner</li>
+                  <li>Respond to support requests within our stated timeframes</li>
+                  <li>Notify you of any security incidents affecting your site</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">9. Limitation of Liability</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>To the maximum extent permitted by law:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Our liability is limited to the fees paid for services in the 12 months preceding any claim</li>
+                  <li>We are not liable for indirect, incidental, or consequential damages</li>
+                  <li>We are not liable for data loss where backups have been provided as specified</li>
+                  <li>We are not liable for third-party actions, including hosting provider outages</li>
+                </ul>
+                <p class="mt-3">Nothing in these terms limits liability for death, personal injury, or fraud.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">10. Intellectual Property</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>You retain ownership of your website content</li>
+                  <li>We retain ownership of our systems, tools, and processes</li>
+                  <li>Third-party plugins and themes are subject to their own licences</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">11. Changes to Terms</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We may update these Terms from time to time. We'll notify you of significant changes via email. Continued use of our services after changes constitutes acceptance.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">12. Governing Law</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>These Terms are governed by Irish law. Any disputes shall be subject to the exclusive jurisdiction of the Irish courts.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">13. Contact</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>For questions about these Terms:</p>
+                <p><strong class="text-white">Email:</strong> <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

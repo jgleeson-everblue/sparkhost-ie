@@ -1,0 +1,339 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const standardFeatures = [
+  { category: 'Hosting', items: ['UK/EU VPS servers', '99.9% uptime', '30GB SSD', 'Unlimited bandwidth', 'Free SSL'] },
+  { category: 'Backups', items: ['Daily backups', '7-day retention', 'Monthly snapshot'] },
+  { category: 'Security', items: ['Auto updates', 'Malware scanning', 'Cloudflare firewall', 'DDoS protection'] },
+  { category: 'Support', items: ['WhatsApp & email', '24hr response', 'Monthly reports', '1 hr/mo edits'] },
+];
+
+const managedFeatures = [
+  { category: 'Enhanced Hosting', items: ['100GB SSD', 'CDN integration', 'Staging environment'] },
+  { category: 'Advanced Security', items: ['Patchstack', 'WAF', 'Audit logs', 'Vuln scanning'] },
+  { category: 'Performance', items: ['Image optimisation', 'Speed optimisation', 'Monitoring'] },
+  { category: 'Content', items: ['3 hrs/mo included', 'Text updates', 'Blog publishing'] },
+  { category: 'Priority Support', items: ['Weekly reports', 'Strategy calls', 'Proactive alerts'] },
+];
+
+const comparisonRows = [
+  { feature: 'Monthly Price', standard: '€40 + VAT', managed: '€249 + VAT', highlight: true },
+  { feature: 'SSD Storage', standard: '30GB', managed: '100GB' },
+  { feature: 'Daily Backups', standard: true, managed: true },
+  { feature: 'Auto Updates', standard: true, managed: true },
+  { feature: 'Malware Protection', standard: true, managed: true },
+  { feature: 'CDN Integration', standard: false, managed: true },
+  { feature: 'Staging Environment', standard: false, managed: true },
+  { feature: 'WAF & Patchstack', standard: false, managed: true },
+  { feature: 'Content Edits', standard: '1 hr/mo', managed: '3 hrs/mo' },
+  { feature: 'Reports', standard: 'Monthly', managed: 'Weekly' },
+  { feature: 'Strategy Calls', standard: false, managed: true },
+];
+
+const faqs = [
+  { q: 'Is VAT included?', a: 'No, VAT (23%) is added. €40 becomes €49.20, €249 becomes €306.27.' },
+  { q: 'Will you migrate my site?', a: 'Yes, free migration included. We handle files, database, emails, and DNS.' },
+  { q: 'Can I cancel anytime?', a: 'Yes, no long-term contract. 30 days notice appreciated but no penalty.' },
+  { q: 'WooCommerce support?', a: 'Yes, both plans support WooCommerce. Managed recommended for high-traffic stores.' },
+];
+---
+
+<Layout
+  title="Pricing - SparkHost.ie | WordPress Hosting Plans Ireland"
+  description="Simple, transparent WordPress hosting pricing. Standard from €40/month, Managed from €249/month. No hidden fees, free migration included."
+>
+  <Header currentPath="/pricing" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Pricing</span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
+            Choose Your <span class="text-gradient-spark">Plan</span>
+          </h1>
+          <p class="text-xl text-white/60">
+            Both plans include migration, hosting, updates, security, and Irish support. Pick the level that fits your business.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pb-20">
+      <div class="container">
+        <div class="container-wide mx-auto">
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Standard Plan -->
+            <div class="card-glass p-6 md:p-8">
+              <div class="mb-6">
+                <h2 class="text-2xl font-bold mb-2" style="font-family: var(--font-display);">Standard</h2>
+                <p class="text-white/50 text-sm">Reliable hosting and maintenance for small businesses.</p>
+              </div>
+
+              <div class="mb-6">
+                <div class="flex items-baseline gap-1">
+                  <span class="text-5xl font-bold" style="font-family: var(--font-display);">€40</span>
+                  <span class="text-white/50">/mo + VAT</span>
+                </div>
+                <p class="text-sm text-[var(--color-spark-orange)] mt-1">€432/year + VAT — Save €48</p>
+              </div>
+
+              <div class="space-y-5 mb-8">
+                {standardFeatures.map(group => (
+                  <div>
+                    <h4 class="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">{group.category}</h4>
+                    <ul class="space-y-1.5">
+                      {group.items.map(item => (
+                        <li class="flex items-center gap-2 text-sm text-white/70">
+                          <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              <a href="/get-started?plan=standard" class="btn-outline w-full justify-center">
+                Get Started
+              </a>
+            </div>
+
+            <!-- Managed Plan -->
+            <div class="relative">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[var(--color-spark-red)] to-[var(--color-spark-orange)] text-white text-sm font-semibold">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  Most Popular
+                </span>
+              </div>
+
+              <div class="border-gradient p-6 md:p-8 h-full">
+                <div class="mb-6">
+                  <h2 class="text-2xl font-bold mb-2" style="font-family: var(--font-display);">Managed</h2>
+                  <p class="text-white/50 text-sm">Full management for growing businesses.</p>
+                </div>
+
+                <div class="mb-6">
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-5xl font-bold text-gradient-spark" style="font-family: var(--font-display);">€249</span>
+                    <span class="text-white/50">/mo + VAT</span>
+                  </div>
+                  <p class="text-sm text-white/40 mt-1">Additional hours: €80/hr</p>
+                </div>
+
+                <!-- Everything in Standard -->
+                <div class="mb-5 p-3 rounded-lg bg-[var(--color-spark-red)]/10 border border-[var(--color-spark-red)]/20">
+                  <p class="text-sm text-white/80 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <strong>Everything in Standard</strong>, plus:
+                  </p>
+                </div>
+
+                <div class="space-y-5 mb-8">
+                  {managedFeatures.map(group => (
+                    <div>
+                      <h4 class="text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">{group.category}</h4>
+                      <ul class="space-y-1.5">
+                        {group.items.map(item => (
+                          <li class="flex items-center gap-2 text-sm text-white/70">
+                            <svg class="w-4 h-4 text-[var(--color-spark-orange)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <a href="/get-started?plan=managed" class="btn-spark w-full justify-center">
+                  <span>Get Started</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Migration note -->
+          <div class="mt-10 text-center">
+            <div class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/5 border border-white/10">
+              <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-white/70 text-sm">
+                <strong class="text-white">Free migration</strong> — We handle everything at no extra cost.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table - Light Section -->
+    <section class="py-16 section-light">
+      <div class="container">
+        <div class="container-wide mx-auto">
+          <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="font-family: var(--font-display);">
+              Side-by-Side <span class="text-gradient-spark">Comparison</span>
+            </h2>
+            <p>See exactly what's included in each plan</p>
+          </div>
+
+          <div class="card-light overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-black/10">
+                    <th class="text-left p-4 text-[var(--color-text-dark)] font-semibold">Feature</th>
+                    <th class="text-center p-4 text-[var(--color-text-dark)] font-semibold w-32">Standard</th>
+                    <th class="text-center p-4 text-[var(--color-text-dark)] font-semibold w-32 bg-[var(--color-spark-red)]/5">Managed</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-black/5">
+                  {comparisonRows.map(row => (
+                    <tr>
+                      <td class="p-4 text-gray-600">{row.feature}</td>
+                      <td class="p-4 text-center">
+                        {typeof row.standard === 'boolean' ? (
+                          row.standard ? (
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <svg class="w-5 h-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          )
+                        ) : (
+                          <span class={row.highlight ? 'font-semibold text-[var(--color-text-dark)]' : 'text-gray-600'}>{row.standard}</span>
+                        )}
+                      </td>
+                      <td class="p-4 text-center bg-[var(--color-spark-red)]/5">
+                        {typeof row.managed === 'boolean' ? (
+                          row.managed ? (
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <svg class="w-5 h-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          )
+                        ) : (
+                          <span class={row.highlight ? 'font-semibold text-gradient-spark' : 'text-gray-600'}>{row.managed}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="font-family: var(--font-display);">
+              Pricing <span class="text-gradient-spark">Questions</span>
+            </h2>
+          </div>
+
+          <div class="space-y-3">
+            {faqs.map(faq => (
+              <div class="card-glass overflow-hidden" data-faq-item>
+                <button class="w-full flex items-center justify-between p-5 text-left" data-faq-trigger aria-expanded="false">
+                  <span class="font-medium pr-4">{faq.q}</span>
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)] flex-shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-faq-icon>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="overflow-hidden transition-all duration-300 max-h-0" data-faq-content>
+                  <div class="px-5 pb-5 text-white/60 text-sm leading-relaxed">{faq.a}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="text-center mt-8">
+            <a href="/faq" class="inline-flex items-center gap-2 text-[var(--color-spark-orange)] hover:text-[var(--color-spark-red)] font-medium transition-colors text-sm">
+              View all FAQs
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">
+            Not Sure Which Plan?
+          </h2>
+          <p class="text-lg text-white/60 mb-8 max-w-xl mx-auto">
+            Book a free 30-minute call. We'll review your site and recommend the right fit.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/get-started" class="btn-spark">
+              <span>Get Started Now</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('[data-faq-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('[data-faq-item]');
+      const content = item?.querySelector('[data-faq-content]') as HTMLElement;
+      const icon = item?.querySelector('[data-faq-icon]');
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      if (content) {
+        if (isExpanded) {
+          content.style.maxHeight = '0';
+          trigger.setAttribute('aria-expanded', 'false');
+          icon?.classList.remove('rotate-180');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          trigger.setAttribute('aria-expanded', 'true');
+          icon?.classList.add('rotate-180');
+        }
+      }
+    });
+  });
+</script>

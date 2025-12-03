@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '3 December 2024';
+---
+
+<Layout
+  title="Privacy Policy | SparkHost.ie"
+  description="How SparkHost.ie collects, uses, and protects your personal data in accordance with GDPR."
+>
+  <Header currentPath="/privacy" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Legal</span>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
+            Privacy Policy
+          </h1>
+          <p class="text-white/60">
+            Last updated: {lastUpdated}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="pb-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="prose prose-invert max-w-none space-y-8">
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Introduction</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>SparkHost.ie is a service operated by Everblue Digital ("we", "us", "our"). We are committed to protecting your privacy and handling your personal data in accordance with the General Data Protection Regulation (GDPR) and the Irish Data Protection Acts.</p>
+                <p>This policy explains how we collect, use, and protect your personal data when you use our website and services.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data We Collect</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-4">
+                <div>
+                  <h3 class="text-white font-semibold mb-2">Information you provide:</h3>
+                  <ul class="list-disc list-inside space-y-1 ml-2">
+                    <li>Name and email address when you contact us or sign up</li>
+                    <li>Website URL and technical details about your hosting needs</li>
+                    <li>Payment information (processed securely by our payment providers)</li>
+                    <li>Any information you include in support requests or emails</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold mb-2">Information collected automatically:</h3>
+                  <ul class="list-disc list-inside space-y-1 ml-2">
+                    <li>IP address and browser type</li>
+                    <li>Pages visited and time spent on our website</li>
+                    <li>Referral source (how you found us)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">How We Use Your Data</h2>
+              <div class="text-white/70 text-sm leading-relaxed">
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>To provide and maintain our hosting and maintenance services</li>
+                  <li>To respond to your enquiries and support requests</li>
+                  <li>To process payments and manage your account</li>
+                  <li>To send service-related communications (e.g., maintenance notices)</li>
+                  <li>To improve our website and services</li>
+                  <li>To comply with legal obligations</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Legal Basis for Processing</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We process your data based on:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li><strong class="text-white">Contract:</strong> Processing necessary to provide our services to you</li>
+                  <li><strong class="text-white">Legitimate interests:</strong> Improving our services and communicating with you</li>
+                  <li><strong class="text-white">Consent:</strong> Where you've given explicit consent (e.g., marketing emails)</li>
+                  <li><strong class="text-white">Legal obligation:</strong> Where we're required to by law</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data Sharing</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We do not sell your personal data. We may share your data with:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li><strong class="text-white">Payment processors:</strong> To handle payments securely (e.g., GoCardless, Stripe)</li>
+                  <li><strong class="text-white">Hosting providers:</strong> To provide our infrastructure (servers located in UK/EU)</li>
+                  <li><strong class="text-white">Analytics services:</strong> To understand website usage (anonymised where possible)</li>
+                  <li><strong class="text-white">Legal authorities:</strong> When required by law</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data Retention</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We retain your data for as long as necessary to provide our services and comply with legal obligations:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>Account data: For the duration of your service and 6 years after for tax purposes</li>
+                  <li>Support communications: 3 years after last contact</li>
+                  <li>Website analytics: 26 months (anonymised)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Your Rights</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>Under GDPR, you have the right to:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li><strong class="text-white">Access:</strong> Request a copy of your personal data</li>
+                  <li><strong class="text-white">Rectification:</strong> Correct inaccurate data</li>
+                  <li><strong class="text-white">Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+                  <li><strong class="text-white">Restriction:</strong> Limit how we use your data</li>
+                  <li><strong class="text-white">Portability:</strong> Receive your data in a portable format</li>
+                  <li><strong class="text-white">Object:</strong> Object to certain types of processing</li>
+                  <li><strong class="text-white">Withdraw consent:</strong> Where processing is based on consent</li>
+                </ul>
+                <p class="mt-4">To exercise any of these rights, contact us at <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a>.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Cookies</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We use cookies to improve your experience on our website. For full details, see our <a href="/cookies" class="text-[var(--color-spark-orange)] hover:underline">Cookie Policy</a>.</p>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Security</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We implement appropriate technical and organisational measures to protect your data, including:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2">
+                  <li>SSL/TLS encryption for all data in transit</li>
+                  <li>Encrypted storage for sensitive data</li>
+                  <li>Access controls and authentication</li>
+                  <li>Regular security audits</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Contact Us</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>For any privacy-related questions or to exercise your rights:</p>
+                <p><strong class="text-white">Email:</strong> <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a></p>
+                <p class="mt-4">You also have the right to lodge a complaint with the Irish Data Protection Commission:</p>
+                <p><a href="https://www.dataprotection.ie" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">www.dataprotection.ie</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

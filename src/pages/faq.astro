@@ -1,0 +1,325 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const faqCategories = [
+  {
+    name: 'General',
+    icon: 'info',
+    faqs: [
+      {
+        question: 'What is managed WordPress hosting?',
+        answer: "It's hosting plus active maintenance. We don't just give you server space — we keep your WordPress installation updated, secure, backed up, and running fast. You get the benefits of a professional web team without hiring one.",
+      },
+      {
+        question: 'Do I need to do anything after signing up?',
+        answer: "Almost nothing. We handle migration from your current host. Once you're set up, we manage everything. You'll get monthly reports and can request changes anytime via WhatsApp or email.",
+      },
+      {
+        question: 'Can I cancel anytime?',
+        answer: "Yes. Monthly plans have no long-term contract. We'd appreciate 30 days notice, but there's no cancellation penalty.",
+      },
+      {
+        question: 'Will you migrate my existing site?',
+        answer: 'Yes, at no extra cost. We handle the full migration: files, database, emails, and DNS configuration. Your site stays online throughout the process.',
+      },
+      {
+        question: 'How long does migration take?',
+        answer: 'Most migrations are completed within 24-48 hours. Complex sites with large databases may take slightly longer. We\'ll keep you informed throughout the process.',
+      },
+    ],
+  },
+  {
+    name: 'Technical',
+    icon: 'code',
+    faqs: [
+      {
+        question: 'What happens if my site goes down?',
+        answer: "We monitor uptime 24/7. If your site goes down, we're usually aware before you are. We investigate immediately and restore from backups if needed. You'll be notified of any issues and their resolution.",
+      },
+      {
+        question: 'Do you support WooCommerce?',
+        answer: 'Yes, both plans support WooCommerce. For high-traffic stores, we recommend the Managed plan for staging and priority support.',
+      },
+      {
+        question: 'What\'s included in "light content edits"?',
+        answer: "Quick fixes that take minutes: updating text, changing a phone number, swapping an image, fixing a typo. Anything that takes under 15 minutes and doesn't require design or development work.",
+      },
+      {
+        question: 'What\'s NOT included?',
+        answer: "New page designs, layout changes, adding new features, custom development, or anything requiring significant time. These are quoted separately — we're always transparent about what's extra.",
+      },
+      {
+        question: 'Can I access my WordPress admin?',
+        answer: "Absolutely. You maintain full admin access to your WordPress dashboard. We handle the technical infrastructure and maintenance, but you're always in control of your content.",
+      },
+      {
+        question: 'What server locations do you use?',
+        answer: 'We use high-performance VPS servers located in the UK and EU. This ensures fast load times for Irish and European visitors while meeting GDPR data residency requirements.',
+      },
+      {
+        question: 'Do you provide email hosting?',
+        answer: "We handle email migration as part of your hosting setup. For existing email services, we'll help configure DNS records. We recommend dedicated email providers like Google Workspace or Microsoft 365 for business email.",
+      },
+    ],
+  },
+  {
+    name: 'Billing',
+    icon: 'card',
+    faqs: [
+      {
+        question: 'How does billing work?',
+        answer: 'Monthly via Direct Debit or card payment. You\'re billed on the same date each month. Annual payments are also available for Standard plan (save €48/year).',
+      },
+      {
+        question: 'Is VAT included in the prices?',
+        answer: 'No, VAT (23%) is added to all prices. €40/month becomes €49.20 including VAT. €249/month becomes €306.27 including VAT.',
+      },
+      {
+        question: 'Do you offer annual discounts?',
+        answer: 'Yes! Pay annually for the Standard plan and save €48/year. That\'s €432/year + VAT instead of €480.',
+      },
+      {
+        question: 'What payment methods do you accept?',
+        answer: 'We accept Direct Debit (via GoCardless), credit/debit cards, and bank transfers. For larger organisations, we can arrange invoicing.',
+      },
+      {
+        question: 'Can I upgrade or downgrade my plan?',
+        answer: 'Yes, you can change plans at any time. Upgrades take effect immediately. Downgrades take effect at your next billing cycle.',
+      },
+    ],
+  },
+  {
+    name: 'Security',
+    icon: 'shield',
+    faqs: [
+      {
+        question: 'How do you protect my site from hackers?',
+        answer: 'Multiple layers: Cloudflare firewall and DDoS protection, automatic security updates, malware scanning, WordPress hardening, and (for Managed plans) real-time threat detection via Patchstack.',
+      },
+      {
+        question: 'What happens if my site gets malware?',
+        answer: "We detect it, clean it, and restore your site. This is included in your plan — no emergency charges. We'll also identify how it happened and strengthen protection.",
+      },
+      {
+        question: 'Are backups automatic?',
+        answer: 'Yes. Daily automated backups with 7-day retention, plus monthly full snapshots. For Managed plans, we keep additional restore points.',
+      },
+      {
+        question: 'Can I request a backup restore?',
+        answer: "Yes, just contact us via WhatsApp or email. We can restore your entire site or specific files/database tables. There's no charge for backup restores.",
+      },
+      {
+        question: 'Is my data GDPR compliant?',
+        answer: "Yes. We store data on UK/EU servers, have appropriate data processing agreements in place, and follow GDPR best practices for data handling and security.",
+      },
+    ],
+  },
+  {
+    name: 'Support',
+    icon: 'support',
+    faqs: [
+      {
+        question: 'How do I contact support?',
+        answer: 'WhatsApp or email. For existing clients, WhatsApp is the fastest way to reach us. You can also email hello@sparkhost.ie anytime.',
+      },
+      {
+        question: 'What are your support hours?',
+        answer: 'We respond during Irish business hours, Monday to Friday. For emergencies (site down, security issues), we have extended monitoring and faster response times.',
+      },
+      {
+        question: 'How quickly will you respond?',
+        answer: "We guarantee a 24-hour response time, but 99% of messages get a same-day response, usually within a few hours.",
+      },
+      {
+        question: 'Do you offer phone support?',
+        answer: "We don't offer traditional phone support (no hold queues!), but we do schedule video calls for complex issues and Managed plan clients have access to monthly strategy calls.",
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="FAQ - SparkHost.ie | Frequently Asked Questions"
+  description="Common questions about SparkHost's WordPress hosting and maintenance services. Find answers about pricing, technical details, security, and support."
+>
+  <Header currentPath="/faq" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">FAQ</span>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
+            Frequently Asked <span class="text-gradient-spark">Questions</span>
+          </h1>
+          <p class="text-xl text-white/60">
+            Everything you need to know about SparkHost's WordPress hosting and maintenance services.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Nav -->
+    <section class="pb-10">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="flex flex-wrap justify-center gap-3">
+            {faqCategories.map(category => (
+              <a
+                href={`#${category.name.toLowerCase()}`}
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/70 hover:text-white hover:border-[var(--color-spark-orange)]/50 transition-all"
+              >
+                {category.icon === 'info' && (
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )}
+                {category.icon === 'code' && (
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                )}
+                {category.icon === 'card' && (
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                )}
+                {category.icon === 'shield' && (
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )}
+                {category.icon === 'support' && (
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                )}
+                {category.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Sections -->
+    {faqCategories.map((category, categoryIndex) => (
+      <section id={category.name.toLowerCase()} class="py-10 scroll-mt-24">
+        <div class="container">
+          <div class="container-narrow mx-auto">
+            {categoryIndex > 0 && (
+              <div class="mb-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            )}
+
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                {category.icon === 'info' && (
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )}
+                {category.icon === 'code' && (
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                )}
+                {category.icon === 'card' && (
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                )}
+                {category.icon === 'shield' && (
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )}
+                {category.icon === 'support' && (
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                )}
+              </div>
+              <h2 class="text-2xl font-bold" style="font-family: var(--font-display);">{category.name} Questions</h2>
+            </div>
+
+            <div class="space-y-3">
+              {category.faqs.map(faq => (
+                <div class="card-glass overflow-hidden" data-faq-item>
+                  <button
+                    class="w-full flex items-center justify-between p-5 text-left"
+                    data-faq-trigger
+                    aria-expanded="false"
+                  >
+                    <span class="font-semibold pr-4 text-sm md:text-base">{faq.question}</span>
+                    <svg class="w-5 h-5 text-[var(--color-spark-orange)] flex-shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-faq-icon>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="overflow-hidden transition-all duration-300 max-h-0" data-faq-content>
+                    <div class="px-5 pb-5 text-white/60 text-sm leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA Section -->
+    <section class="py-16">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">
+            Still Have Questions?
+          </h2>
+          <p class="text-lg text-white/60 mb-8 max-w-xl mx-auto">
+            We're happy to answer any questions you have. Book a free call or send us a message.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="btn-spark">
+              <span>Contact Us</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/pricing" class="btn-outline">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('[data-faq-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('[data-faq-item]');
+      const content = item?.querySelector('[data-faq-content]') as HTMLElement;
+      const icon = item?.querySelector('[data-faq-icon]');
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current item
+      if (content) {
+        if (isExpanded) {
+          content.style.maxHeight = '0';
+          trigger.setAttribute('aria-expanded', 'false');
+          icon?.classList.remove('rotate-180');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          trigger.setAttribute('aria-expanded', 'true');
+          icon?.classList.add('rotate-180');
+        }
+      }
+    });
+  });
+</script>
