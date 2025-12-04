@@ -181,6 +181,13 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   const buttons = document.querySelectorAll('[data-category]') as NodeListOf<HTMLButtonElement>;
   const articles = document.querySelectorAll('article[data-category]') as NodeListOf<HTMLElement>;
 
+  // After initial animation, mark all articles as "no-animate" so filtering doesn't cause opacity issues
+  setTimeout(() => {
+    articles.forEach(article => {
+      article.classList.add('no-animate');
+    });
+  }, 1500); // Wait for all staggered animations to complete
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const category = btn.dataset.category;
@@ -194,10 +201,14 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
         }
       });
 
-      // Filter articles
+      // Filter articles - ensure they're visible and not stuck at opacity 0
       articles.forEach(article => {
+        // Make sure animations don't interfere with filtering
+        article.classList.add('no-animate');
+
         if (category === 'all' || article.dataset.category === category) {
           article.style.display = 'block';
+          article.style.opacity = '1';
         } else {
           article.style.display = 'none';
         }

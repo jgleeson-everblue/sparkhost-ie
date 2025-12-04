@@ -27,7 +27,26 @@ const {
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600,500&f[]=cabinet-grotesk@400,500,700&display=swap" rel="stylesheet" />
   </head>
   <body class="bg-aurora min-h-screen">
+    <!-- Page transition overlay - simple fade -->
+    <div id="page-loader" class="page-loader"></div>
+
     <slot />
+
+    <!-- Page loader script - quick fade reveal -->
+    <script is:inline>
+      // Quick fade - reveals page after DOM is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        const loader = document.getElementById('page-loader');
+        if (loader) {
+          // Tiny delay for paint, then fade out
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              loader.classList.add('is-loaded');
+            });
+          });
+        }
+      });
+    </script>
 
     <!-- Scroll-triggered animation observer -->
     <script>
