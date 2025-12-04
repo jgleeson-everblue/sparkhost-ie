@@ -79,7 +79,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
     <!-- Hero Section -->
     <section class="pt-32 pb-12">
       <div class="container">
-        <div class="text-center max-w-2xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto" data-animate="fade-up">
           <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Blog</span>
           <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
             WordPress <span class="text-gradient-spark">Insights</span>
@@ -112,11 +112,11 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
     <!-- Blog Posts Grid -->
     <section class="pb-16">
       <div class="container">
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-2 gap-6" data-animate-stagger>
           {posts.map(post => {
             const catStyle = categoryColors[post.category] || categoryColors.Security;
             return (
-              <article class="card-glass overflow-hidden group" data-category={post.category.toLowerCase()}>
+              <article class="card-glass card-shine overflow-hidden group" data-category={post.category.toLowerCase()}>
                 <a href={`/blog/${post.slug}`} class="block p-6">
                   <div class="flex items-center gap-3 mb-4">
                     <span

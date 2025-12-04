@@ -1,7 +1,7 @@
 ---
 title: "WordPress Migration Guide: Moving Your Site Without Disaster"
 excerpt: "Switching hosts? Migrating WordPress can be smooth or catastrophic. Here's how to ensure yours goes well."
-publishedDate: "2024-07-01"
+publishedDate: "2025-11-18"
 author: "SparkHost Team"
 featured: false
 ---

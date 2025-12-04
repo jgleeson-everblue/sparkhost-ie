@@ -1,7 +1,7 @@
 ---
 title: "Web Accessibility for Irish Businesses: Making Your WordPress Site Inclusive"
 excerpt: "Accessibility isn't just a legal requirement — it's good business. Here's how to make your WordPress website usable by everyone."
-publishedDate: "2024-08-01"
+publishedDate: "2025-11-10"
 author: "SparkHost Team"
 featured: false
 ---

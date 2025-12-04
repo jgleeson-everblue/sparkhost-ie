@@ -28,5 +28,36 @@ const {
   </head>
   <body class="bg-aurora min-h-screen">
     <slot />
+
+    <!-- Scroll-triggered animation observer -->
+    <script>
+      // Intersection Observer for scroll-triggered animations
+      const animatedElements = document.querySelectorAll('[data-animate]');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Once animated, stop observing
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      animatedElements.forEach(el => observer.observe(el));
+
+      // Also handle staggered children
+      const staggerContainers = document.querySelectorAll('[data-animate-stagger]');
+      staggerContainers.forEach(container => {
+        const children = container.children;
+        Array.from(children).forEach(child => {
+          child.setAttribute('data-animate', 'fade-up');
+          observer.observe(child);
+        });
+      });
+    </script>
   </body>
 </html>

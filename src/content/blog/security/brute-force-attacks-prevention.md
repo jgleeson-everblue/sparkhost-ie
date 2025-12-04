@@ -1,7 +1,7 @@
 ---
 title: "Brute Force Attacks on WordPress: How They Work and How to Stop Them"
 excerpt: "Thousands of login attempts per day — that's what your WordPress site faces. Here's how brute force attacks work and how to protect against them."
-publishedDate: "2024-11-01"
+publishedDate: "2025-11-12"
 author: "SparkHost Team"
 featured: false
 ---

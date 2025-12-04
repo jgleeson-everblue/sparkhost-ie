@@ -1,7 +1,7 @@
 ---
 title: "Image Optimisation for WordPress: The Complete Guide for Irish Websites"
 excerpt: "Images are often the biggest culprit behind slow WordPress sites. Here's how to optimise them properly without sacrificing quality."
-publishedDate: "2024-02-20"
+publishedDate: "2025-11-24"
 author: "SparkHost Team"
 featured: false
 ---

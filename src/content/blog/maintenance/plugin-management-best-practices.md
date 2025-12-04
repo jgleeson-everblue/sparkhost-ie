@@ -1,7 +1,7 @@
 ---
 title: "WordPress Plugin Management: Best Practices for Irish Businesses"
 excerpt: "Too many plugins? The wrong plugins? Outdated plugins? Here's how to manage your WordPress plugins properly and avoid common pitfalls."
-publishedDate: "2024-05-15"
+publishedDate: "2025-11-22"
 author: "SparkHost Team"
 featured: false
 ---

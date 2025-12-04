@@ -1,7 +1,7 @@
 ---
 title: "Managed WordPress Hosting vs Shared Hosting: What Irish Businesses Need to Know"
 excerpt: "Is managed hosting worth the extra cost? Here's an honest comparison to help you decide what's right for your Irish business website."
-publishedDate: "2024-06-15"
+publishedDate: "2025-11-25"
 author: "SparkHost Team"
 featured: false
 ---

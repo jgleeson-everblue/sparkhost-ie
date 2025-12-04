@@ -1,7 +1,7 @@
 ---
 title: "WordPress Security Basics Every Irish Business Should Know"
 excerpt: "A practical guide to protecting your WordPress site from common threats. No technical jargon, just actionable steps."
-publishedDate: "2024-01-15"
+publishedDate: "2025-12-03"
 author: "SparkHost Team"
 featured: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: "WordPress Troubleshooting: Fixing Common Problems Without Panic"
 excerpt: "White screen? Error messages? Broken site? Here's how to systematically diagnose and fix common WordPress problems."
-publishedDate: "2024-09-15"
+publishedDate: "2025-11-09"
 author: "SparkHost Team"
 featured: false
 ---

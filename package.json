@@ -10,11 +10,16 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@astrojs/vercel": "^9.0.2",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.4",
+    "nodemailer": "^7.0.11",
     "ogl": "^1.0.11",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^7.0.4"
   }
 }

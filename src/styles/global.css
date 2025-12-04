@@ -337,6 +337,195 @@ h3, .h3 {
     0 0 0 1px rgba(244, 54, 84, 0.1);
 }
 
+/* ============================================
+   SCROLL-TRIGGERED ANIMATIONS
+   ============================================ */
+
+/* Fade Up Animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Base state for animated elements */
+[data-animate] {
+  opacity: 0;
+}
+
+/* Trigger animation when visible */
+[data-animate].is-visible {
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+[data-animate="fade-up"].is-visible {
+  animation-name: fade-up;
+}
+
+[data-animate="fade-in"].is-visible {
+  animation-name: fade-in;
+}
+
+[data-animate="fade-in-scale"].is-visible {
+  animation-name: fade-in-scale;
+}
+
+[data-animate="slide-left"].is-visible {
+  animation-name: slide-in-left;
+}
+
+[data-animate="slide-right"].is-visible {
+  animation-name: slide-in-right;
+}
+
+/* Stagger delays for children */
+[data-animate-stagger] > *:nth-child(1) { animation-delay: 0s; }
+[data-animate-stagger] > *:nth-child(2) { animation-delay: 0.1s; }
+[data-animate-stagger] > *:nth-child(3) { animation-delay: 0.2s; }
+[data-animate-stagger] > *:nth-child(4) { animation-delay: 0.3s; }
+[data-animate-stagger] > *:nth-child(5) { animation-delay: 0.4s; }
+[data-animate-stagger] > *:nth-child(6) { animation-delay: 0.5s; }
+[data-animate-stagger] > *:nth-child(7) { animation-delay: 0.6s; }
+[data-animate-stagger] > *:nth-child(8) { animation-delay: 0.7s; }
+
+/* Custom delay utilities */
+[data-delay="100"] { animation-delay: 0.1s !important; }
+[data-delay="200"] { animation-delay: 0.2s !important; }
+[data-delay="300"] { animation-delay: 0.3s !important; }
+[data-delay="400"] { animation-delay: 0.4s !important; }
+[data-delay="500"] { animation-delay: 0.5s !important; }
+
+/* ============================================
+   ENHANCED MICRO-INTERACTIONS
+   ============================================ */
+
+/* Smooth link underline effect */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-spark-red), var(--color-spark-orange));
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Icon hover bounce */
+.icon-bounce {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.icon-bounce:hover {
+  transform: translateY(-3px);
+}
+
+/* Card shine effect on hover */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.card-shine:hover::after {
+  left: 100%;
+}
+
+/* Subtle scale on focus for inputs */
+input:focus,
+textarea:focus {
+  transform: scale(1.01);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Button press effect */
+.btn-spark:active,
+.btn-outline:active {
+  transform: scale(0.98);
+}
+
+/* Smooth image zoom */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

@@ -1,7 +1,7 @@
 ---
 title: "Two-Factor Authentication for WordPress: Your Second Line of Defence"
 excerpt: "Passwords alone aren't enough anymore. Here's how to set up two-factor authentication on your WordPress site and why it's essential for Irish businesses."
-publishedDate: "2024-01-15"
+publishedDate: "2025-11-26"
 author: "SparkHost Team"
 featured: false
 ---

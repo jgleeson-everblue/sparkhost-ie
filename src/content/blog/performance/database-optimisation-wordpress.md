@@ -1,7 +1,7 @@
 ---
 title: "WordPress Database Optimisation: Clean Up the Clutter Slowing Your Site"
 excerpt: "Your WordPress database accumulates junk over time. Here's how to clean it up, optimise performance, and keep it running smoothly."
-publishedDate: "2024-05-05"
+publishedDate: "2025-11-15"
 author: "SparkHost Team"
 featured: false
 ---

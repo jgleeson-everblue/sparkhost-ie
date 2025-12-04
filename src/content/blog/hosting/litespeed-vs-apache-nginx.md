@@ -1,7 +1,7 @@
 ---
 title: "LiteSpeed vs Apache vs Nginx: Which Web Server Is Best for WordPress?"
 excerpt: "The technology running your server matters more than you might think. Here's how different web servers affect your WordPress site's performance."
-publishedDate: "2024-10-01"
+publishedDate: "2025-11-14"
 author: "SparkHost Team"
 featured: false
 ---

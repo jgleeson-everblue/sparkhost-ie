@@ -1,7 +1,7 @@
 ---
 title: "SSL Certificates Explained: Why Your Irish Business Website Needs HTTPS"
 excerpt: "The padlock icon isn't just for show. Here's what SSL certificates actually do, why they matter, and how to ensure your WordPress site is properly secured."
-publishedDate: "2024-03-05"
+publishedDate: "2025-11-19"
 author: "SparkHost Team"
 featured: false
 ---

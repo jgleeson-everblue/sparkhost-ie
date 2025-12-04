@@ -1,7 +1,7 @@
 ---
 title: "WordPress Security Audit: A Comprehensive Checklist for Irish Businesses"
 excerpt: "When did you last audit your WordPress security? Use this checklist to identify vulnerabilities before hackers do."
-publishedDate: "2024-08-15"
+publishedDate: "2025-11-16"
 author: "SparkHost Team"
 featured: false
 ---

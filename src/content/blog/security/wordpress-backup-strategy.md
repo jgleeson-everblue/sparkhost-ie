@@ -1,7 +1,7 @@
 ---
 title: "WordPress Backup Strategy: Don't Learn the Hard Way"
 excerpt: "Backups are boring until you need one. Here's how to set up a backup strategy that will save your business when things go wrong."
-publishedDate: "2023-12-15"
+publishedDate: "2025-11-28"
 author: "SparkHost Team"
 featured: false
 ---

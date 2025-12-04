@@ -1,7 +1,7 @@
 ---
 title: "WooCommerce Maintenance Checklist: Keeping Your Online Store Running Smoothly"
 excerpt: "Running an online store requires more than regular WordPress maintenance. Here's what you need to do to keep your WooCommerce site healthy."
-publishedDate: "2024-11-15"
+publishedDate: "2025-11-05"
 author: "SparkHost Team"
 featured: false
 ---
