@@ -5,6 +5,31 @@
    Aesthetic: Electric Energy / Digital Aurora
    ============================================ */
 
+/* Reset default focus styles and tap highlight */
+*:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-spark-orange);
+  outline-offset: 2px;
+}
+
+/* Remove tap highlight on mobile */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure card links don't get weird focus backgrounds */
+.card-glass a:focus,
+.card-glass a:active,
+.card-light a:focus,
+.card-light a:active {
+  outline: none;
+  background: transparent;
+}
+
 /* Container - Consistent max-width across all pages */
 .container {
   width: 100%;
