@@ -116,7 +116,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
           {posts.map(post => {
             const catStyle = categoryColors[post.category] || categoryColors.Security;
             return (
-              <article class="card-glass card-shine overflow-hidden group" data-category={post.category.toLowerCase()}>
+              <article class="card-glass overflow-hidden group" data-category={post.category.toLowerCase()}>
                 <a href={`/blog/${post.slug}`} class="block p-6">
                   <div class="flex items-center gap-3 mb-4">
                     <span
