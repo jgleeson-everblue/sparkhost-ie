@@ -1,0 +1,130 @@
+---
+/**
+ * BlogCardGrid Component
+ *
+ * Displays a grid of blog posts filtered by category, matching the /blog page format.
+ *
+ * @prop {string} category - Filter posts by category (security, performance, maintenance, hosting, compliance)
+ * @prop {number} limit - Maximum number of posts to display (default: 3)
+ * @prop {string} columns - Grid columns: "2" | "3" (default: "3")
+ */
+import { getCollection } from 'astro:content';
+
+interface Props {
+  category?: string;
+  limit?: number;
+  columns?: '2' | '3';
+}
+
+const { category, limit = 3, columns = '3' } = Astro.props;
+
+// Fetch all blog posts
+const allPosts = await getCollection('blog');
+
+// Extract category from the post ID (folder name)
+function getCategory(id: string): string {
+  const parts = id.split('/');
+  if (parts.length > 1) {
+    return parts[0].toLowerCase();
+  }
+  return 'general';
+}
+
+// Get display category (capitalised)
+function getDisplayCategory(id: string): string {
+  const cat = getCategory(id);
+  return cat.charAt(0).toUpperCase() + cat.slice(1);
+}
+
+// Get slug from post ID (just the filename without folder)
+function getSlug(id: string): string {
+  const parts = id.split('/');
+  return parts[parts.length - 1];
+}
+
+// Calculate read time
+function calculateReadTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+}
+
+// Format date
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-IE', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+// Category colors matching blog.astro
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  Security: { bg: 'rgba(244, 54, 84, 0.15)', text: '#F43654' },
+  Performance: { bg: 'rgba(59, 130, 246, 0.15)', text: '#3B82F6' },
+  Maintenance: { bg: 'rgba(244, 140, 84, 0.15)', text: '#F48C54' },
+  Hosting: { bg: 'rgba(34, 197, 94, 0.15)', text: '#22C55E' },
+  Compliance: { bg: 'rgba(168, 85, 247, 0.15)', text: '#A855F7' },
+};
+
+// Filter posts by category if specified
+let filteredPosts = allPosts;
+if (category) {
+  filteredPosts = allPosts.filter(post => getCategory(post.id) === category.toLowerCase());
+}
+
+// Sort by date, newest first
+const sortedPosts = filteredPosts.sort((a, b) => {
+  const dateA = new Date(a.data.publishedDate).getTime();
+  const dateB = new Date(b.data.publishedDate).getTime();
+  return dateB - dateA;
+});
+
+// Apply limit
+const posts = sortedPosts.slice(0, limit).map((post) => ({
+  slug: getSlug(post.id),
+  title: post.data.title,
+  excerpt: post.data.excerpt,
+  category: getDisplayCategory(post.id),
+  date: post.data.publishedDate,
+  readTime: calculateReadTime(post.body || ''),
+}));
+
+// Grid classes based on columns prop
+const gridClass = columns === '2' ? 'md:grid-cols-2' : 'md:grid-cols-3';
+---
+
+<div class={`grid ${gridClass} gap-6`}>
+  {posts.map(post => {
+    const catStyle = categoryColors[post.category] || categoryColors.Security;
+    return (
+      <article class="card-glass overflow-hidden group">
+        <a href={`/blog/${post.slug}`} class="block p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
+              style={`background: ${catStyle.bg}; color: ${catStyle.text};`}
+            >
+              {post.category}
+            </span>
+            <span class="text-xs text-white/40">{formatDate(post.date)}</span>
+            <span class="text-xs text-white/40">{post.readTime}</span>
+          </div>
+          <h3 class="text-lg font-bold mb-3 group-hover:text-[var(--color-spark-orange)] transition-colors" style="font-family: var(--font-display);">
+            {post.title}
+          </h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            {post.excerpt}
+          </p>
+          <span class="inline-flex items-center gap-2 text-[var(--color-spark-orange)] text-sm font-medium group-hover:gap-3 transition-all">
+            Read more
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </span>
+        </a>
+      </article>
+    );
+  })}
+</div>

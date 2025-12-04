@@ -55,6 +55,21 @@ export default defineConfig({
     })
   ],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      // Optimize chunk sizes for better caching
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Separate OGL library (WebGL) for lazy loading
+            'ogl': ['ogl'],
+            // React core
+            'react-vendor': ['react', 'react-dom']
+          }
+        }
+      },
+      // Use esbuild for minification (faster, built-in)
+      minify: 'esbuild'
+    }
   }
 });

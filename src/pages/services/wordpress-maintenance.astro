@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import BlogCardGrid from '../../components/BlogCardGrid.astro';
 
 const weeklyTasks = [
   'WordPress core updates',
@@ -496,19 +497,8 @@ const breadcrumbSchema = {
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <a href="/blog/wordpress-updates-why-matter" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">Why WordPress Updates Matter</h3>
-            <p class="text-sm text-white/60">Learn why those update notifications are critical security patches.</p>
-          </a>
-          <a href="/blog/wordpress-backup-strategy" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">WordPress Backup Strategy</h3>
-            <p class="text-sm text-white/60">Best practices for backing up your WordPress site.</p>
-          </a>
-          <a href="/blog/plugin-management-best-practices" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">Plugin Management Guide</h3>
-            <p class="text-sm text-white/60">How to manage WordPress plugins properly.</p>
-          </a>
+        <div class="max-w-5xl mx-auto">
+          <BlogCardGrid category="maintenance" limit={3} />
         </div>
       </div>
     </section>

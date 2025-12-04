@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import BlogCardGrid from '../../components/BlogCardGrid.astro';
 
 const migrationSteps = [
   {
@@ -611,7 +612,7 @@ const breadcrumbSchema = {
       </div>
     </section>
 
-    <!-- Related Resources -->
+    <!-- Related Articles -->
     <section class="py-16 border-t border-white/10">
       <div class="container">
         <div class="text-center max-w-2xl mx-auto mb-12">
@@ -619,20 +620,14 @@ const breadcrumbSchema = {
           <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
             Migration <span class="text-gradient-spark">Resources</span>
           </h2>
+          <p class="text-white/60">
+            Helpful guides on WordPress migration, hosting choices, and best practices.
+          </p>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <a href="/blog/wordpress-migration-guide" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">WordPress Migration Guide</h3>
-            <p class="text-sm text-white/60">Step-by-step guide to WordPress migration if you're doing it yourself.</p>
-          </a>
-          <a href="/blog/managed-vs-shared-hosting" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">Managed vs Shared Hosting</h3>
-            <p class="text-sm text-white/60">Why managed WordPress hosting is worth the investment.</p>
-          </a>
-          <a href="/blog/choosing-wordpress-hosting-ireland" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
-            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">Choosing WordPress Hosting</h3>
-            <p class="text-sm text-white/60">What to look for in a WordPress host for Irish businesses.</p>
+        <BlogCardGrid category="hosting" limit={3} />
+        <div class="text-center mt-8">
+          <a href="/blog" class="btn-outline">
+            View All Articles
           </a>
         </div>
       </div>

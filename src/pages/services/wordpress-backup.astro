@@ -1,0 +1,529 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCardGrid from '../../components/BlogCardGrid.astro';
+
+const backupFeatures = [
+  {
+    title: 'Daily Automated Backups',
+    description: 'Your entire site backed up every day — files, database, uploads, and configuration.',
+    icon: 'clock'
+  },
+  {
+    title: 'Off-Site Storage',
+    description: 'Backups stored securely in multiple European data centres, separate from your hosting.',
+    icon: 'cloud'
+  },
+  {
+    title: 'One-Click Restore',
+    description: 'Restore your entire site or specific files in minutes, not hours.',
+    icon: 'refresh'
+  },
+  {
+    title: '7-30 Day Retention',
+    description: 'Multiple restore points available. Go back a day, a week, or a month.',
+    icon: 'calendar'
+  },
+  {
+    title: 'Pre-Update Snapshots',
+    description: 'Automatic backups before every WordPress, plugin, or theme update.',
+    icon: 'shield'
+  },
+  {
+    title: 'Database Backups',
+    description: 'Your WordPress database backed up separately for quick, targeted restores.',
+    icon: 'database'
+  },
+];
+
+const backupComparison = [
+  {
+    scenario: 'Plugin update breaks site',
+    withBackup: 'Restore previous version in 5 minutes',
+    withoutBackup: 'Hours or days of troubleshooting, possible data loss'
+  },
+  {
+    scenario: 'Hacked website',
+    withBackup: 'Restore clean version, identify entry point, secure',
+    withoutBackup: 'Rebuild from scratch, lose customer data, extended downtime'
+  },
+  {
+    scenario: 'Accidental content deletion',
+    withBackup: 'Restore specific files or database entries',
+    withoutBackup: 'Content permanently lost, manual recreation needed'
+  },
+  {
+    scenario: 'Server failure',
+    withBackup: 'Migrate to new server with full site intact',
+    withoutBackup: 'Complete rebuild if no recent manual backup exists'
+  },
+];
+
+const faqs = [
+  {
+    question: "How often are WordPress backups created?",
+    answer: "We create daily automated backups of your entire WordPress site including files, database, and uploads. For sites with frequent content changes, we can configure more frequent backups. Pre-update snapshots are created before any WordPress, plugin, or theme update."
+  },
+  {
+    question: "Where are my backups stored?",
+    answer: "Backups are stored in secure European data centres, completely separate from your hosting server. This means if something happens to your hosting server, your backups remain safe and accessible for restoration."
+  },
+  {
+    question: "How long are backups retained?",
+    answer: "Standard plan includes 7-day backup retention. Managed plan includes 30-day retention plus monthly full snapshots. We can arrange longer retention periods for businesses with compliance requirements."
+  },
+  {
+    question: "Can I restore my own backups?",
+    answer: "Yes, you can request a restore anytime via WhatsApp or email. For Managed clients, we provide dashboard access for self-service restores. Most restores are completed within 30 minutes of request."
+  },
+  {
+    question: "What's included in a backup?",
+    answer: "Complete site backups include: all WordPress core files, your theme and child theme, all plugins, wp-content/uploads (media library), your WordPress database, and wp-config.php configuration. Everything needed to fully restore your site."
+  },
+  {
+    question: "Do backups slow down my website?",
+    answer: "No. Backups run during off-peak hours and use incremental technology — only changed files are backed up after the initial full backup. Your site visitors won't notice any impact."
+  },
+];
+
+// Schema markup
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "WordPress Backup Service",
+  "name": "WordPress Backup & Recovery Services Ireland",
+  "description": "Professional WordPress backup services for Irish businesses. Daily automated backups, off-site storage, one-click restore, and 7-30 day retention. Never lose your website data.",
+  "provider": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://sparkhost.ie/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WordPress Backup",
+      "item": "https://sparkhost.ie/services/wordpress-backup"
+    }
+  ]
+};
+---
+
+<Layout
+  title="WordPress Backup Services Ireland | Daily Backups & Recovery | SparkHost.ie"
+  description="Professional WordPress backup services for Irish businesses. Daily automated backups, off-site storage, one-click restore, and disaster recovery. Included with all hosting plans."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header currentPath="/services" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+      <div class="container">
+        <div class="max-w-3xl">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center gap-2 text-sm text-white/50 mb-6">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <a href="/services" class="hover:text-white transition-colors">Services</a>
+            <span>/</span>
+            <span class="text-white/70">WordPress Backup</span>
+          </nav>
+
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WordPress Backup Ireland</span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
+            WordPress Backup & <span class="text-gradient-spark">Recovery</span>
+          </h1>
+          <p class="text-xl text-white/60 leading-relaxed mb-8">
+            Your website is your business. Our <strong class="text-white/80">WordPress backup services</strong> ensure you never lose a single page, post, or customer order — no matter what happens.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pricing" class="btn-spark">
+              <span>View Plans with Backups</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Backups Matter -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+              Why WordPress Backups <span class="text-gradient-spark">Matter</span>
+            </h2>
+            <div class="space-y-4 text-white/70">
+              <p>
+                <strong class="text-white">40% of businesses that lose their website data never fully recover.</strong> Whether it's a hacked site, a bad plugin update, or accidental deletion — without backups, you're rebuilding from scratch.
+              </p>
+              <p>
+                Most budget hosting providers offer "backups" but the reality is often disappointing: weekly snapshots (not daily), stored on the same server (useless if the server fails), and restoration that takes days, not minutes.
+              </p>
+              <p>
+                Our <a href="/services/wordpress-maintenance" class="text-[var(--color-spark-orange)] hover:underline">WordPress maintenance</a> includes enterprise-grade backup infrastructure. Your data is safe, accessible, and restorable at a moment's notice.
+              </p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">40%</div>
+              <p class="text-sm text-white/60">of businesses don't recover from data loss</p>
+            </div>
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">60%</div>
+              <p class="text-sm text-white/60">of SMEs close within 6 months of a cyber attack</p>
+            </div>
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">€3K+</div>
+              <p class="text-sm text-white/60">average cost to rebuild a website from scratch</p>
+            </div>
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">5 min</div>
+              <p class="text-sm text-white/60">time to restore from SparkHost backup</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Backup Features -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Enterprise-Grade Protection</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            How Our <span class="text-gradient-spark">WordPress Backups</span> Work
+          </h2>
+          <p class="text-white/60">
+            Set-and-forget backup infrastructure that protects your business around the clock.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {backupFeatures.map((feature) => (
+            <div class="card-glass p-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center mb-4">
+                {feature.icon === 'clock' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )}
+                {feature.icon === 'cloud' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg>
+                )}
+                {feature.icon === 'refresh' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                )}
+                {feature.icon === 'calendar' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                )}
+                {feature.icon === 'shield' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )}
+                {feature.icon === 'database' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-display);">{feature.title}</h3>
+              <p class="text-white/60 text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- With vs Without Backups -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">The Difference</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            With Backups vs <span class="text-gradient-spark">Without</span>
+          </h2>
+          <p class="text-white/60">
+            See how proper backup infrastructure changes your response to common disasters.
+          </p>
+        </div>
+
+        <div class="space-y-4 max-w-4xl mx-auto">
+          {backupComparison.map((item) => (
+            <div class="card-glass p-6">
+              <div class="grid md:grid-cols-3 gap-4 items-center">
+                <div>
+                  <span class="text-sm text-white/40 uppercase tracking-wider">Scenario</span>
+                  <p class="font-semibold">{item.scenario}</p>
+                </div>
+                <div class="p-4 bg-green-500/10 rounded-lg border border-green-500/20">
+                  <span class="text-sm text-green-400 uppercase tracking-wider">With SparkHost Backups</span>
+                  <p class="text-white/70 text-sm mt-1">{item.withBackup}</p>
+                </div>
+                <div class="p-4 bg-red-500/10 rounded-lg border border-red-500/20">
+                  <span class="text-sm text-red-400 uppercase tracking-wider">Without Backups</span>
+                  <p class="text-white/70 text-sm mt-1">{item.withoutBackup}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+              Backup Plans <span class="text-gradient-spark">Comparison</span>
+            </h2>
+            <p class="text-white/60 mb-6">
+              WordPress backup and recovery is included with all SparkHost hosting plans. The difference is retention period and restore options.
+            </p>
+            <a href="/pricing" class="btn-spark inline-flex">
+              <span>Compare All Plans</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+          <div class="space-y-4">
+            <div class="card-glass p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-semibold" style="font-family: var(--font-display);">Standard</h3>
+                <span class="text-white/50">€40/mo</span>
+              </div>
+              <ul class="space-y-2 text-white/70 text-sm">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Daily automated backups
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  7-day retention
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Off-site storage
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Request restore via support
+                </li>
+              </ul>
+            </div>
+            <div class="card-glass p-6 border-[var(--color-spark-orange)]/30">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-semibold text-gradient-spark" style="font-family: var(--font-display);">Managed</h3>
+                <span class="text-white/50">€249/mo</span>
+              </div>
+              <ul class="space-y-2 text-white/70 text-sm">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Daily automated backups
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  30-day retention + monthly snapshots
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Pre-update snapshots
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Self-service restore dashboard
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Staging restore option
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Common Questions</span>
+            <h2 class="text-3xl md:text-4xl font-bold" style="font-family: var(--font-display);">
+              WordPress Backup <span class="text-gradient-spark">FAQ</span>
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            {faqs.map((faq) => (
+              <div class="card-glass overflow-hidden" data-faq-item>
+                <button
+                  class="w-full flex items-center justify-between p-5 text-left"
+                  data-faq-trigger
+                  aria-expanded="false"
+                >
+                  <span class="font-semibold pr-4">{faq.question}</span>
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)] flex-shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-faq-icon>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="overflow-hidden transition-all duration-300 max-h-0" data-faq-content>
+                  <div class="px-5 pb-5 text-white/60">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Learn More</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            WordPress Backup <span class="text-gradient-spark">Resources</span>
+          </h2>
+          <p class="text-white/60">
+            Helpful guides on protecting your WordPress site with backups and disaster recovery.
+          </p>
+        </div>
+        <BlogCardGrid category="hosting" limit={3} />
+        <div class="text-center mt-8">
+          <a href="/blog" class="btn-outline">
+            View All Articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+            Protect Your WordPress Site <span class="text-gradient-spark">Today</span>
+          </h2>
+          <p class="text-xl text-white/60 mb-8">
+            Don't wait for disaster to strike. Get enterprise-grade WordPress backup protection included with every SparkHost plan.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/pricing" class="btn-spark">
+              <span>View Hosting Plans</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('[data-faq-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('[data-faq-item]');
+      const content = item?.querySelector('[data-faq-content]') as HTMLElement;
+      const icon = item?.querySelector('[data-faq-icon]');
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      if (content) {
+        if (isExpanded) {
+          content.style.maxHeight = '0';
+          trigger.setAttribute('aria-expanded', 'false');
+          icon?.classList.remove('rotate-180');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          trigger.setAttribute('aria-expanded', 'true');
+          icon?.classList.add('rotate-180');
+        }
+      }
+    });
+  });
+</script>

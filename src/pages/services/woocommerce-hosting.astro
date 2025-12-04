@@ -1,0 +1,512 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCardGrid from '../../components/BlogCardGrid.astro';
+
+const wooFeatures = [
+  {
+    title: 'WooCommerce Optimised',
+    description: 'Server stack tuned specifically for WooCommerce performance — fast checkout, quick product pages.',
+    icon: 'cart'
+  },
+  {
+    title: 'Auto-Scaling Resources',
+    description: 'Handle traffic spikes during sales without slowdowns. Resources scale when you need them.',
+    icon: 'scale'
+  },
+  {
+    title: 'Staging Environment',
+    description: 'Test theme changes, plugin updates, and new products safely before going live.',
+    icon: 'beaker'
+  },
+  {
+    title: 'Daily Backups',
+    description: 'Your products, orders, and customer data backed up daily with 7-30 day retention.',
+    icon: 'backup'
+  },
+  {
+    title: 'SSL & Security',
+    description: 'Free SSL, PCI-DSS compliant hosting, malware scanning, and firewall protection.',
+    icon: 'shield'
+  },
+  {
+    title: 'Expert Support',
+    description: 'WordPress and WooCommerce specialists who understand e-commerce challenges.',
+    icon: 'support'
+  },
+];
+
+const wooComparison = [
+  {
+    feature: 'WooCommerce Optimised Stack',
+    standard: true,
+    managed: true
+  },
+  {
+    feature: 'Free SSL Certificate',
+    standard: true,
+    managed: true
+  },
+  {
+    feature: 'Daily Backups',
+    standard: '7-day retention',
+    managed: '30-day retention'
+  },
+  {
+    feature: 'Staging Environment',
+    standard: false,
+    managed: true
+  },
+  {
+    feature: 'Plugin & Theme Updates',
+    standard: 'Core only',
+    managed: 'Full management'
+  },
+  {
+    feature: 'Performance Monitoring',
+    standard: 'Basic',
+    managed: 'Advanced + alerts'
+  },
+  {
+    feature: 'Support Response',
+    standard: 'Same day',
+    managed: 'Priority (1-2 hours)'
+  },
+  {
+    feature: 'WooCommerce Troubleshooting',
+    standard: 'Limited',
+    managed: 'Full support'
+  },
+];
+
+const faqs = [
+  {
+    question: "Is WooCommerce hosting different from regular WordPress hosting?",
+    answer: "Yes. WooCommerce stores have different requirements — they need faster database queries for product catalogs, optimised checkout processes, and more robust security for handling payments. Our WooCommerce hosting is specifically configured for e-commerce performance and security."
+  },
+  {
+    question: "Can you migrate my existing WooCommerce store?",
+    answer: "Absolutely. We migrate WooCommerce sites regularly, including all products, orders, customers, and payment gateway configurations. Migration is free and typically completed within 2-4 hours with minimal downtime."
+  },
+  {
+    question: "Do you support payment gateways like Stripe and PayPal?",
+    answer: "Yes, we support all major payment gateways including Stripe, PayPal, Square, and Irish-specific options. We can help configure and test your payment setup during migration or setup."
+  },
+  {
+    question: "How do you handle traffic spikes during sales?",
+    answer: "Our infrastructure automatically scales to handle traffic increases. For planned sales events (Black Friday, launches), we can pre-scale resources and provide additional monitoring to ensure your store stays fast."
+  },
+  {
+    question: "Is your hosting PCI compliant?",
+    answer: "Our infrastructure meets PCI-DSS requirements for hosting e-commerce sites. Combined with SSL certificates and proper WooCommerce configuration, your store will be compliant for accepting card payments."
+  },
+  {
+    question: "What WooCommerce plugins do you recommend?",
+    answer: "We recommend lightweight, well-maintained plugins. For Irish stores, we often suggest Revenue-compliant invoicing plugins, An Post shipping calculators, and GDPR-compliant cookie notices. We can advise on the best stack for your needs."
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "WooCommerce Hosting",
+  "name": "WooCommerce Hosting Ireland",
+  "description": "Managed WooCommerce hosting optimised for Irish e-commerce businesses. Fast checkout, secure payments, daily backups, and expert support.",
+  "provider": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://sparkhost.ie/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WooCommerce Hosting",
+      "item": "https://sparkhost.ie/services/woocommerce-hosting"
+    }
+  ]
+};
+---
+
+<Layout
+  title="WooCommerce Hosting Ireland | E-commerce WordPress Hosting | SparkHost.ie"
+  description="Managed WooCommerce hosting for Irish businesses. Fast checkout, secure payments, automatic backups, and expert e-commerce support. From €40/month + VAT."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header currentPath="/services" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+      <div class="container">
+        <div class="max-w-3xl">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center gap-2 text-sm text-white/50 mb-6">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <a href="/services" class="hover:text-white transition-colors">Services</a>
+            <span>/</span>
+            <span class="text-white/70">WooCommerce Hosting</span>
+          </nav>
+
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WooCommerce Hosting Ireland</span>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
+            WooCommerce <span class="text-gradient-spark">Hosting</span>
+          </h1>
+          <p class="text-xl text-white/60 leading-relaxed mb-8">
+            Fast, secure WordPress hosting built for <strong class="text-white/80">WooCommerce stores</strong>. Sell more with lightning-fast checkout, rock-solid security, and e-commerce experts on standby.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/pricing" class="btn-spark">
+              <span>View WooCommerce Plans</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Discuss Your Store
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why WooCommerce Hosting Matters -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+              Why <span class="text-gradient-spark">WooCommerce Hosting</span> Matters
+            </h2>
+            <div class="space-y-4 text-white/70">
+              <p>
+                <strong class="text-white">Every second of load time costs you sales.</strong> Studies show a 1-second delay in page load can reduce conversions by 7%. For a store doing €10,000/month, that's €700 lost to slow hosting.
+              </p>
+              <p>
+                Generic shared hosting wasn't built for e-commerce. WooCommerce stores need optimised database queries, fast product image delivery, and secure checkout processing. Most budget hosts can't deliver this.
+              </p>
+              <p>
+                Our <a href="/services/wordpress-maintenance" class="text-[var(--color-spark-orange)] hover:underline">managed WooCommerce hosting</a> is specifically configured for e-commerce. From server-level caching to payment gateway optimisation, every aspect is tuned for selling.
+              </p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">7%</div>
+              <p class="text-sm text-white/60">conversion loss per second of delay</p>
+            </div>
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">53%</div>
+              <p class="text-sm text-white/60">of mobile users abandon slow sites</p>
+            </div>
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">&lt;2s</div>
+              <p class="text-sm text-white/60">target checkout load time</p>
+            </div>
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">99.9%</div>
+              <p class="text-sm text-white/60">uptime guarantee</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WooCommerce Features -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">E-commerce Ready</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            Built for <span class="text-gradient-spark">WooCommerce</span>
+          </h2>
+          <p class="text-white/60">
+            Everything your online store needs to sell more and stress less.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {wooFeatures.map((feature) => (
+            <div class="card-glass p-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center mb-4">
+                {feature.icon === 'cart' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                )}
+                {feature.icon === 'scale' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                )}
+                {feature.icon === 'beaker' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
+                )}
+                {feature.icon === 'backup' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                  </svg>
+                )}
+                {feature.icon === 'shield' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )}
+                {feature.icon === 'support' && (
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-display);">{feature.title}</h3>
+              <p class="text-white/60 text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Pricing</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            WooCommerce <span class="text-gradient-spark">Plans</span>
+          </h2>
+          <p class="text-white/60">
+            Choose the level of support that fits your store.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <!-- Plan Cards -->
+          <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <div class="card-glass p-8">
+              <h3 class="text-2xl font-bold mb-2" style="font-family: var(--font-display);">Standard</h3>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="text-4xl font-bold text-gradient-spark">€40</span>
+                <span class="text-white/50">/month + VAT</span>
+              </div>
+              <p class="text-white/60 text-sm mb-6">For smaller stores with basic WooCommerce needs.</p>
+              <a href="/pricing" class="btn-outline w-full justify-center">View Details</a>
+            </div>
+            <div class="card-glass p-8 border-[var(--color-spark-orange)]/30">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-2xl font-bold text-gradient-spark" style="font-family: var(--font-display);">Managed</h3>
+                <span class="px-2 py-0.5 bg-[var(--color-spark-orange)]/20 text-[var(--color-spark-orange)] text-xs font-semibold rounded-full">Popular</span>
+              </div>
+              <div class="flex items-baseline gap-1 mb-4">
+                <span class="text-4xl font-bold text-gradient-spark">€249</span>
+                <span class="text-white/50">/month + VAT</span>
+              </div>
+              <p class="text-white/60 text-sm mb-6">Full WooCommerce management for growing stores.</p>
+              <a href="/pricing" class="btn-spark w-full justify-center">View Details</a>
+            </div>
+          </div>
+
+          <!-- Feature Comparison Table -->
+          <div class="card-glass overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead>
+                  <tr class="border-b border-white/10">
+                    <th class="text-left p-4 font-semibold">Feature</th>
+                    <th class="p-4 font-semibold text-center">Standard</th>
+                    <th class="p-4 font-semibold text-center text-[var(--color-spark-orange)]">Managed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {wooComparison.map((row, i) => (
+                    <tr class={i !== wooComparison.length - 1 ? 'border-b border-white/5' : ''}>
+                      <td class="p-4 text-white/70">{row.feature}</td>
+                      <td class="p-4 text-center">
+                        {typeof row.standard === 'boolean' ? (
+                          row.standard ? (
+                            <svg class="w-5 h-5 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <svg class="w-5 h-5 text-white/20 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          )
+                        ) : (
+                          <span class="text-white/50 text-sm">{row.standard}</span>
+                        )}
+                      </td>
+                      <td class="p-4 text-center">
+                        {typeof row.managed === 'boolean' ? (
+                          row.managed ? (
+                            <svg class="w-5 h-5 text-[var(--color-spark-orange)] mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <svg class="w-5 h-5 text-white/20 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          )
+                        ) : (
+                          <span class="text-[var(--color-spark-orange)] text-sm font-medium">{row.managed}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Common Questions</span>
+            <h2 class="text-3xl md:text-4xl font-bold" style="font-family: var(--font-display);">
+              WooCommerce Hosting <span class="text-gradient-spark">FAQ</span>
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            {faqs.map((faq) => (
+              <div class="card-glass overflow-hidden" data-faq-item>
+                <button
+                  class="w-full flex items-center justify-between p-5 text-left"
+                  data-faq-trigger
+                  aria-expanded="false"
+                >
+                  <span class="font-semibold pr-4">{faq.question}</span>
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)] flex-shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-faq-icon>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="overflow-hidden transition-all duration-300 max-h-0" data-faq-content>
+                  <div class="px-5 pb-5 text-white/60">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Learn More</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            E-commerce <span class="text-gradient-spark">Resources</span>
+          </h2>
+          <p class="text-white/60">
+            Tips and guides for running a successful WooCommerce store.
+          </p>
+        </div>
+        <BlogCardGrid category="hosting" limit={3} />
+        <div class="text-center mt-8">
+          <a href="/blog" class="btn-outline">
+            View All Articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+            Launch Your Store on <span class="text-gradient-spark">Faster Hosting</span>
+          </h2>
+          <p class="text-xl text-white/60 mb-8">
+            Join Irish businesses selling more with WooCommerce hosting that's actually built for e-commerce.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/pricing" class="btn-spark">
+              <span>View WooCommerce Plans</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Discuss Your Store
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('[data-faq-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('[data-faq-item]');
+      const content = item?.querySelector('[data-faq-content]') as HTMLElement;
+      const icon = item?.querySelector('[data-faq-icon]');
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      if (content) {
+        if (isExpanded) {
+          content.style.maxHeight = '0';
+          trigger.setAttribute('aria-expanded', 'false');
+          icon?.classList.remove('rotate-180');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          trigger.setAttribute('aria-expanded', 'true');
+          icon?.classList.add('rotate-180');
+        }
+      }
+    });
+  });
+</script>
