@@ -245,27 +245,22 @@ With aggressive caching, server choice matters less — most requests never touc
 
 However, uncached requests (logged-in users, WooCommerce) still benefit from faster servers.
 
-## Why SparkHost Uses LiteSpeed
+## Why Server Choice Matters for Managed Hosting
 
-After testing all options, we chose LiteSpeed Enterprise for our hosting:
+At SparkHost, we've optimised our hosting stack specifically for WordPress performance. Rather than offering technical server access (which most business owners don't need), we handle the infrastructure decisions so you get the results.
 
-**Performance:** Consistently fastest for WordPress workloads
-**Integration:** LiteSpeed Cache plugin pre-configured on all sites
-**Compatibility:** .htaccess works, easy migration from Apache hosts
-**Efficiency:** Lower server costs passed to customers
-**Modern protocols:** HTTP/3, QUIC, Brotli compression
+### What SparkHost Clients Experience
 
-Combined with Redis object caching and Cloudflare CDN, our stack is optimised specifically for WordPress performance.
+When businesses move to our [managed WordPress hosting](/services/wordpress-maintenance):
 
-### What Clients Experience
-
-Sites migrated to SparkHost from Apache hosts typically see:
 - 40-60% faster page load times
 - Improved [Core Web Vitals](/blog/core-web-vitals-wordpress) scores
 - Better handling of traffic spikes
-- Lower server resource usage
+- Lower resource usage (which means lower costs)
 
-The server you choose is foundation-level infrastructure. Get it right, and everything built on top performs better.
+We combine modern server technology with Redis object caching, Cloudflare CDN, and WordPress-specific optimisations. You don't need to know which web server we use — you just need to know your site is fast.
+
+The server technology is foundation-level infrastructure. We handle getting it right so everything built on top performs better for your business.
 
 ## Questions for Your Host
 
