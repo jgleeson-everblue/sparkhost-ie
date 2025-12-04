@@ -23,7 +23,7 @@ The 2002 ePrivacy Directive, updated in 2009, specifically addresses cookies. It
 - Obtaining consent before setting non-essential cookies
 - Making consent voluntary and specific
 
-### [GDPR](/blog/gdpr-wordpress-irish-businesses)
+### [GDPR](/blog/gdpr-wordpress-website)
 
 The General Data Protection Regulation applies when cookies collect personal data:
 - Cookie consent must meet GDPR consent standards

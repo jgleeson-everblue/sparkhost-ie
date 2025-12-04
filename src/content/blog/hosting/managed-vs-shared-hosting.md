@@ -219,7 +219,7 @@ For Irish businesses serving Irish customers:
 - Staging environments
 - [CDN](/blog/cdn-content-delivery-network-wordpress) integration
 - SSL certificates
-- [Malware scanning](/blog/wordpress-malware-removal) and removal
+- [Malware scanning](/blog/wordpress-malware-removal-guide) and removal
 - Update management
 
 ### Reliability
@@ -256,7 +256,7 @@ Our approach:
 - Phone support
 - Quarterly reviews
 
-We're not competing with €3/month hosts. We're providing hosting that lets Irish businesses succeed online.
+We're not competing with €3/month hosts. We're providing hosting that lets Irish businesses succeed online. And when you're ready to switch, our [free WordPress migration service](/services/wordpress-migration) handles everything.
 
 ## Making Your Decision
 

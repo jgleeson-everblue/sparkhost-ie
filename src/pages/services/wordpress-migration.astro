@@ -1,0 +1,686 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const migrationSteps = [
+  {
+    number: '01',
+    title: 'Initial Assessment',
+    description: 'We review your current hosting, site size, plugins, and any special configurations.',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/20'
+  },
+  {
+    number: '02',
+    title: 'Full Backup',
+    description: 'Complete backup of all files, database, and configurations before any changes.',
+    color: 'text-purple-400',
+    bg: 'bg-purple-500/20'
+  },
+  {
+    number: '03',
+    title: 'Migration & Setup',
+    description: 'We transfer your site to SparkHost and configure optimal settings.',
+    color: 'text-[var(--color-spark-orange)]',
+    bg: 'bg-[var(--color-spark-orange)]/20'
+  },
+  {
+    number: '04',
+    title: 'Testing Phase',
+    description: 'Thorough testing on temporary URL — all functionality verified before going live.',
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-500/20'
+  },
+  {
+    number: '05',
+    title: 'DNS Switch',
+    description: 'We update DNS with minimal downtime and monitor propagation.',
+    color: 'text-green-400',
+    bg: 'bg-green-500/20'
+  },
+  {
+    number: '06',
+    title: 'Post-Migration Check',
+    description: 'Final verification, SSL configuration, and performance optimisation.',
+    color: 'text-amber-400',
+    bg: 'bg-amber-500/20'
+  },
+];
+
+const migrationFeatures = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: 'Free Migration',
+    description: 'No migration fees — ever. We handle the entire process at no additional cost.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: 'Minimal Downtime',
+    description: 'Average downtime under 30 minutes. Most migrations complete with zero visible interruption.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    title: 'Safe & Secure',
+    description: 'Full backup before migration. If anything goes wrong, we restore instantly.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    title: 'Performance Boost',
+    description: 'Sites often see 40-60% speed improvement after migrating to our optimised hosting.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>`,
+    title: 'Email Continuity',
+    description: 'We handle MX records and email migration so you never miss a message.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>`,
+    title: 'Expert Support',
+    description: 'WordPress specialists handle everything — you don\'t need technical knowledge.'
+  },
+];
+
+const whatWeMigrate = [
+  'WordPress core files',
+  'All plugins and themes',
+  'Database and content',
+  'Media library',
+  'Custom configurations',
+  'Email accounts',
+  'SSL certificates',
+  'DNS records',
+  'Staging environments',
+  'WooCommerce data',
+];
+
+const faqs = [
+  {
+    question: "How long does a WordPress migration take?",
+    answer: "Most migrations complete in 2-4 hours. Simple sites can be done in under an hour. Complex sites with large databases or special configurations may take longer. We schedule migrations during low-traffic periods to minimise impact."
+  },
+  {
+    question: "Will my site be down during migration?",
+    answer: "Downtime is typically under 30 minutes — often just 5-10 minutes during the DNS switch. We migrate your site to a temporary URL first, test everything thoroughly, then switch DNS when we're confident everything works perfectly."
+  },
+  {
+    question: "Do I need to do anything for the migration?",
+    answer: "Just provide us with access to your current hosting (usually login credentials or an SSH key). We handle everything else. You'll receive updates throughout the process and a confirmation when complete."
+  },
+  {
+    question: "What if something goes wrong?",
+    answer: "We create a full backup before starting any migration. If anything unexpected happens, we can restore your site to its original state immediately. This has never happened, but we're always prepared."
+  },
+  {
+    question: "Can you migrate WooCommerce stores?",
+    answer: "Yes, we migrate WooCommerce sites regularly, including all products, orders, customers, and configurations. We verify payment gateway connections in test mode before going live."
+  },
+  {
+    question: "Do you help with domain transfers?",
+    answer: "We can update your DNS records to point to SparkHost without transferring your domain. If you'd prefer to transfer the domain registration as well, we can guide you through that process."
+  },
+];
+
+// Schema markup
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "WordPress Migration",
+  "name": "WordPress Migration Services Ireland",
+  "description": "Free, professional WordPress migration to SparkHost. We handle everything — files, database, email, DNS — with minimal downtime and zero stress.",
+  "provider": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "description": "Free migration included with all hosting plans"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://sparkhost.ie/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WordPress Migration",
+      "item": "https://sparkhost.ie/services/wordpress-migration"
+    }
+  ]
+};
+---
+
+<Layout
+  title="WordPress Migration Services Ireland | Free Site Migration | SparkHost.ie"
+  description="Free WordPress migration to SparkHost. We handle everything — files, database, email, DNS — with minimal downtime. Professional migration by WordPress experts."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header currentPath="/services" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+      <div class="container">
+        <div class="max-w-3xl">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center gap-2 text-sm text-white/50 mb-6">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <a href="/services" class="hover:text-white transition-colors">Services</a>
+            <span>/</span>
+            <span class="text-white/70">WordPress Migration</span>
+          </nav>
+
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium mb-4">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Free Migration Included
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
+            WordPress <span class="text-gradient-spark">Migration</span> Services
+          </h1>
+          <p class="text-xl text-white/60 leading-relaxed mb-8">
+            Moving hosts shouldn't be stressful. Our <strong class="text-white/80">free WordPress migration service</strong> handles everything — files, database, email, DNS — with minimal downtime and zero hassle.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/get-started" class="btn-spark">
+              <span>Start Free Migration</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Ask a Question
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Migrate Section -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Time for a Change?</span>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+              Why Irish Businesses <span class="text-gradient-spark">Migrate to SparkHost</span>
+            </h2>
+            <div class="space-y-4 text-white/70">
+              <p>
+                Whether your current host is slow, unreliable, or just doesn't "get" WordPress — migration to better hosting is often the single biggest improvement you can make to your website.
+              </p>
+              <p>
+                Our <a href="/blog/managed-vs-shared-hosting" class="text-[var(--color-spark-orange)] hover:underline">managed WordPress hosting</a> is specifically optimised for WordPress, with fast infrastructure, European data centres, and WordPress specialists who actually understand your site.
+              </p>
+              <p>
+                The best part? <strong class="text-white">Migration is completely free.</strong> We do all the work while you focus on your business.
+              </p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="card-glass p-5">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">Slow Performance</h3>
+                  <p class="text-sm text-white/50">Your host is dragging down your site speed</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-glass p-5">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">Frequent Downtime</h3>
+                  <p class="text-sm text-white/50">Your site goes offline too often</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-glass p-5">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">Poor Support</h3>
+                  <p class="text-sm text-white/50">Support doesn't understand WordPress</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-glass p-5">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[var(--color-spark-orange)]/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">Security Concerns</h3>
+                  <p class="text-sm text-white/50">Worried about hacks and malware</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Features -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Hassle-Free Migration</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            Why Our Migration Service is <span class="text-gradient-spark">Different</span>
+          </h2>
+          <p class="text-white/60">
+            We've migrated hundreds of WordPress sites. We know what can go wrong — and how to prevent it.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {migrationFeatures.map((feature) => (
+            <div class="card-glass p-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center mb-4 text-[var(--color-spark-orange)]" set:html={feature.icon} />
+              <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-display);">{feature.title}</h3>
+              <p class="text-white/60 text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Process -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Our Process</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            How WordPress <span class="text-gradient-spark">Migration</span> Works
+          </h2>
+          <p class="text-white/60">
+            A proven 6-step process that ensures your site arrives safely at its new home.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {migrationSteps.map((step) => (
+            <div class="card-glass p-6 relative">
+              <div class={`w-14 h-14 rounded-2xl ${step.bg} flex items-center justify-center mb-4`}>
+                <span class={`text-2xl font-bold ${step.color}`} style="font-family: var(--font-display);">{step.number}</span>
+              </div>
+              <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-display);">{step.title}</h3>
+              <p class="text-white/60 text-sm">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Migrate -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Everything Included</span>
+              <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+                What We <span class="text-gradient-spark">Migrate</span>
+              </h2>
+              <p class="text-white/60 mb-8">
+                We migrate your entire WordPress environment — not just the basics. Your site will work exactly as it did before, just faster and more secure.
+              </p>
+              <a href="/blog/wordpress-migration-guide" class="inline-flex items-center gap-2 text-[var(--color-spark-orange)] hover:underline">
+                Read our full migration guide
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <div class="card-glass p-8">
+              <ul class="grid grid-cols-2 gap-4">
+                {whatWeMigrate.map((item) => (
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-white/70 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Comparison -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">DIY vs Professional</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            Migration <span class="text-gradient-spark">Options</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- DIY Migration -->
+          <div class="card-glass p-8">
+            <h3 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">DIY Migration</h3>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Learn migration plugins and procedures
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Handle database export/import yourself
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Figure out DNS and email settings
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Debug issues if something breaks
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Risk of extended downtime
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-white/30 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                Hours of your time
+              </li>
+            </ul>
+            <div class="pt-6 border-t border-white/10">
+              <p class="text-white/50 text-sm">Estimated time: 4-8 hours for an experienced user</p>
+            </div>
+          </div>
+
+          <!-- SparkHost Migration -->
+          <div class="card-glass p-8 border-[var(--color-spark-red)]/30 relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="px-4 py-1 bg-gradient-to-r from-[var(--color-spark-red)] to-[var(--color-spark-orange)] rounded-full text-sm font-semibold">Recommended</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">SparkHost Migration</h3>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                We handle everything for you
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Full backup before any changes
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Testing before DNS switch
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Expert troubleshooting if needed
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Minimal downtime (usually &lt;30 min)
+              </li>
+              <li class="flex items-start gap-2 text-white/70">
+                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <strong class="text-white">Completely free</strong>
+              </li>
+            </ul>
+            <div class="pt-6 border-t border-white/10">
+              <p class="text-[var(--color-spark-orange)] text-sm font-medium">Your time: Just provide hosting access</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WooCommerce Migration -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="card-glass p-8 md:p-12 max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-[1fr,auto] gap-8 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <svg class="w-8 h-8 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.04 16.42c.36-.66.55-1.44.55-2.32 0-1.37-.45-2.51-1.35-3.42-.9-.91-2.05-1.37-3.44-1.37-1.31 0-2.42.46-3.33 1.37-.91.91-1.37 2.05-1.37 3.42 0 1.37.46 2.51 1.37 3.42.91.91 2.02 1.37 3.33 1.37 1.11 0 2.07-.34 2.88-1.02l2.53 2.53 1.41-1.41-2.58-2.57zm-4.24 1.01c-.86 0-1.58-.29-2.16-.87-.58-.58-.87-1.3-.87-2.16 0-.86.29-1.58.87-2.16.58-.58 1.3-.87 2.16-.87.86 0 1.58.29 2.16.87.58.58.87 1.3.87 2.16 0 .86-.29 1.58-.87 2.16-.58.58-1.3.87-2.16.87zM4 6H2v14c0 1.1.9 2 2 2h10v-2H4V6z"/>
+                  <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h3.75v-2H8V4h12v7h2V4c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <h3 class="text-2xl font-bold" style="font-family: var(--font-display);">WooCommerce Migration</h3>
+              </div>
+              <p class="text-white/60 mb-4">
+                E-commerce migrations require extra care. We migrate WooCommerce sites with full attention to orders, products, customers, and payment gateway configurations.
+              </p>
+              <ul class="grid sm:grid-cols-2 gap-2">
+                <li class="flex items-center gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Product data & images
+                </li>
+                <li class="flex items-center gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Order history
+                </li>
+                <li class="flex items-center gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Customer accounts
+                </li>
+                <li class="flex items-center gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Payment gateways
+                </li>
+                <li class="flex items-center gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Shipping settings
+                </li>
+                <li class="flex items-center gap-2 text-sm text-white/70">
+                  <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Subscriptions
+                </li>
+              </ul>
+            </div>
+            <div class="text-center md:text-right">
+              <a href="/contact" class="btn-outline inline-flex">
+                Discuss WooCommerce Migration
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Common Questions</span>
+            <h2 class="text-3xl md:text-4xl font-bold" style="font-family: var(--font-display);">
+              WordPress Migration <span class="text-gradient-spark">FAQ</span>
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            {faqs.map((faq, index) => (
+              <div class="card-glass overflow-hidden">
+                <button
+                  class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                  data-faq-index={index}
+                >
+                  <span class="font-medium">{faq.question}</span>
+                  <svg class="w-5 h-5 text-white/50 transition-transform flex-shrink-0 faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-5">
+                  <p class="text-white/60">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Resources -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Learn More</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: var(--font-display);">
+            Migration <span class="text-gradient-spark">Resources</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <a href="/blog/wordpress-migration-guide" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
+            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">WordPress Migration Guide</h3>
+            <p class="text-sm text-white/60">Step-by-step guide to WordPress migration if you're doing it yourself.</p>
+          </a>
+          <a href="/blog/managed-vs-shared-hosting" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
+            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">Managed vs Shared Hosting</h3>
+            <p class="text-sm text-white/60">Why managed WordPress hosting is worth the investment.</p>
+          </a>
+          <a href="/blog/choosing-wordpress-hosting-ireland" class="card-glass p-6 group hover:border-[var(--color-spark-red)]/30 transition-colors">
+            <h3 class="font-semibold mb-2 group-hover:text-[var(--color-spark-orange)] transition-colors">Choosing WordPress Hosting</h3>
+            <p class="text-sm text-white/60">What to look for in a WordPress host for Irish businesses.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 border-t border-white/10">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6" style="font-family: var(--font-display);">
+            Ready to <span class="text-gradient-spark">Migrate</span>?
+          </h2>
+          <p class="text-lg text-white/60 mb-8">
+            Switch to faster, more secure WordPress hosting. We'll migrate your site for free — just provide access to your current host.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/get-started" class="btn-spark">
+              <span>Start Free Migration</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              Ask a Question
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // FAQ accordion functionality
+  document.querySelectorAll('.faq-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling as HTMLElement;
+      const icon = button.querySelector('.faq-icon') as HTMLElement;
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+</script>

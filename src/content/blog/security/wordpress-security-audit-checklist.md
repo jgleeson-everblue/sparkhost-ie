@@ -444,7 +444,7 @@ On our Managed plans, we handle security proactively:
 - **Security monitoring** — We watch for threats 24/7
 - **Incident response** — We handle security emergencies
 
-Security isn't a one-time setup. It's an ongoing practice. Whether you manage it yourself or let us handle it, the important thing is that someone is paying attention.
+Security isn't a one-time setup. It's an ongoing practice. Whether you manage it yourself or let us handle it, the important thing is that someone is paying attention. Our [WordPress security services](/services/wordpress-security) include all of these checks as part of ongoing management.
 
 ## Take Action
 

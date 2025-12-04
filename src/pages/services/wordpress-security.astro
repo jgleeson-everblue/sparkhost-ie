@@ -1,0 +1,604 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const securityFeatures = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
+    title: 'Patchstack WAF',
+    description: 'Enterprise-grade Web Application Firewall that blocks known vulnerabilities before they can be exploited.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>`,
+    title: 'Malware Scanning',
+    description: 'Daily automated scans detect suspicious files, backdoors, and malicious code before damage occurs.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>`,
+    title: 'Brute Force Protection',
+    description: 'Intelligent rate limiting and login attempt monitoring blocks automated password attacks.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>`,
+    title: 'Vulnerability Alerts',
+    description: 'Real-time notifications when new vulnerabilities affect your plugins, themes, or WordPress core.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg>`,
+    title: 'DDoS Protection',
+    description: 'Cloudflare integration absorbs traffic floods before they reach your server.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>`,
+    title: 'Automatic Updates',
+    description: 'Security patches applied promptly with testing to ensure nothing breaks.'
+  }
+];
+
+const threatStats = [
+  { number: '90,000+', label: 'WordPress attacks per minute globally' },
+  { number: '83%', label: 'of hacked CMS sites were running WordPress' },
+  { number: '44%', label: 'of hacks due to vulnerable plugins' },
+  { number: '€10K+', label: 'average cost to recover from a hack' }
+];
+
+const securityLayers = [
+  {
+    layer: 'Network Layer',
+    features: ['Cloudflare CDN', 'DDoS mitigation', 'Bot filtering', 'Geo-blocking'],
+    description: 'Attacks stopped before reaching your server'
+  },
+  {
+    layer: 'Server Layer',
+    features: ['Firewall rules', 'WAF protection', 'Rate limiting', 'IP blocking'],
+    description: 'Malicious requests blocked at server level'
+  },
+  {
+    layer: 'Application Layer',
+    features: ['Patchstack WAF', 'Virtual patching', 'Login protection', 'File integrity'],
+    description: 'WordPress-specific attack prevention'
+  },
+  {
+    layer: 'Monitoring Layer',
+    features: ['Daily malware scans', 'Uptime monitoring', 'Activity logging', 'Alert system'],
+    description: 'Continuous vigilance for threats'
+  }
+];
+
+const faqs = [
+  {
+    question: 'How quickly are security patches applied?',
+    answer: 'Critical security patches are applied within 24 hours of release. We monitor security advisories from Patchstack, Wordfence, and WordPress.org to ensure we catch vulnerabilities early. Non-critical updates are applied during our weekly maintenance window after staging tests.'
+  },
+  {
+    question: 'What happens if my site gets hacked?',
+    answer: 'On our Managed plans, hack recovery is included at no extra cost. We isolate the infection, restore from clean backups, identify the entry point, patch the vulnerability, and implement additional protections. We then monitor closely to prevent reinfection. Most sites are fully recovered within 24-48 hours.'
+  },
+  {
+    question: 'Do I need additional security plugins?',
+    answer: 'No, our Managed hosting includes enterprise-grade security features (Patchstack, Cloudflare, malware scanning) that typically cost €200-300/year separately. You don\'t need to install Wordfence, Sucuri, or other security plugins — we handle security at the infrastructure level where it\'s more effective.'
+  },
+  {
+    question: 'Is my data safe with SparkHost?',
+    answer: 'Yes. All sites are protected with free SSL/TLS certificates (HTTPS). Backups are encrypted and stored in geographically separate locations. All data is stored in secure European data centres. We\'re fully GDPR compliant and never access your site data except for maintenance purposes you\'ve authorised.'
+  },
+  {
+    question: 'How do you protect against brute force attacks?',
+    answer: 'Multiple layers: Cloudflare filters malicious traffic at the edge, we rate-limit login attempts, and block IPs after repeated failures. For Managed plans, we can also implement two-factor authentication, custom login URLs, and IP whitelisting for your admin area.'
+  },
+  {
+    question: 'Can I see security reports for my site?',
+    answer: 'Managed plan clients receive quarterly security reports covering blocked attacks, vulnerability patches applied, and recommendations for improving security. You can also request ad-hoc reports at any time. We believe transparency builds trust.'
+  }
+];
+
+const relatedPosts = [
+  { title: 'WordPress Security Basics', slug: 'wordpress-security-basics-irish-businesses', category: 'Security' },
+  { title: 'WordPress Malware Removal Guide', slug: 'wordpress-malware-removal-guide', category: 'Security' },
+  { title: 'WordPress Firewalls Explained', slug: 'wordpress-firewall-guide', category: 'Security' },
+  { title: 'Two-Factor Authentication Setup', slug: 'two-factor-authentication-wordpress', category: 'Security' }
+];
+
+const title = 'WordPress Security Services Ireland | Malware Protection & Hack Recovery | SparkHost.ie';
+const description = 'Protect your Irish business website with enterprise-grade WordPress security. Includes Patchstack WAF, malware scanning, DDoS protection, and 24/7 monitoring. Free SSL certificates.';
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 lg:py-28">
+      <div class="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03]"></div>
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+
+      <div class="container mx-auto px-4 relative">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-sm font-medium mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            Enterprise-Grade WordPress Security
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            WordPress Security
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F43654] to-[#F48C54]"> That Actually Protects</span>
+          </h1>
+
+          <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            Your website faces thousands of attacks daily. Our multi-layered security stops threats before they reach your site — so you can focus on running your business.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/pricing" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#F43654] to-[#F48C54] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all duration-300">
+              View Security Plans
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              Request Security Audit
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Threat Statistics -->
+    <section class="py-12 bg-slate-950 border-y border-slate-800">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {threatStats.map((stat) => (
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F43654] to-[#F48C54] mb-2">
+                {stat.number}
+              </div>
+              <div class="text-slate-400 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Security Matters -->
+    <section class="py-20 bg-slate-900">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Why WordPress Security Matters for Irish Businesses
+          </h2>
+          <p class="text-lg text-slate-300">
+            A hacked website doesn't just mean downtime. It means lost customers, damaged reputation, potential GDPR fines, and recovery costs that dwarf the price of proper protection.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50">
+            <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-4">The Real Cost of a Hack</h3>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-1">→</span>
+                <span><strong>Revenue loss:</strong> Every hour of downtime costs money</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-1">→</span>
+                <span><strong>SEO damage:</strong> Google blacklists hacked sites</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-1">→</span>
+                <span><strong>Customer trust:</strong> Breaches destroy credibility</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-1">→</span>
+                <span><strong>GDPR fines:</strong> Data breaches have legal consequences</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-1">→</span>
+                <span><strong>Recovery costs:</strong> Professional cleanup costs €500+</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-4">How We Protect Your Site</h3>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-400 mt-1">✓</span>
+                <span><strong>Proactive defence:</strong> Block attacks before they succeed</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-400 mt-1">✓</span>
+                <span><strong>Virtual patching:</strong> Protection even before updates</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-400 mt-1">✓</span>
+                <span><strong>24/7 monitoring:</strong> We watch so you don't have to</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-400 mt-1">✓</span>
+                <span><strong>Quick recovery:</strong> Clean backups always available</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-400 mt-1">✓</span>
+                <span><strong>Expert support:</strong> WordPress security specialists</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Features Grid -->
+    <section class="py-20 bg-slate-950">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Comprehensive Security Features
+          </h2>
+          <p class="text-lg text-slate-300">
+            Multiple layers of protection working together to keep your WordPress site secure.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {securityFeatures.map((feature) => (
+            <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F43654]/10 to-[#F48C54]/10 flex items-center justify-center text-[#F43654] mb-4" set:html={feature.icon}>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+              <p class="text-slate-400 text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Layers -->
+    <section class="py-20 bg-slate-900">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Defence in Depth
+          </h2>
+          <p class="text-lg text-slate-300">
+            No single security measure stops all attacks. Our layered approach means threats must bypass multiple defences — and most don't get past the first.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+          {securityLayers.map((layer, index) => (
+            <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700/50">
+              <div class="flex flex-col md:flex-row md:items-center gap-6">
+                <div class="flex items-center gap-4 md:w-1/4">
+                  <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#F43654] to-[#F48C54] flex items-center justify-center text-white font-bold">
+                    {index + 1}
+                  </div>
+                  <div class="font-semibold text-white">{layer.layer}</div>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-wrap gap-2 mb-2">
+                    {layer.features.map((feature) => (
+                      <span class="px-3 py-1 bg-slate-700/50 text-slate-300 text-sm rounded-full">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="text-slate-400 text-sm">{layer.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Plans Comparison -->
+    <section class="py-20 bg-slate-950">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Security Features by Plan
+          </h2>
+          <p class="text-lg text-slate-300">
+            All SparkHost plans include security essentials. Our Managed plan adds enterprise-grade protection.
+          </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-slate-800">
+                <th class="text-left py-4 px-4 text-slate-400 font-medium">Security Feature</th>
+                <th class="text-center py-4 px-4 text-slate-400 font-medium">Essential<br/><span class="text-xs">€15/mo</span></th>
+                <th class="text-center py-4 px-4 text-slate-400 font-medium">Starter<br/><span class="text-xs">€25/mo</span></th>
+                <th class="text-center py-4 px-4 text-white font-medium bg-gradient-to-r from-[#F43654]/10 to-[#F48C54]/10 rounded-t-lg">Managed<br/><span class="text-xs">€45/mo</span></th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Free SSL Certificate</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Cloudflare CDN & DDoS Protection</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Daily Malware Scanning</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Daily Backups</td>
+                <td class="py-3 px-4 text-center text-slate-400">7 days</td>
+                <td class="py-3 px-4 text-center text-slate-400">14 days</td>
+                <td class="py-3 px-4 text-center text-white font-medium bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">30 days</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Brute Force Protection</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400">✓</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Patchstack WAF</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Real-time Vulnerability Alerts</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Hack Recovery (Included)</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr class="border-b border-slate-800/50">
+                <td class="py-3 px-4 text-slate-300">Security Hardening Audit</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5">✓</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 text-slate-300">Quarterly Security Reports</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-slate-600">—</td>
+                <td class="py-3 px-4 text-center text-emerald-400 bg-gradient-to-r from-[#F43654]/5 to-[#F48C54]/5 rounded-b-lg">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/pricing" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#F43654] to-[#F48C54] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all duration-300">
+            Compare All Plans
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Blog Posts -->
+    <section class="py-20 bg-slate-900">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Learn More About WordPress Security
+          </h2>
+          <p class="text-lg text-slate-300">
+            Practical guides to help you understand and improve your site's security.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {relatedPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 hover:border-[#F43654]/30 transition-colors group">
+              <span class="text-xs text-[#F48C54] font-medium">{post.category}</span>
+              <h3 class="text-white font-semibold mt-2 group-hover:text-[#F43654] transition-colors">{post.title}</h3>
+              <span class="inline-flex items-center text-sm text-slate-400 mt-3">
+                Read article
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-slate-950">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            WordPress Security FAQs
+          </h2>
+          <p class="text-lg text-slate-300">
+            Common questions about our WordPress security services.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <details class="group bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-semibold text-white pr-4">{faq.question}</h3>
+                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 group-open:rotate-180 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 text-slate-300">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            Is Your WordPress Site Vulnerable?
+          </h2>
+          <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            Most businesses don't know they've been hacked until the damage is done. Let us assess your site's security and show you what needs fixing.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#F43654] to-[#F48C54] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all duration-300">
+              Request Free Security Assessment
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </a>
+            <a href="/pricing" class="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              View All Plans
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "WordPress Security Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie"
+  },
+  "description": "Enterprise-grade WordPress security services including firewall protection, malware scanning, DDoS protection, and hack recovery for Irish businesses.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "serviceType": "WordPress Security",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "15",
+    "highPrice": "45",
+    "priceCurrency": "EUR",
+    "offerCount": "3"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How quickly are security patches applied?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Critical security patches are applied within 24 hours of release. We monitor security advisories from Patchstack, Wordfence, and WordPress.org to ensure we catch vulnerabilities early. Non-critical updates are applied during our weekly maintenance window after staging tests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my site gets hacked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On our Managed plans, hack recovery is included at no extra cost. We isolate the infection, restore from clean backups, identify the entry point, patch the vulnerability, and implement additional protections. Most sites are fully recovered within 24-48 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need additional security plugins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, our Managed hosting includes enterprise-grade security features (Patchstack, Cloudflare, malware scanning) that typically cost €200-300/year separately. You don't need to install Wordfence, Sucuri, or other security plugins — we handle security at the infrastructure level where it's more effective."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe with SparkHost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All sites are protected with free SSL/TLS certificates (HTTPS). Backups are encrypted and stored in geographically separate locations. All data is stored in secure European data centres. We're fully GDPR compliant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you protect against brute force attacks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiple layers: Cloudflare filters malicious traffic at the edge, we rate-limit login attempts, and block IPs after repeated failures. For Managed plans, we can also implement two-factor authentication, custom login URLs, and IP whitelisting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see security reports for my site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed plan clients receive quarterly security reports covering blocked attacks, vulnerability patches applied, and recommendations for improving security. You can also request ad-hoc reports at any time."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://sparkhost.ie/services"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WordPress Security",
+      "item": "https://sparkhost.ie/services/wordpress-security"
+    }
+  ]
+}
+</script>

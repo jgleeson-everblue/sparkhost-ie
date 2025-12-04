@@ -243,7 +243,7 @@ Managed WordPress hosting with:
 - [Server-level caching](/blog/wordpress-caching-explained)
 - [CDN integration](/blog/cdn-content-delivery-network-wordpress)
 
-SparkHost is specifically optimised for Core Web Vitals, with sites typically achieving green scores without extensive optimisation.
+SparkHost is specifically optimised for Core Web Vitals. Our [speed optimisation services](/services/speed-optimisation) help sites achieve green scores without extensive configuration.
 
 ## The Reality Check
 

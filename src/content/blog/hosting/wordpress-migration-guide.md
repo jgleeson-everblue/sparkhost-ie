@@ -331,7 +331,7 @@ Consider professional migration services if:
 - Previous migration attempts failed
 - Technical steps feel overwhelming
 
-Professional migrations typically cost €50-200 and save significant stress.
+Professional migrations typically cost €50-200 and save significant stress. Learn more about our [free WordPress migration service](/services/wordpress-migration).
 
 ## How SparkHost Handles Migrations
 

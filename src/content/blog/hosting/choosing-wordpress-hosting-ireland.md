@@ -60,12 +60,12 @@ Your host should include:
 - Easy one-click restore
 - Off-server backup storage
 
-### 5. [Security Features](/blog/wordpress-security-basics)
+### 5. [Security Features](/blog/wordpress-security-basics-irish-businesses)
 At minimum:
 
 - Free SSL certificates
 - Basic [firewall/DDoS protection](/blog/wordpress-firewall-guide)
-- [Malware scanning](/blog/wordpress-malware-removal)
+- [Malware scanning](/blog/wordpress-malware-removal-guide)
 
 Better hosts add:
 

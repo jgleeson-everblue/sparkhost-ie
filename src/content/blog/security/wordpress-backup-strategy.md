@@ -123,7 +123,7 @@ Every SparkHost plan includes:
 - **One-click restore** — When you need to recover, it's instant
 - **On-demand backups** — Before updates or major changes
 
-For Managed plans, we also run backups before every update and keep 30-day retention.
+For Managed plans, we also run backups before every update and keep 30-day retention. Learn more about our [WordPress maintenance services](/services/wordpress-maintenance) which include comprehensive backup management.
 
 ## Action Items
 

@@ -58,7 +58,7 @@ Avoid plugins that:
 Nulled plugins are pirated versions of premium plugins, distributed free on shady websites. They often contain:
 - Hidden backdoors for hackers
 - Cryptocurrency miners
-- [SEO spam injection](/blog/wordpress-malware-removal)
+- [SEO spam injection](/blog/wordpress-malware-removal-guide)
 - Malware downloaders
 
 There's no legitimate reason to use nulled plugins. Either pay for premium plugins or use free alternatives.

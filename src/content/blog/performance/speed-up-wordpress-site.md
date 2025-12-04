@@ -66,7 +66,7 @@ Cloudflare's free tier is excellent for Irish businesses. It also adds security 
 
 ## How We Handle Performance at SparkHost
 
-Every SparkHost site includes:
+Our [speed optimisation services](/services/speed-optimisation) handle all of this for you. Every SparkHost site includes:
 
 - LiteSpeed server with built-in caching
 - Cloudflare CDN integration

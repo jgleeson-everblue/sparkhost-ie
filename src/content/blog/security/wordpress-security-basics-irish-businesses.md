@@ -57,7 +57,7 @@ If you think your site has been compromised, follow our step-by-step [malware re
 
 ## What We Do at SparkHost
 
-Security isn't a one-time setup — it's ongoing vigilance. Every [SparkHost plan](/pricing) includes:
+Security isn't a one-time setup — it's ongoing vigilance. Our [WordPress Security services](/services/wordpress-security) handle everything automatically. Every [SparkHost plan](/pricing) includes:
 
 - Automatic WordPress, theme, and plugin updates (tested first)
 - Cloudflare firewall and DDoS protection
@@ -71,4 +71,4 @@ Our Managed plans add Patchstack for real-time vulnerability protection and imme
 
 WordPress security isn't complicated, but it does require consistent attention. The basics — updates, strong passwords, backups — prevent 95% of attacks.
 
-For Irish businesses, the question isn't whether to invest in security, but whether to handle it yourself or let professionals manage it. Given the average cost of recovering from a hack (€10,000+ for SMEs), proper maintenance is good economics.
+For Irish businesses, the question isn't whether to invest in security, but whether to handle it yourself or let professionals manage it. Given the average cost of recovering from a hack (€10,000+ for SMEs), [professional WordPress maintenance](/services/wordpress-maintenance) is good economics.

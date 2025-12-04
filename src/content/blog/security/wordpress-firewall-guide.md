@@ -369,7 +369,7 @@ Our Managed hosting includes comprehensive firewall protection:
 - Incident response
 - Regular security reporting
 
-This layered approach provides enterprise-grade protection for businesses that can't afford dedicated security teams.
+This layered approach provides enterprise-grade protection for businesses that can't afford dedicated security teams. Learn more about our [WordPress security services](/services/wordpress-security).
 
 ## Action Steps
 

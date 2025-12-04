@@ -288,7 +288,7 @@ All SparkHost plans include:
 - **Polish image optimisation** — On Professional and Enterprise plans
 - **Performance monitoring** — We track and optimise proactively
 
-We often achieve 60-80% reduction in image-related page weight during site migrations.
+We often achieve 60-80% reduction in image-related page weight during site migrations. Our [speed optimisation services](/services/speed-optimisation) include comprehensive image optimisation.
 
 ## Take Action Today
 

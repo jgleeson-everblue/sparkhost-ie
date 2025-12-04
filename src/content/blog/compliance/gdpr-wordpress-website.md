@@ -17,7 +17,7 @@ At its core, GDPR requires you to:
 1. Only collect personal data you genuinely need
 2. Tell people what you're collecting and why
 3. Get proper consent before collecting it
-4. [Keep that data secure](/blog/wordpress-security-basics)
+4. [Keep that data secure](/blog/wordpress-security-basics-irish-businesses)
 5. Delete it when you no longer need it
 6. Let people access, correct, or delete their data on request
 

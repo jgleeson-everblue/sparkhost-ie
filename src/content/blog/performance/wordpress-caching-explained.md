@@ -245,7 +245,7 @@ Every SparkHost plan includes:
 - **Browser caching** — Properly configured headers
 - **Pre-configured LiteSpeed Cache plugin** — Ready to use
 
-We handle the technical configuration so you can focus on your business. Sites migrated to SparkHost typically see 2-5x performance improvements from caching alone.
+We handle the technical configuration so you can focus on your business. Sites migrated to SparkHost typically see 2-5x performance improvements from caching alone. Our [speed optimisation services](/services/speed-optimisation) include comprehensive caching configuration.
 
 ## Take Action Today
 

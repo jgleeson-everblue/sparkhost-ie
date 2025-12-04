@@ -15,37 +15,29 @@
 
 ## Phase 3: Technical SEO (Pre-Launch)
 
-### 3.1 XML Sitemap
-- [ ] Generate sitemap.xml with all pages
-- [ ] Include blog posts with lastmod dates
-- [ ] Set appropriate priority values
-- [ ] Submit to Google Search Console
+### 3.1 XML Sitemap ✅ COMPLETE
+- [x] Generate sitemap.xml with all pages
+- [x] Include blog posts with lastmod dates
+- [x] Set appropriate priority values (homepage 1.0, services 0.9, blog 0.6, legal 0.3)
+- [ ] Submit to Google Search Console (post-deployment)
 
-**Astro Integration:**
-```bash
-npm install @astrojs/sitemap
-```
+**Implementation:** `@astrojs/sitemap` integrated in `astro.config.mjs`
 
-### 3.2 Robots.txt
-- [ ] Create robots.txt file
-- [ ] Allow all crawlers
-- [ ] Reference sitemap location
-- [ ] Block admin/internal paths if any
+### 3.2 Robots.txt ✅ COMPLETE
+- [x] Create robots.txt file
+- [x] Allow all crawlers
+- [x] Reference sitemap location (`/sitemap-index.xml`)
+- [x] Block admin/internal paths (`/api/`, `/*backup*`)
 
-```txt
-User-agent: *
-Allow: /
+**Location:** `/public/robots.txt`
 
-Sitemap: https://sparkhost.ie/sitemap.xml
-```
-
-### 3.3 Google Search Console Setup
+### 3.3 Google Search Console Setup ⏳ POST-DEPLOYMENT
 - [ ] Verify domain ownership
 - [ ] Submit sitemap
 - [ ] Monitor indexing status
 - [ ] Set up email alerts for issues
 
-### 3.4 Google Analytics / GA4
+### 3.4 Google Analytics / GA4 ⏳ POST-DEPLOYMENT
 - [ ] Install GA4 tracking code
 - [ ] Configure conversion goals
 - [ ] Set up search query tracking
@@ -175,10 +167,10 @@ Immediate low-effort tasks before launch:
 - [x] Schema markup implemented
 - [x] Internal linking in place
 - [x] H1-H3 hierarchy correct
-- [ ] Sitemap.xml generated
-- [ ] Robots.txt created
-- [ ] Search Console submitted
-- [ ] GA4 installed
+- [x] Sitemap.xml generated
+- [x] Robots.txt created
+- [ ] Search Console submitted (post-deployment)
+- [ ] GA4 installed (post-deployment)
 
 ---
 

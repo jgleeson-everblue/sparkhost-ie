@@ -157,12 +157,12 @@ WooCommerce generates significant database activity:
 - Pricing accuracy
 - Category organization
 
-### [Security Review](/blog/wordpress-security-basics)
+### [Security Review](/blog/wordpress-security-basics-irish-businesses)
 
 **Monthly security tasks:**
 - Review admin user accounts
 - Check for unauthorized changes
-- [Scan for malware](/blog/wordpress-malware-removal)
+- [Scan for malware](/blog/wordpress-malware-removal-guide)
 - Review security logs
 - Verify [backups](/blog/wordpress-backup-strategy) are working
 
@@ -267,10 +267,10 @@ Review all paid extensions:
 ### Legal and Compliance Review
 
 **Verify:**
-- [Privacy policy](/blog/gdpr-wordpress-irish-businesses) is current
+- [Privacy policy](/blog/gdpr-wordpress-website) is current
 - Terms and conditions accurate
 - [Cookie consent](/blog/cookie-consent-wordpress-ireland) working properly
-- [Accessibility compliance](/blog/website-accessibility-ireland)
+- [Accessibility compliance](/blog/accessibility-wordpress-websites)
 - Data retention appropriate
 
 ### Disaster Recovery Test

@@ -28,7 +28,7 @@ Here's what happens when you ignore updates:
 1. **Vulnerability disclosed** — Security researchers publish details of the flaw
 2. **Hackers notice** — Automated tools start scanning for vulnerable sites
 3. **Your site gets hit** — Without the patch, you're an easy target
-4. **Damage done** — [Malware installed](/blog/wordpress-malware-removal), data stolen, SEO rankings destroyed
+4. **Damage done** — [Malware installed](/blog/wordpress-malware-removal-guide), data stolen, SEO rankings destroyed
 
 The window between vulnerability disclosure and active exploitation is often just hours. Not days, not weeks — hours.
 
@@ -81,4 +81,4 @@ If you manage your own WordPress site:
 4. Test your site's key functionality
 5. Set a weekly reminder to repeat this process
 
-If this sounds like more work than you want to do, that's what we're here for. Every SparkHost plan includes managed updates with testing.
+If this sounds like more work than you want to do, that's what we're here for. Our [WordPress maintenance services](/services/wordpress-maintenance) include managed updates with testing, so you never have to worry about it.
