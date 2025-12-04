@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import BlogCardGrid from '../../components/BlogCardGrid.astro';
 
 const services = [
   {
@@ -62,6 +63,269 @@ const services = [
   },
 ];
 
+const managedBenefits = [
+  {
+    title: 'Save 10+ Hours Monthly',
+    description: 'Stop wrestling with updates, security scans, and backups. Our team handles it all so you can focus on your business.',
+    stat: '10+',
+    statLabel: 'hours saved/month',
+  },
+  {
+    title: 'Prevent Costly Downtime',
+    description: 'Website downtime costs Irish SMEs an average of €2,500 per incident. Our proactive monitoring catches issues before they become problems.',
+    stat: '€2.5K',
+    statLabel: 'avg. downtime cost',
+  },
+  {
+    title: 'Expert Help When Needed',
+    description: 'No more Googling WordPress errors or hiring expensive freelancers. Our Irish-based team is just a WhatsApp away.',
+    stat: '4hr',
+    statLabel: 'avg. response time',
+  },
+];
+
+const whyManaged = [
+  {
+    problem: 'Outdated plugins causing security vulnerabilities',
+    solution: 'Weekly updates with staging tests (Managed plan)',
+  },
+  {
+    problem: 'Site hacked with no way to recover',
+    solution: 'Daily backups with one-click restore',
+  },
+  {
+    problem: 'Slow loading driving customers away',
+    solution: 'CDN, caching, and Core Web Vitals optimisation',
+  },
+  {
+    problem: 'Spending hours on tech instead of business',
+    solution: 'Full-service managed hosting from €40/mo',
+  },
+  {
+    problem: 'Generic overseas support that doesn\'t understand your needs',
+    solution: '100% Irish support team via WhatsApp & email',
+  },
+];
+
+const testimonials = [
+  {
+    quote: "We switched from Bluehost and the difference is night and day. Our site loads in under 2 seconds now, and I haven't had to think about WordPress updates in 6 months.",
+    author: "Sarah Murphy",
+    role: "Owner",
+    company: "Murphy's Bakery, Cork",
+    avatar: "SM",
+  },
+  {
+    quote: "After getting hacked twice with our old host, we moved to SparkHost. Their security is rock solid, and when we had a question at 9pm, James replied within 20 minutes on WhatsApp.",
+    author: "David O'Brien",
+    role: "Marketing Director",
+    company: "TechStart Dublin",
+    avatar: "DO",
+  },
+  {
+    quote: "The migration was seamless — zero downtime. Now I actually enjoy updating our website instead of dreading it. Worth every cent of the €40/month.",
+    author: "Aoife Kelly",
+    role: "Founder",
+    company: "Kelly Consulting, Galway",
+    avatar: "AK",
+  },
+];
+
+const processSteps = [
+  {
+    step: 1,
+    title: "Free Consultation",
+    description: "We'll review your current setup, discuss your needs, and recommend the best plan. No pressure, no obligation.",
+    duration: "15-30 mins",
+    icon: "chat",
+  },
+  {
+    step: 2,
+    title: "Seamless Migration",
+    description: "Our team handles everything — files, database, emails, DNS. We test thoroughly on a staging site before going live.",
+    duration: "24-48 hours",
+    icon: "migration",
+  },
+  {
+    step: 3,
+    title: "Launch & Optimise",
+    description: "We switch your DNS, verify everything works, then optimise your site's speed and security settings.",
+    duration: "Same day",
+    icon: "speed",
+  },
+  {
+    step: 4,
+    title: "Ongoing Care",
+    description: "Sit back while we handle updates, backups, security, and monitoring. You focus on your business.",
+    duration: "24/7/365",
+    icon: "maintenance",
+  },
+];
+
+const competitorComparison = [
+  {
+    feature: "Irish-Based Support",
+    sparkhost: true,
+    others: "Overseas call centres",
+    sparkhostNote: "WhatsApp, email, phone",
+  },
+  {
+    feature: "All Services Included",
+    sparkhost: true,
+    others: "Extra fees for add-ons",
+    sparkhostNote: "7 services, one price",
+  },
+  {
+    feature: "EU Data Storage",
+    sparkhost: true,
+    others: "Often US-based",
+    sparkhostNote: "GDPR compliant",
+  },
+  {
+    feature: "Free Migration",
+    sparkhost: true,
+    others: "€50-200 fee",
+    sparkhostNote: "Full service, zero cost",
+  },
+  {
+    feature: "Hack Recovery",
+    sparkhost: true,
+    others: "Extra €150-500",
+    sparkhostNote: "Included in all plans",
+  },
+  {
+    feature: "Staging Environment",
+    sparkhost: true,
+    others: "Premium plans only",
+    sparkhostNote: "Managed plan",
+  },
+  {
+    feature: "Content Changes",
+    sparkhost: true,
+    others: "Not offered",
+    sparkhostNote: "1-3 hours/month included",
+  },
+  {
+    feature: "Response Time",
+    sparkhost: true,
+    others: "24-72 hours",
+    sparkhostNote: "4hr average",
+  },
+];
+
+const techStack = [
+  {
+    category: "Infrastructure",
+    items: [
+      { name: "LiteSpeed Web Server", description: "10x faster than Apache, optimised for WordPress" },
+      { name: "NVMe SSD Storage", description: "Ultra-fast read/write speeds for your database" },
+      { name: "EU Data Centres", description: "Low latency for Irish & European visitors" },
+      { name: "Cloudflare CDN", description: "Global edge network for static assets" },
+    ],
+  },
+  {
+    category: "Security",
+    items: [
+      { name: "Patchstack Firewall", description: "Enterprise WAF blocking 99.9% of attacks" },
+      { name: "Imunify360", description: "AI-powered malware scanning & removal" },
+      { name: "SSL Certificates", description: "Free Let's Encrypt with auto-renewal" },
+      { name: "DDoS Protection", description: "Cloudflare mitigation at the edge" },
+    ],
+  },
+  {
+    category: "Performance",
+    items: [
+      { name: "LiteSpeed Cache", description: "Server-level caching, no plugin needed" },
+      { name: "Object Caching", description: "Redis for database query caching" },
+      { name: "Image Optimisation", description: "WebP conversion, lazy loading" },
+      { name: "HTTP/3 & QUIC", description: "Latest protocols for faster delivery" },
+    ],
+  },
+  {
+    category: "Management",
+    items: [
+      { name: "Daily Backups", description: "Automated with 7-30 day retention" },
+      { name: "Staging Sites", description: "Test changes before going live" },
+      { name: "PHP 8.x Support", description: "Latest PHP for best performance" },
+      { name: "WordPress Toolkit", description: "One-click updates, cloning, hardening" },
+    ],
+  },
+];
+
+const trustSignals = [
+  {
+    metric: "99.9%",
+    label: "Uptime SLA",
+    description: "Guaranteed availability with monitoring",
+  },
+  {
+    metric: "4hr",
+    label: "Avg Response",
+    description: "Business hours support response",
+  },
+  {
+    metric: "7+",
+    label: "Years Experience",
+    description: "Managing WordPress sites",
+  },
+  {
+    metric: "500+",
+    label: "Sites Managed",
+    description: "For Irish businesses",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is managed WordPress hosting?",
+    answer: "Managed WordPress hosting is a premium hosting service where we handle all technical aspects of running your WordPress site — updates, security, backups, performance, and support. Unlike DIY hosting, you get a team of WordPress experts maintaining your site 24/7."
+  },
+  {
+    question: "How is SparkHost different from other WordPress hosts?",
+    answer: "We're 100% Irish-owned with local support (WhatsApp, email, phone), EU data centres for GDPR compliance, and all-inclusive pricing. No upsells, no hidden fees. We also include services like malware removal and hack recovery that others charge extra for."
+  },
+  {
+    question: "Do I need all 7 services?",
+    answer: "All 7 services are included with every plan — you don't pick and choose. This ensures comprehensive protection. The difference between Standard (€40/mo) and Managed (€249/mo) is in storage, staging environments, support priority, and included content change hours."
+  },
+  {
+    question: "Will you migrate my existing WordPress site?",
+    answer: "Yes! Free migration is included with all plans. We handle the full transfer — files, database, emails, and DNS — with minimal downtime. Most migrations complete within 24-48 hours."
+  },
+  {
+    question: "What if my site gets hacked?",
+    answer: "Hack recovery is included. We'll clean the malware, identify how it happened, patch vulnerabilities, and restore your site. For Managed plans, we also provide a post-incident security audit."
+  },
+  {
+    question: "Do you host WooCommerce sites?",
+    answer: "Absolutely. Our hosting is optimised for WooCommerce with e-commerce specific caching, secure payment processing, and experience handling high-traffic sales events. See our WooCommerce Hosting page for details."
+  },
+  {
+    question: "What's included in 'content change hours'?",
+    answer: "Content changes are small website updates we do for you — updating text, swapping images, adding blog posts, minor layout tweaks. Standard includes 1 hour/month, Managed includes 3 hours/month. Unused hours don't roll over, but you can request additional hours at €60/hr."
+  },
+  {
+    question: "Can I upgrade or downgrade my plan?",
+    answer: "Absolutely. You can upgrade instantly (we'll pro-rate your billing) or downgrade at the end of your billing cycle. No lock-in contracts — cancel anytime with 30 days notice."
+  },
+  {
+    question: "Do you offer email hosting?",
+    answer: "We focus on WordPress hosting and recommend using a dedicated email service like Google Workspace or Microsoft 365 for business email. We'll help configure your DNS records to work with any email provider."
+  },
+  {
+    question: "What happens if I exceed my storage limit?",
+    answer: "We'll notify you before you hit the limit. You can upgrade your plan, or we can help optimise your site (compress images, clean up old backups, etc.). We never suspend sites without warning."
+  },
+  {
+    question: "Is there a setup fee?",
+    answer: "No setup fees, ever. You pay your first month's hosting and we handle the migration free of charge. What you see is what you pay."
+  },
+  {
+    question: "What WordPress plugins do you support?",
+    answer: "We support virtually all plugins, with some security exceptions (we block vulnerable or malicious plugins). We have experience with WooCommerce, Elementor, ACF, Gravity Forms, WPML, and hundreds more. If you're unsure about a specific plugin, just ask."
+  },
+];
+
 // Schema markup
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -93,6 +357,19 @@ const serviceSchema = {
   }
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -121,6 +398,7 @@ function getIconSvg(icon: string) {
     migration: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>`,
     woocommerce: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>`,
     support: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>`,
+    chat: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>`,
   };
   return icons[icon] || icons.maintenance;
 }
@@ -162,6 +440,7 @@ function getColorClasses(color: string) {
   description="Comprehensive managed WordPress hosting services for Irish businesses. Maintenance, security, speed optimisation, backups, migration, WooCommerce, and expert support."
 >
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <Header currentPath="/services" />
@@ -187,13 +466,14 @@ function getColorClasses(color: string) {
         </nav>
 
         <div class="max-w-3xl">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Managed WordPress Hosting Ireland</span>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-[var(--font-display)] font-bold text-white leading-tight mb-6">
             Everything Your WordPress Site
             <span class="text-gradient-spark"> Needs to Thrive</span>
           </h1>
           <p class="text-xl text-white/70 leading-relaxed mb-8">
             From daily maintenance to enterprise security, we handle every aspect of your WordPress site.
-            Pick individual services or get everything with our managed hosting plans.
+            All 7 services included with every plan — one monthly fee, complete peace of mind.
           </p>
           <div class="flex flex-wrap gap-4">
             <a href="/pricing" class="btn-spark">
@@ -210,9 +490,68 @@ function getColorClasses(color: string) {
       </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="py-16 px-6">
+    <!-- Why Managed WordPress -->
+    <section class="py-16 px-6 border-t border-white/10">
       <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Why Managed Hosting?</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            Stop Managing WordPress. <span class="text-gradient-spark">Start Growing Your Business.</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Running a WordPress site shouldn't be a second job. Let us handle the technical complexity while you focus on what matters.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+          {managedBenefits.map((benefit) => (
+            <div class="card-glass p-6 text-center">
+              <div class="text-4xl font-bold text-gradient-spark mb-2" style="font-family: var(--font-display);">{benefit.stat}</div>
+              <div class="text-xs text-white/50 uppercase tracking-wider mb-4">{benefit.statLabel}</div>
+              <h3 class="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
+              <p class="text-white/60 text-sm">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Problem/Solution Grid -->
+        <div class="card-glass p-8 md:p-10">
+          <h3 class="text-xl font-semibold text-white mb-6 text-center">Common WordPress Problems We Solve</h3>
+          <div class="space-y-4">
+            {whyManaged.map((item) => (
+              <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-3 border-b border-white/5 last:border-0">
+                <div class="flex items-start gap-3 md:w-1/2">
+                  <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span class="text-white/60 text-sm">{item.problem}</span>
+                </div>
+                <div class="flex items-start gap-3 md:w-1/2">
+                  <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-white font-medium text-sm">{item.solution}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">All-Inclusive Services</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            7 Essential Services, <span class="text-gradient-spark">One Monthly Fee</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Every SparkHost plan includes all 7 services. No add-ons, no upsells — just comprehensive WordPress care.
+          </p>
+        </div>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
             const colors = getColorClasses(service.color);
@@ -227,9 +566,9 @@ function getColorClasses(color: string) {
                 </div>
 
                 <!-- Content -->
-                <h2 class="text-xl font-semibold text-white mb-2 group-hover:text-gradient-spark transition-colors">
+                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-gradient-spark transition-colors">
                   {service.title}
-                </h2>
+                </h3>
                 <p class="text-white/60 text-sm mb-4 leading-relaxed">
                   {service.description}
                 </p>
@@ -260,8 +599,201 @@ function getColorClasses(color: string) {
       </div>
     </section>
 
-    <!-- All-Inclusive CTA -->
-    <section class="py-16 px-6">
+    <!-- How It Works - Process Steps -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Getting Started</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            How It <span class="text-gradient-spark">Works</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            From first contact to fully managed — here's what to expect when you switch to SparkHost.
+          </p>
+        </div>
+
+        <div class="relative">
+          <!-- Connection line (desktop) -->
+          <div class="hidden lg:block absolute top-24 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-[var(--color-spark-orange)]/20 via-[var(--color-spark-red)]/40 to-[var(--color-spark-orange)]/20"></div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map((step) => (
+              <div class="relative">
+                <div class="card-glass p-6 h-full">
+                  <!-- Step number badge -->
+                  <div class="absolute -top-3 left-6 w-8 h-8 rounded-full bg-gradient-to-br from-[var(--color-spark-orange)] to-[var(--color-spark-red)] flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    {step.step}
+                  </div>
+
+                  <!-- Icon -->
+                  <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 mt-2">
+                    <svg class="w-6 h-6 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={getIconSvg(step.icon)} />
+                  </div>
+
+                  <h3 class="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                  <p class="text-white/60 text-sm mb-3">{step.description}</p>
+
+                  <!-- Duration badge -->
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 text-xs text-white/50">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {step.duration}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Customer Stories</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            Trusted by Irish <span class="text-gradient-spark">Businesses</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            See why businesses across Ireland have switched to SparkHost for their WordPress hosting.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial) => (
+            <div class="card-glass p-6 relative">
+              <!-- Quote icon -->
+              <svg class="absolute top-4 right-4 w-8 h-8 text-white/5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+
+              <p class="text-white/80 mb-6 italic leading-relaxed">"{testimonial.quote}"</p>
+
+              <div class="flex items-center gap-3">
+                <!-- Avatar -->
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-spark-orange)] to-[var(--color-spark-red)] flex items-center justify-center text-white font-semibold text-sm">
+                  {testimonial.avatar}
+                </div>
+                <div>
+                  <div class="text-white font-medium text-sm">{testimonial.author}</div>
+                  <div class="text-white/50 text-xs">{testimonial.role}, {testimonial.company}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="py-16 px-6 border-t border-white/10 bg-white/[0.02]">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {trustSignals.map((signal) => (
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-gradient-spark mb-1" style="font-family: var(--font-display);">
+                {signal.metric}
+              </div>
+              <div class="text-white font-medium text-sm mb-1">{signal.label}</div>
+              <div class="text-white/40 text-xs">{signal.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SparkHost vs Competitors -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">The Comparison</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            SparkHost vs <span class="text-gradient-spark">The Rest</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            See how we stack up against typical WordPress hosting providers.
+          </p>
+        </div>
+
+        <div class="card-glass overflow-hidden">
+          <!-- Header -->
+          <div class="grid grid-cols-3 gap-4 p-4 bg-white/5 border-b border-white/10">
+            <div class="text-white/50 text-sm font-medium">Feature</div>
+            <div class="text-center">
+              <span class="inline-flex items-center gap-2 text-white font-semibold">
+                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-[var(--color-spark-orange)] to-[var(--color-spark-red)]"></span>
+                SparkHost
+              </span>
+            </div>
+            <div class="text-center text-white/50 text-sm">Others</div>
+          </div>
+
+          <!-- Rows -->
+          <div class="divide-y divide-white/5">
+            {competitorComparison.map((row) => (
+              <div class="grid grid-cols-3 gap-4 p-4 items-center hover:bg-white/[0.02] transition-colors">
+                <div class="text-white text-sm">{row.feature}</div>
+                <div class="text-center">
+                  <div class="inline-flex flex-col items-center gap-1">
+                    <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-xs text-white/50">{row.sparkhostNote}</span>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <span class="text-white/40 text-sm">{row.others}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Deep Dive -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Under The Hood</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            Enterprise-Grade <span class="text-gradient-spark">Technology</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            We don't cut corners on infrastructure. Here's the technology powering your WordPress site.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {techStack.map((category) => (
+            <div class="card-glass p-6">
+              <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-[var(--color-spark-orange)] to-[var(--color-spark-red)]"></span>
+                {category.category}
+              </h3>
+              <div class="space-y-3">
+                {category.items.map((item) => (
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+                    <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <div>
+                      <div class="text-white font-medium text-sm">{item.name}</div>
+                      <div class="text-white/50 text-xs">{item.description}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing CTA -->
+    <section class="py-16 px-6 border-t border-white/10">
       <div class="max-w-4xl mx-auto">
         <div class="card-glass p-8 md:p-12 text-center relative overflow-hidden">
           <!-- Background gradient -->
@@ -269,15 +801,26 @@ function getColorClasses(color: string) {
 
           <div class="relative z-10">
             <h2 class="text-2xl md:text-3xl font-[var(--font-display)] font-bold text-white mb-4">
-              Get Everything in One Plan
+              Simple, Transparent Pricing
             </h2>
-            <p class="text-white/70 mb-8 max-w-2xl mx-auto">
-              All 7 services are included with our managed WordPress hosting. One monthly fee, complete peace of mind.
-              Starting from <span class="text-white font-semibold">€40/month + VAT</span>.
+            <p class="text-white/70 mb-6 max-w-2xl mx-auto">
+              All 7 services included with every plan. Choose based on storage, support level, and included content change hours.
             </p>
+            <div class="grid sm:grid-cols-2 gap-6 mb-8 max-w-xl mx-auto">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-1">€40<span class="text-base font-normal text-white/50">/mo</span></div>
+                <div class="text-sm text-white/60">Standard Plan</div>
+                <div class="text-xs text-white/40 mt-1">30GB SSD • 1hr content changes</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-gradient-spark mb-1">€249<span class="text-base font-normal text-white/50">/mo</span></div>
+                <div class="text-sm text-white/60">Managed Plan</div>
+                <div class="text-xs text-white/40 mt-1">100GB SSD • Staging • 3hr content changes</div>
+              </div>
+            </div>
             <div class="flex flex-wrap justify-center gap-4">
               <a href="/pricing" class="btn-spark">
-                <span>See Plans & Pricing</span>
+                <span>Compare Plans</span>
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -291,56 +834,145 @@ function getColorClasses(color: string) {
       </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="py-16 px-6">
+    <!-- Why Irish Businesses Choose SparkHost -->
+    <section class="py-16 px-6 border-t border-white/10">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-2xl md:text-3xl font-[var(--font-display)] font-bold text-white mb-4">
-            Why Irish Businesses Choose SparkHost
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">The SparkHost Difference</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            Why Irish Businesses <span class="text-gradient-spark">Choose SparkHost</span>
           </h2>
           <p class="text-white/60 max-w-2xl mx-auto">
-            We're not just a hosting provider — we're your WordPress partner.
+            We're not just another hosting provider — we're your dedicated WordPress partner.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="card-glass p-6 text-center">
             <div class="text-4xl font-bold text-gradient-spark mb-2">100%</div>
             <div class="text-white font-medium mb-1">Irish Support</div>
-            <div class="text-white/50 text-sm">Real people, not chatbots</div>
+            <div class="text-white/50 text-sm">Real people via WhatsApp, email, and phone</div>
           </div>
           <div class="card-glass p-6 text-center">
             <div class="text-4xl font-bold text-gradient-spark mb-2">EU</div>
             <div class="text-white font-medium mb-1">Data Storage</div>
-            <div class="text-white/50 text-sm">GDPR compliant hosting</div>
+            <div class="text-white/50 text-sm">GDPR compliant with EU data centres</div>
           </div>
           <div class="card-glass p-6 text-center">
             <div class="text-4xl font-bold text-gradient-spark mb-2">24/7</div>
             <div class="text-white font-medium mb-1">Monitoring</div>
-            <div class="text-white/50 text-sm">We watch, you sleep</div>
+            <div class="text-white/50 text-sm">We watch your site so you can sleep</div>
+          </div>
+          <div class="card-glass p-6 text-center">
+            <div class="text-4xl font-bold text-gradient-spark mb-2">Free</div>
+            <div class="text-white font-medium mb-1">Migration</div>
+            <div class="text-white/50 text-sm">We move your site at no extra cost</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Blog Section -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Learn More</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            WordPress Hosting <span class="text-gradient-spark">Resources</span>
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            Tips, guides, and insights for running a successful WordPress website.
+          </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+          <BlogCardGrid limit={3} />
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="/blog" class="text-[var(--color-spark-orange)] hover:underline font-medium inline-flex items-center gap-2">
+            View All Articles
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-6 border-t border-white/10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Common Questions</span>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+            WordPress Hosting <span class="text-gradient-spark">FAQ</span>
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq, index) => (
+            <div class="card-glass overflow-hidden">
+              <button
+                class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+                data-faq-index={index}
+              >
+                <span class="font-medium">{faq.question}</span>
+                <svg class="w-5 h-5 text-white/50 transition-transform flex-shrink-0 faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-content hidden px-6 pb-5">
+                <p class="text-white/60">{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- Final CTA -->
-    <section class="py-16 px-6">
+    <section class="py-16 px-6 border-t border-white/10">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl md:text-3xl font-[var(--font-display)] font-bold text-white mb-4">
-          Ready to Get Started?
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-[var(--font-display)] font-bold text-white mb-4">
+          Ready to <span class="text-gradient-spark">Get Started</span>?
         </h2>
-        <p class="text-white/70 mb-8">
-          Free migration included. No setup fees. Cancel anytime.
+        <p class="text-white/70 mb-8 text-lg">
+          Free migration included. No setup fees. Cancel anytime.<br class="hidden sm:block" />
+          Join Irish businesses who've made the switch to worry-free WordPress.
         </p>
-        <a href="/get-started" class="btn-spark inline-flex">
-          <span>Start Your Free Migration</span>
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/get-started" class="btn-spark">
+            <span>Start Your Free Migration</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="/contact" class="btn-outline">
+            <span>Book a Free Call</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <Footer />
 </Layout>
+
+<script>
+  // FAQ accordion functionality
+  document.querySelectorAll('.faq-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling as HTMLElement;
+      const icon = button.querySelector('.faq-icon') as HTMLElement;
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+</script>
