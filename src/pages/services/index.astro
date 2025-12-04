@@ -1,0 +1,346 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const services = [
+  {
+    slug: 'wordpress-maintenance',
+    title: 'WordPress Maintenance',
+    description: 'Keep your site updated, secure, and running smoothly with our comprehensive maintenance service. Weekly updates, daily backups, and proactive monitoring.',
+    features: ['Core & plugin updates', 'Daily backups', 'Security monitoring', 'Performance checks'],
+    icon: 'maintenance',
+    color: 'spark-orange',
+  },
+  {
+    slug: 'wordpress-security',
+    title: 'WordPress Security',
+    description: 'Enterprise-grade protection for your WordPress site. Firewall, malware scanning, brute force protection, and expert hack recovery.',
+    features: ['Patchstack WAF', 'Malware scanning', 'DDoS protection', 'Hack recovery'],
+    icon: 'security',
+    color: 'spark-red',
+  },
+  {
+    slug: 'speed-optimisation',
+    title: 'Speed Optimisation',
+    description: 'Make your WordPress site blazing fast. We optimise Core Web Vitals, implement caching, and deliver content via global CDN.',
+    features: ['Core Web Vitals', 'CDN integration', 'Image optimisation', 'Database tuning'],
+    icon: 'speed',
+    color: 'blue',
+  },
+  {
+    slug: 'wordpress-backup',
+    title: 'WordPress Backup',
+    description: 'Never lose your data. Automatic daily backups stored off-site with one-click restore and disaster recovery included.',
+    features: ['Daily automated backups', 'Off-site storage', 'One-click restore', '7-day retention'],
+    icon: 'backup',
+    color: 'green',
+  },
+  {
+    slug: 'wordpress-migration',
+    title: 'WordPress Migration',
+    description: 'Free, hassle-free migration to SparkHost. We handle everything — files, database, emails, and DNS — with minimal downtime.',
+    features: ['Free migration', 'Zero downtime', 'Full testing', 'DNS management'],
+    icon: 'migration',
+    color: 'purple',
+  },
+  {
+    slug: 'woocommerce-hosting',
+    title: 'WooCommerce Hosting',
+    description: 'E-commerce optimised hosting for Irish online stores. Fast checkout, secure payments, and expert WooCommerce support.',
+    features: ['E-commerce optimised', 'Secure payments', 'Fast checkout', 'Order management'],
+    icon: 'woocommerce',
+    color: 'purple',
+  },
+  {
+    slug: 'wordpress-support',
+    title: 'WordPress Support',
+    description: 'Expert WordPress help when you need it. Quick response via WhatsApp and email from WordPress specialists who understand Irish business.',
+    features: ['WhatsApp support', 'Email support', 'Quick response', 'WordPress experts'],
+    icon: 'support',
+    color: 'spark-orange',
+  },
+];
+
+// Schema markup
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Managed WordPress Hosting",
+  "name": "WordPress Hosting Services Ireland",
+  "description": "Comprehensive managed WordPress hosting services for Irish businesses including maintenance, security, speed optimisation, backups, and expert support.",
+  "provider": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "WordPress Services",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "url": `https://sparkhost.ie/services/${service.slug}`
+      }
+    }))
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://sparkhost.ie/services"
+    }
+  ]
+};
+
+function getIconSvg(icon: string) {
+  const icons: Record<string, string> = {
+    maintenance: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+    security: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`,
+    speed: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+    backup: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>`,
+    migration: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>`,
+    woocommerce: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>`,
+    support: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>`,
+  };
+  return icons[icon] || icons.maintenance;
+}
+
+function getColorClasses(color: string) {
+  const colors: Record<string, { gradient: string; bg: string; text: string }> = {
+    'spark-orange': {
+      gradient: 'from-[var(--color-spark-orange)] to-[var(--color-spark-red)]',
+      bg: 'bg-[var(--color-spark-orange)]/10',
+      text: 'text-[var(--color-spark-orange)]',
+    },
+    'spark-red': {
+      gradient: 'from-[var(--color-spark-red)] to-[var(--color-spark-orange)]',
+      bg: 'bg-[var(--color-spark-red)]/10',
+      text: 'text-[var(--color-spark-red)]',
+    },
+    'blue': {
+      gradient: 'from-blue-500 to-cyan-400',
+      bg: 'bg-blue-500/10',
+      text: 'text-blue-400',
+    },
+    'green': {
+      gradient: 'from-emerald-500 to-green-400',
+      bg: 'bg-emerald-500/10',
+      text: 'text-emerald-400',
+    },
+    'purple': {
+      gradient: 'from-purple-500 to-pink-400',
+      bg: 'bg-purple-500/10',
+      text: 'text-purple-400',
+    },
+  };
+  return colors[color] || colors['spark-orange'];
+}
+---
+
+<Layout
+  title="WordPress Hosting Services Ireland | Managed WordPress | SparkHost.ie"
+  description="Comprehensive managed WordPress hosting services for Irish businesses. Maintenance, security, speed optimisation, backups, migration, WooCommerce, and expert support."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header currentPath="/services" />
+
+  <main class="relative min-h-screen">
+    <!-- Background effects -->
+    <div class="fixed inset-0 -z-10">
+      <div class="absolute inset-0 bg-[var(--color-deep-navy)]"></div>
+      <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--color-spark-red)]/5 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[var(--color-spark-orange)]/5 rounded-full blur-[100px]"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-sm text-white/50">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><span class="mx-2">/</span></li>
+            <li class="text-white">Services</li>
+          </ol>
+        </nav>
+
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-[var(--font-display)] font-bold text-white leading-tight mb-6">
+            Everything Your WordPress Site
+            <span class="text-gradient-spark"> Needs to Thrive</span>
+          </h1>
+          <p class="text-xl text-white/70 leading-relaxed mb-8">
+            From daily maintenance to enterprise security, we handle every aspect of your WordPress site.
+            Pick individual services or get everything with our managed hosting plans.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/pricing" class="btn-spark">
+              <span>View Pricing</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a href="/contact" class="btn-outline">
+              <span>Talk to Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => {
+            const colors = getColorClasses(service.color);
+            return (
+              <a
+                href={`/services/${service.slug}`}
+                class="group card-glass p-6 hover:border-white/20 transition-all duration-300"
+              >
+                <!-- Icon -->
+                <div class={`w-12 h-12 rounded-xl ${colors.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <svg class={`w-6 h-6 ${colors.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={getIconSvg(service.icon)} />
+                </div>
+
+                <!-- Content -->
+                <h2 class="text-xl font-semibold text-white mb-2 group-hover:text-gradient-spark transition-colors">
+                  {service.title}
+                </h2>
+                <p class="text-white/60 text-sm mb-4 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <!-- Features -->
+                <ul class="space-y-2 mb-4">
+                  {service.features.map((feature) => (
+                    <li class="flex items-center gap-2 text-sm text-white/50">
+                      <svg class={`w-4 h-4 ${colors.text} flex-shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <!-- Link indicator -->
+                <div class="flex items-center gap-2 text-sm font-medium text-white/40 group-hover:text-white transition-colors">
+                  Learn more
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- All-Inclusive CTA -->
+    <section class="py-16 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="card-glass p-8 md:p-12 text-center relative overflow-hidden">
+          <!-- Background gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-spark-red)]/10 via-transparent to-[var(--color-spark-orange)]/10"></div>
+
+          <div class="relative z-10">
+            <h2 class="text-2xl md:text-3xl font-[var(--font-display)] font-bold text-white mb-4">
+              Get Everything in One Plan
+            </h2>
+            <p class="text-white/70 mb-8 max-w-2xl mx-auto">
+              All 7 services are included with our managed WordPress hosting. One monthly fee, complete peace of mind.
+              Starting from <span class="text-white font-semibold">€40/month + VAT</span>.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="/pricing" class="btn-spark">
+                <span>See Plans & Pricing</span>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a href="/get-started" class="btn-outline">
+                <span>Get Started Free</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-[var(--font-display)] font-bold text-white mb-4">
+            Why Irish Businesses Choose SparkHost
+          </h2>
+          <p class="text-white/60 max-w-2xl mx-auto">
+            We're not just a hosting provider — we're your WordPress partner.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card-glass p-6 text-center">
+            <div class="text-4xl font-bold text-gradient-spark mb-2">100%</div>
+            <div class="text-white font-medium mb-1">Irish Support</div>
+            <div class="text-white/50 text-sm">Real people, not chatbots</div>
+          </div>
+          <div class="card-glass p-6 text-center">
+            <div class="text-4xl font-bold text-gradient-spark mb-2">EU</div>
+            <div class="text-white font-medium mb-1">Data Storage</div>
+            <div class="text-white/50 text-sm">GDPR compliant hosting</div>
+          </div>
+          <div class="card-glass p-6 text-center">
+            <div class="text-4xl font-bold text-gradient-spark mb-2">24/7</div>
+            <div class="text-white font-medium mb-1">Monitoring</div>
+            <div class="text-white/50 text-sm">We watch, you sleep</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-[var(--font-display)] font-bold text-white mb-4">
+          Ready to Get Started?
+        </h2>
+        <p class="text-white/70 mb-8">
+          Free migration included. No setup fees. Cancel anytime.
+        </p>
+        <a href="/get-started" class="btn-spark inline-flex">
+          <span>Start Your Free Migration</span>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
