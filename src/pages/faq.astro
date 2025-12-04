@@ -13,6 +13,14 @@ const faqCategories = [
         answer: "It's hosting plus active maintenance. We don't just give you server space — we keep your WordPress installation updated, secure, backed up, and running fast. You get the benefits of a professional web team without hiring one.",
       },
       {
+        question: 'What makes SparkHost different from other Irish web hosting providers?',
+        answer: "Unlike typical hosting providers who just rent server space, we actively manage your WordPress site. We handle updates, security, backups, and performance optimization. You get Irish-based support via WhatsApp, not overseas call centres. We're WordPress specialists, not generalists trying to support every platform.",
+      },
+      {
+        question: 'Do you offer WordPress hosting in Dublin?',
+        answer: "Yes! SparkHost is an Irish company providing WordPress hosting with servers located in the UK and EU for optimal speed. Our support team operates from Ireland during Irish business hours, so you get local expertise and fast response times.",
+      },
+      {
         question: 'Do I need to do anything after signing up?',
         answer: "Almost nothing. We handle migration from your current host. Once you're set up, we manage everything. You'll get monthly reports and can request changes anytime via WhatsApp or email.",
       },
@@ -28,6 +36,18 @@ const faqCategories = [
         question: 'How long does migration take?',
         answer: 'Most migrations are completed within 24-48 hours. Complex sites with large databases may take slightly longer. We\'ll keep you informed throughout the process.',
       },
+      {
+        question: 'Can I host multiple WordPress websites on one plan?',
+        answer: "Our Standard plan covers one WordPress website. If you have multiple sites, we offer multi-site discounts — contact us for a custom quote. Each site gets the same level of care and maintenance.",
+      },
+      {
+        question: 'Is SparkHost suitable for WordPress e-commerce sites?',
+        answer: "Absolutely. We fully support WooCommerce and other WordPress e-commerce plugins. Our Managed plan is particularly well-suited for online stores, offering staging environments for testing updates before they go live, plus priority support during sales events.",
+      },
+      {
+        question: "What's the difference between shared hosting and managed WordPress hosting?",
+        answer: "Shared hosting gives you server space and leaves you to manage everything yourself — updates, security, backups, performance. Managed WordPress hosting (what we offer) handles all of that for you. We actively maintain your site, not just the server. It's the difference between renting a car and having a chauffeur.",
+      },
     ],
   },
   {
@@ -37,6 +57,26 @@ const faqCategories = [
       {
         question: 'What happens if my site goes down?',
         answer: "We monitor uptime 24/7. If your site goes down, we're usually aware before you are. We investigate immediately and restore from backups if needed. You'll be notified of any issues and their resolution.",
+      },
+      {
+        question: 'How do you handle WordPress website speed optimization?',
+        answer: "We implement multiple layers of optimization: server-level caching, image optimization, database cleanup, CDN configuration via Cloudflare, and code minification. We also identify and fix slow plugins or themes. Most sites see significant improvement within the first month.",
+      },
+      {
+        question: 'What PHP versions do you support for WordPress?',
+        answer: "We support PHP 8.1, 8.2, and 8.3 — all current, secure versions. We'll recommend the optimal version for your plugins and themes. When new PHP versions release, we test compatibility before upgrading.",
+      },
+      {
+        question: 'How does your WordPress migration service work?',
+        answer: "We handle everything: download your files and database from your current host, set up our servers, import your content, configure DNS, test thoroughly, then switch over with minimal downtime. Most clients see zero downtime during migration.",
+      },
+      {
+        question: 'Do you provide staging environments for WordPress development?',
+        answer: "Yes, staging is included with our Managed plan. You get a complete copy of your site to test updates, new plugins, or design changes safely. Once approved, we push changes to your live site.",
+      },
+      {
+        question: 'What caching solutions do you use for WordPress?',
+        answer: "We use a multi-layer approach: server-side object caching with Redis, page caching, browser caching, and Cloudflare CDN. This combination typically reduces page load times by 50-70% compared to uncached sites.",
       },
       {
         question: 'Do you support WooCommerce?',
@@ -99,8 +139,24 @@ const faqCategories = [
         answer: 'Multiple layers: Cloudflare firewall and DDoS protection, automatic security updates, malware scanning, WordPress hardening, and (for Managed plans) real-time threat detection via Patchstack.',
       },
       {
-        question: 'What happens if my site gets malware?',
-        answer: "We detect it, clean it, and restore your site. This is included in your plan — no emergency charges. We'll also identify how it happened and strengthen protection.",
+        question: 'What WordPress security plugins do you recommend?',
+        answer: "For our Managed clients, we use Patchstack for enterprise-grade security monitoring. For Standard clients, we configure Wordfence or Sucuri. However, the best security comes from keeping WordPress, themes, and plugins updated — which we handle automatically.",
+      },
+      {
+        question: 'How do you protect against WordPress malware?',
+        answer: "We use a proactive approach: firewall rules block known attack patterns, automatic updates close vulnerabilities quickly, and daily malware scans catch any infections early. If malware is found, we clean it immediately and investigate how it got in.",
+      },
+      {
+        question: 'Do you offer SSL certificates for WordPress sites?',
+        answer: "Yes, free SSL certificates are included with all plans. We install and renew them automatically via Let's Encrypt. For businesses requiring extended validation (EV) certificates, we can configure those too.",
+      },
+      {
+        question: 'How often do you scan for WordPress vulnerabilities?',
+        answer: "Daily automated malware scans run on all sites. For Managed clients, we also monitor the Patchstack vulnerability database and apply virtual patches for zero-day threats, often before official plugin updates are released.",
+      },
+      {
+        question: 'What happens if my WordPress site gets hacked?',
+        answer: "We detect it, clean it, and restore your site. This is included in your plan — no emergency charges. We identify how the breach occurred, remove all malware, restore from clean backups if needed, and strengthen defenses to prevent recurrence.",
       },
       {
         question: 'Are backups automatic?',
@@ -125,6 +181,18 @@ const faqCategories = [
         answer: 'WhatsApp or email. For existing clients, WhatsApp is the fastest way to reach us. You can also email hello@sparkhost.ie anytime.',
       },
       {
+        question: 'Do you offer WordPress developer support?',
+        answer: "Yes, particularly for Managed clients. We can help troubleshoot plugin conflicts, advise on best practices, review code from other developers, and guide you on WordPress development decisions. We're not just hosting — we're WordPress experts.",
+      },
+      {
+        question: 'Can you help with WordPress plugin conflicts?',
+        answer: "Absolutely. Plugin conflicts are one of the most common WordPress issues. We'll identify the conflicting plugins, find alternatives or workarounds, and ensure your site runs smoothly. This is included in your maintenance.",
+      },
+      {
+        question: "What's your response time for WordPress emergencies?",
+        answer: "For site-down emergencies and security incidents, we respond within 1-2 hours during business hours. After hours, our monitoring systems alert us to critical issues and we'll typically respond the same evening.",
+      },
+      {
         question: 'What are your support hours?',
         answer: 'We respond during Irish business hours, Monday to Friday. For emergencies (site down, security issues), we have extended monitoring and faster response times.',
       },
@@ -139,12 +207,32 @@ const faqCategories = [
     ],
   },
 ];
+
+// Flatten all FAQs for schema markup
+const allFaqs = faqCategories.flatMap(category => category.faqs);
+
+// Generate FAQPage schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": allFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout
-  title="FAQ - SparkHost.ie | Frequently Asked Questions"
-  description="Common questions about SparkHost's WordPress hosting and maintenance services. Find answers about pricing, technical details, security, and support."
+  title="WordPress Hosting FAQ Ireland | Common Questions Answered | SparkHost.ie"
+  description="Answers to common WordPress hosting questions. Learn about migrations, security, backups, speed optimization & support from Irish WordPress hosting experts."
 >
+  <!-- FAQPage Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <Header currentPath="/faq" />
 
   <main>
@@ -152,12 +240,12 @@ const faqCategories = [
     <section class="pt-32 pb-12">
       <div class="container">
         <div class="text-center max-w-2xl mx-auto">
-          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">FAQ</span>
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WordPress Hosting FAQ Ireland</span>
           <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
-            Frequently Asked <span class="text-gradient-spark">Questions</span>
+            WordPress Hosting <span class="text-gradient-spark">Questions Answered</span>
           </h1>
           <p class="text-xl text-white/60">
-            Everything you need to know about SparkHost's WordPress hosting and maintenance services.
+            Everything you need to know about <strong class="text-white/80">managed WordPress hosting in Ireland</strong>. Learn about our <a href="/services" class="text-[var(--color-spark-orange)] hover:underline">WordPress hosting services</a>, <a href="/pricing" class="text-[var(--color-spark-orange)] hover:underline">pricing plans</a>, and support. Can't find your answer? <a href="/contact" class="text-[var(--color-spark-orange)] hover:underline">Contact us</a>.
           </p>
         </div>
       </div>
@@ -198,7 +286,7 @@ const faqCategories = [
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 )}
-                {category.name}
+                {category.name} ({category.faqs.length})
               </a>
             ))}
           </div>
@@ -218,32 +306,38 @@ const faqCategories = [
             <div class="flex items-center gap-4 mb-6">
               <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center">
                 {category.icon === 'info' && (
-                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="General information icon">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 )}
                 {category.icon === 'code' && (
-                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Technical code icon">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
                 )}
                 {category.icon === 'card' && (
-                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Payment card icon">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                   </svg>
                 )}
                 {category.icon === 'shield' && (
-                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Security shield icon">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 )}
                 {category.icon === 'support' && (
-                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Support icon">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 )}
               </div>
-              <h2 class="text-2xl font-bold" style="font-family: var(--font-display);">{category.name} Questions</h2>
+              <h2 class="text-2xl font-bold" style="font-family: var(--font-display);">
+                {category.name === 'General' && 'General WordPress Hosting Questions'}
+                {category.name === 'Technical' && 'Technical WordPress Hosting FAQ'}
+                {category.name === 'Billing' && 'WordPress Hosting Billing & Pricing'}
+                {category.name === 'Security' && 'WordPress Security & Backups'}
+                {category.name === 'Support' && 'WordPress Support Ireland'}
+              </h2>
             </div>
 
             <div class="space-y-3">
@@ -255,7 +349,7 @@ const faqCategories = [
                     aria-expanded="false"
                   >
                     <span class="font-semibold pr-4 text-sm md:text-base">{faq.question}</span>
-                    <svg class="w-5 h-5 text-[var(--color-spark-orange)] flex-shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-faq-icon>
+                    <svg class="w-5 h-5 text-[var(--color-spark-orange)] flex-shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-faq-icon aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -277,19 +371,19 @@ const faqCategories = [
       <div class="container">
         <div class="text-center">
           <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">
-            Still Have Questions?
+            Still Have <span class="text-gradient-spark">WordPress Hosting Questions</span>?
           </h2>
           <p class="text-lg text-white/60 mb-8 max-w-xl mx-auto">
-            We're happy to answer any questions you have. Book a free call or send us a message.
+            Our <strong class="text-white/80">Dublin-based team</strong> is happy to answer any questions about <a href="/services" class="text-[var(--color-spark-orange)] hover:underline">WordPress hosting services</a> in Ireland. Book a free call or send us a message.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" class="btn-spark">
-              <span>Contact Us</span>
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="/contact" class="btn-spark" title="Contact SparkHost WordPress support">
+              <span>Contact Our Team</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Arrow right">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
-            <a href="/pricing" class="btn-outline">View Pricing</a>
+            <a href="/pricing" class="btn-outline" title="View WordPress hosting pricing plans">View Hosting Plans</a>
           </div>
         </div>
       </div>

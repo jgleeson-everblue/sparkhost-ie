@@ -1,7 +1,7 @@
 ---
 title: "5 Ways to Speed Up Your WordPress Site (Without Breaking It)"
 excerpt: "Slow websites lose customers. Here are proven techniques to make your WordPress site faster, explained without the technical overwhelm."
-publishedDate: "2025-12-02"
+publishedDate: "2025-11-26"
 author: "SparkHost Team"
 featured: false
 ---

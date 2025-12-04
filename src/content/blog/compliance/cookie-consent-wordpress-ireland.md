@@ -1,7 +1,7 @@
 ---
 title: "Cookie Consent for Irish Websites: What You Actually Need"
 excerpt: "Cookie banners are everywhere, but most are doing it wrong. Here's how to implement proper cookie consent that's actually compliant."
-publishedDate: "2025-11-21"
+publishedDate: "2025-08-27"
 author: "SparkHost Team"
 featured: false
 ---

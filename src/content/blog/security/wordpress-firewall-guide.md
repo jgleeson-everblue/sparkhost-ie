@@ -1,7 +1,7 @@
 ---
 title: "WordPress Firewalls: Protecting Your Site from Attacks"
 excerpt: "A firewall is your website's first line of defense. Here's how WordPress firewalls work and which one is right for your business."
-publishedDate: "2025-11-07"
+publishedDate: "2025-07-23"
 author: "SparkHost Team"
 featured: false
 ---

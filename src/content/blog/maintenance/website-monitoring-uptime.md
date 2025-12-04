@@ -1,7 +1,7 @@
 ---
 title: "Website Monitoring: How to Know When Your Site Goes Down"
 excerpt: "If your website goes down at 2am, how would you know? Here's how to set up proper monitoring so you're never the last to find out."
-publishedDate: "2025-11-13"
+publishedDate: "2025-08-06"
 author: "SparkHost Team"
 featured: false
 ---

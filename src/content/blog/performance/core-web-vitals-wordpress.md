@@ -1,7 +1,7 @@
 ---
 title: "Core Web Vitals for WordPress: The Irish Business Owner's Guide"
 excerpt: "Google's Core Web Vitals are now a ranking factor. Here's what they measure, why they matter, and how to improve them on your WordPress site."
-publishedDate: "2025-11-20"
+publishedDate: "2025-09-10"
 author: "SparkHost Team"
 featured: false
 ---

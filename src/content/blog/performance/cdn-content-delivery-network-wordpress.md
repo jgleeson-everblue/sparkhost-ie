@@ -1,7 +1,7 @@
 ---
 title: "CDN for WordPress: What It Is and Why Your Irish Business Needs One"
 excerpt: "A CDN can dramatically speed up your WordPress site for visitors worldwide. Here's how they work and how to set one up."
-publishedDate: "2025-11-06"
+publishedDate: "2025-07-16"
 author: "SparkHost Team"
 featured: false
 ---

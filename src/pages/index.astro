@@ -3,6 +3,53 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import DarkVeil from '../components/DarkVeil';
+import { getCollection } from 'astro:content';
+
+// Fetch the 3 most recent blog posts
+const allPosts = await getCollection('blog');
+
+function getCategory(id: string): string {
+  const parts = id.split('/');
+  if (parts.length > 1) {
+    return parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+  }
+  return 'General';
+}
+
+function getSlug(id: string): string {
+  const parts = id.split('/');
+  return parts[parts.length - 1];
+}
+
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.publishedDate).getTime();
+  const dateB = new Date(b.data.publishedDate).getTime();
+  return dateB - dateA;
+});
+
+const recentPosts = sortedPosts.slice(0, 3).map(post => ({
+  slug: getSlug(post.id),
+  title: post.data.title,
+  excerpt: post.data.excerpt,
+  category: getCategory(post.id),
+  date: post.data.publishedDate,
+}));
+
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  Security: { bg: 'rgba(244, 54, 84, 0.15)', text: '#F43654' },
+  Performance: { bg: 'rgba(59, 130, 246, 0.15)', text: '#3B82F6' },
+  Maintenance: { bg: 'rgba(244, 140, 84, 0.15)', text: '#F48C54' },
+  Hosting: { bg: 'rgba(34, 197, 94, 0.15)', text: '#22C55E' },
+  Compliance: { bg: 'rgba(168, 85, 247, 0.15)', text: '#A855F7' },
+};
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-IE', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
 
 const stats = [
   { value: '99.9%', label: 'Uptime Guarantee' },
@@ -28,12 +75,107 @@ const faqs = [
     answer: 'Yes. Monthly plans have no long-term contract. We\'d appreciate 30 days notice, but there\'s no cancellation penalty.',
   },
 ];
+
+// Schema.org structured data for SEO
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SparkHost.ie",
+  "url": "https://sparkhost.ie",
+  "logo": "https://sparkhost.ie/SparkHost-dark.svg",
+  "description": "Managed WordPress hosting provider in Ireland offering professional hosting, security, and maintenance services.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IE",
+    "addressLocality": "Dublin"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "hello@sparkhost.ie",
+    "availableLanguage": "English"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "priceRange": "€€"
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SparkHost.ie",
+  "url": "https://sparkhost.ie",
+  "description": "Managed WordPress hosting for Irish businesses",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SparkHost.ie"
+  }
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SparkHost.ie",
+  "image": "https://sparkhost.ie/SparkHost-dark.svg",
+  "description": "Professional managed WordPress hosting for Irish businesses. Includes daily backups, security monitoring, speed optimization, and Irish-based support.",
+  "@id": "https://sparkhost.ie",
+  "url": "https://sparkhost.ie",
+  "priceRange": "€40-€249/month",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IE",
+    "addressLocality": "Dublin"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.3498,
+    "longitude": -6.2603
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Ireland"
+    },
+    {
+      "@type": "City",
+      "name": "Dublin"
+    }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  }
+};
+
+// FAQPage schema for homepage FAQs
+const homepageFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <Layout
-  title="SparkHost.ie - Managed WordPress Hosting Ireland"
-  description="Your WordPress site, professionally managed. High-performance hosting, automatic updates, real security, and Irish support. From €40/month."
+  title="WordPress Hosting Ireland | Managed WordPress Hosting | SparkHost.ie"
+  description="Premium WordPress hosting in Ireland with expert management. Daily backups, security monitoring, speed optimization & 24/7 support. Irish-based hosting from €40/month."
 >
+  <!-- Structured Data / Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(homepageFaqSchema)} />
+
   <Header currentPath="/" />
 
   <main>
@@ -65,15 +207,15 @@ const faqs = [
           <span class="text-sm text-white/70">Irish WordPress Hosting</span>
         </div>
 
-        <!-- Main headline -->
-        <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 animate-fade-in-up" style="font-family: var(--font-display);">
+        <!-- Main headline - H1 optimised for "WordPress Hosting Ireland" -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up" style="font-family: var(--font-display);">
           Your WordPress Site,<br />
           <span class="text-gradient-spark">Professionally Managed</span>
         </h1>
 
-        <!-- Subheadline -->
+        <!-- Subheadline - keyword-rich supporting text -->
         <p class="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-10 animate-fade-in-up stagger-2">
-          High-performance hosting, automatic updates, real security, and Irish support. From €40/month.
+          Premium managed WordPress hosting with automatic updates, real security, and dedicated Irish support. Plans from €40/month.
         </p>
 
         <!-- CTA buttons -->
@@ -95,30 +237,30 @@ const faqs = [
         <!-- Trust badges -->
         <div class="flex flex-wrap justify-center gap-6 mt-16 animate-fade-in-up stagger-4">
           <div class="flex items-center gap-2 text-white/50 text-sm">
-            <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Uptime guarantee icon">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             99.9% Uptime
           </div>
-          <div class="flex items-center gap-2 text-white/50 text-sm">
-            <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <a href="/about" class="flex items-center gap-2 text-white/50 text-sm hover:text-white/70 transition-colors">
+            <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Ireland location icon">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             Irish Support Team
-          </div>
-          <div class="flex items-center gap-2 text-white/50 text-sm">
-            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          </a>
+          <a href="/faq#security" class="flex items-center gap-2 text-white/50 text-sm hover:text-white/70 transition-colors">
+            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="GDPR compliance icon">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             GDPR Compliant
-          </div>
-          <div class="flex items-center gap-2 text-white/50 text-sm">
-            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          </a>
+          <a href="/services" class="flex items-center gap-2 text-white/50 text-sm hover:text-white/70 transition-colors">
+            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="WordPress backup icon">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
             </svg>
             Daily Backups
-          </div>
+          </a>
         </div>
       </div>
 
@@ -141,7 +283,7 @@ const faqs = [
             <div class="absolute -top-4 -left-4 w-24 h-24 bg-[var(--color-spark-red)]/10 rounded-full blur-2xl"></div>
             <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Sound Familiar?</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
-              "I Just Want My Site to Work"
+              WordPress Maintenance Problems? <span class="text-gradient-spark">"I Just Want My Site to Work"</span>
             </h2>
             <p class="text-lg text-white/60 leading-relaxed mb-6">
               You didn't start a business to spend evenings updating plugins, worrying about security, or Googling "WordPress white screen of death."
@@ -197,7 +339,7 @@ const faqs = [
         <div class="text-center mb-20" data-animate="fade-up">
           <span class="inline-block text-[var(--color-spark-red)] text-sm font-semibold tracking-wider uppercase mb-4">How It Works</span>
           <h2 class="text-4xl md:text-5xl font-bold text-[var(--color-text-dark)]" style="font-family: var(--font-display);">
-            Set It and <span class="text-gradient-spark">Forget It</span>
+            Managed WordPress Hosting: <span class="text-gradient-spark">Set It and Forget It</span>
           </h2>
         </div>
 
@@ -255,7 +397,7 @@ const faqs = [
         <div class="text-center mb-20" data-animate="fade-up">
           <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">What's Included</span>
           <h2 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
-            Everything You Need, <span class="text-gradient-spark">Nothing You Don't</span>
+            WordPress Hosting Features: <span class="text-gradient-spark">Everything Included</span>
           </h2>
           <p class="text-xl text-white/60 max-w-2xl mx-auto">
             No hidden fees, no surprise charges. Just reliable WordPress hosting with all the essentials built in.
@@ -267,11 +409,11 @@ const faqs = [
           <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center" data-animate="fade-up">
             <div class="max-w-xl">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)] to-[var(--color-spark-orange)] flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-spark-red)]/20">
-                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Web hosting server icon">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                 </svg>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">Reliable Hosting</h3>
+              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">Reliable <a href="/services" class="text-gradient-spark hover:opacity-80 transition-opacity">Web Hosting Ireland</a></h3>
               <p class="text-lg text-white/60 mb-8">
                 UK/EU servers with 99.9% uptime guarantee. Fast load times, unlimited bandwidth. Your site stays online when it matters most.
               </p>
@@ -376,11 +518,11 @@ const faqs = [
             </div>
             <div class="max-w-xl">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)] to-[var(--color-spark-orange)] flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-spark-red)]/20">
-                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="WordPress automatic updates icon">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">Automatic Updates</h3>
+              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);"><a href="/services" class="hover:text-[var(--color-spark-orange)] transition-colors">WordPress Maintenance</a> & Updates</h3>
               <p class="text-lg text-white/60 mb-8">
                 WordPress core, plugins, and themes — updated and tested automatically. No more "please update" warnings cluttering your dashboard.
               </p>
@@ -411,11 +553,11 @@ const faqs = [
           <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center" data-animate="fade-up">
             <div class="max-w-xl">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)] to-[var(--color-spark-orange)] flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-spark-red)]/20">
-                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="WordPress security shield icon">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">Real Security</h3>
+              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);"><a href="/faq#security" class="hover:text-[var(--color-spark-orange)] transition-colors">WordPress Security</a> & Backups</h3>
               <p class="text-lg text-white/60 mb-8">
                 Cloudflare firewall, malware scanning, DDoS protection, and daily backups. If something goes wrong, we fix it — not bill you for it.
               </p>
@@ -513,11 +655,11 @@ const faqs = [
             </div>
             <div class="max-w-xl">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-spark-red)] to-[var(--color-spark-orange)] flex items-center justify-center mb-6 shadow-lg shadow-[var(--color-spark-red)]/20">
-                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Customer support icon">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
-              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">Irish Support</h3>
+              <h3 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);"><a href="/contact" class="hover:text-[var(--color-spark-orange)] transition-colors">WordPress Support Dublin</a></h3>
               <p class="text-lg text-white/60 mb-8">
                 WhatsApp or email. Same-day responses. Actual humans who understand your business — not a chatbot or overseas call centre.
               </p>
@@ -555,9 +697,9 @@ const faqs = [
 
       <div class="relative z-10 max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-animate="fade-up">
-          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Trusted by Irish Businesses</span>
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WordPress Hosting You Can Count On</span>
           <h2 class="text-4xl md:text-5xl font-bold" style="font-family: var(--font-display);">
-            The Numbers Speak
+            Trusted by <span class="text-gradient-spark">Irish Businesses</span>
           </h2>
         </div>
 
@@ -598,10 +740,10 @@ const faqs = [
         <div class="text-center mb-16" data-animate="fade-up">
           <span class="inline-block text-[var(--color-spark-red)] text-sm font-semibold tracking-wider uppercase mb-4">Simple Pricing</span>
           <h2 class="text-4xl md:text-5xl font-bold text-[var(--color-text-dark)] mb-4" style="font-family: var(--font-display);">
-            Transparent. <span class="text-gradient-spark">No Surprises.</span>
+            WordPress Hosting Pricing: <span class="text-gradient-spark">Transparent. No Surprises.</span>
           </h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Pick the plan that fits your business. Both include migration, hosting, updates, security, and Irish support.
+            Pick the WordPress hosting plan that fits your business. Both include free migration, updates, security, and Irish support.
           </p>
         </div>
 
@@ -787,7 +929,7 @@ const faqs = [
         </div>
 
         <p class="text-center text-gray-500 mt-8">
-          All plans include free migration. <a href="/pricing" class="text-[var(--color-spark-red)] hover:underline">Compare plans in detail →</a>
+          All WordPress hosting plans include free migration. <a href="/pricing" class="text-[var(--color-spark-red)] hover:underline font-medium">Compare WordPress hosting plans in detail →</a>
         </p>
       </div>
     </section>
@@ -802,7 +944,7 @@ const faqs = [
         <div class="text-center mb-16" data-animate="fade-up">
           <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">FAQ</span>
           <h2 class="text-4xl md:text-5xl font-bold" style="font-family: var(--font-display);">
-            Common Questions
+            WordPress Hosting <span class="text-gradient-spark">Questions</span>
           </h2>
         </div>
 
@@ -830,11 +972,85 @@ const faqs = [
 
         <div class="text-center mt-12">
           <a href="/faq" class="inline-flex items-center gap-2 text-[var(--color-spark-orange)] hover:text-[var(--color-spark-red)] font-medium transition-colors">
-            View all FAQs
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            View all WordPress hosting FAQs
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Arrow right">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         RECENT BLOG POSTS SECTION
+         ============================================ -->
+    <section class="section-light relative py-32 overflow-hidden">
+      <!-- Subtle decorative element -->
+      <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6" data-animate="fade-up">
+          <div>
+            <span class="inline-block text-[var(--color-spark-red)] text-sm font-semibold tracking-wider uppercase mb-4">From the Blog</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-[var(--color-text-dark)]" style="font-family: var(--font-display);">
+              WordPress Hosting <span class="text-gradient-spark">Blog Ireland</span>
+            </h2>
+            <p class="text-lg text-gray-600 mt-4 max-w-lg">
+              Practical WordPress tips for Irish businesses. Security, speed optimisation, and website maintenance advice you can actually use.
+            </p>
+          </div>
+          <a href="/blog" class="inline-flex items-center gap-2 text-[var(--color-spark-red)] hover:text-[var(--color-spark-orange)] font-semibold transition-colors group">
+            View all posts
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8" data-animate-stagger>
+          {recentPosts.map((post, index) => {
+            const catStyle = categoryColors[post.category] || categoryColors.Security;
+            return (
+              <article class="group relative">
+                <a href={`/blog/${post.slug}`} class="block">
+                  <!-- Card with gradient border on hover -->
+                  <div class="relative bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                    <!-- Gradient accent line at top -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-spark-red)] to-[var(--color-spark-orange)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+
+                    <!-- Category & Date -->
+                    <div class="flex items-center gap-3 mb-4">
+                      <span
+                        class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider"
+                        style={`background: ${catStyle.bg}; color: ${catStyle.text};`}
+                      >
+                        {post.category}
+                      </span>
+                      <span class="text-xs text-gray-400">{formatDate(post.date)}</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-lg font-bold text-[var(--color-text-dark)] mb-3 group-hover:text-[var(--color-spark-red)] transition-colors line-clamp-2" style="font-family: var(--font-display);">
+                      {post.title}
+                    </h3>
+
+                    <!-- Excerpt -->
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+
+                    <!-- Read more link -->
+                    <span class="inline-flex items-center gap-2 text-[var(--color-spark-red)] text-sm font-medium group-hover:gap-3 transition-all">
+                      Read article
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -848,20 +1064,20 @@ const faqs = [
 
       <div class="relative z-10 max-w-4xl mx-auto px-6 text-center" data-animate="fade-up">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
-          Ready to Stop Worrying<br />
-          <span class="text-gradient-spark">About Your Website?</span>
+          Ready for <span class="text-gradient-spark">Managed WordPress Hosting</span><br />
+          That Just Works?
         </h2>
         <p class="text-xl text-white/60 mb-10 max-w-2xl mx-auto">
-          Book a free 30-minute call. We'll review your current setup, answer your questions, and see if SparkHost is right for you. No pressure, no sales pitch.
+          Book a free 30-minute call with our Dublin-based team. We'll review your WordPress site, answer your questions, and see if SparkHost's managed hosting is right for your business. No pressure, no sales pitch.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="/get-started" class="btn-spark text-lg py-4 px-8">
-            <span>Get Started Now</span>
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <a href="/get-started" class="btn-spark text-lg py-4 px-8" title="Start your WordPress hosting in Ireland">
+            <span>Start WordPress Hosting</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Arrow right">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
-          <a href="/contact" class="btn-outline text-lg py-4 px-8">
+          <a href="/contact" class="btn-outline text-lg py-4 px-8" title="Contact SparkHost WordPress support Dublin">
             <span>Book a Free Call</span>
           </a>
         </div>

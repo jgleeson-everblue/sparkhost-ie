@@ -70,12 +70,91 @@ const notIncluded = [
   'E-commerce setup (quoted separately)',
   'SEO campaigns or content strategy',
 ];
+
+// Service schema for SEO
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Managed WordPress Hosting",
+  "name": "WordPress Maintenance & Hosting Services",
+  "description": "Professional WordPress maintenance and hosting services in Ireland including security monitoring, daily backups, speed optimization, and expert support.",
+  "provider": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Ireland"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "WordPress Hosting Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Standard Hosting",
+          "description": "Managed WordPress hosting with automatic updates, security, backups, and support"
+        },
+        "price": "40",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "40",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Managed Hosting",
+          "description": "Premium WordPress hosting with staging, content changes, priority support, and advanced security"
+        },
+        "price": "249",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "249",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M"
+        }
+      }
+    ]
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://sparkhost.ie/services"
+    }
+  ]
+};
 ---
 
 <Layout
-  title="Services - SparkHost.ie | WordPress Hosting & Maintenance Ireland"
-  description="Detailed breakdown of SparkHost's WordPress hosting and maintenance services. Standard and Managed plans with transparent pricing."
+  title="WordPress Maintenance & Hosting Services Ireland | SparkHost.ie"
+  description="Professional WordPress maintenance services in Ireland. Includes security monitoring, daily backups, speed optimization & expert support. Standard €40/mo or Managed €249/mo."
 >
+  <!-- Structured Data / Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
   <Header currentPath="/services" />
 
   <main>
@@ -83,12 +162,12 @@ const notIncluded = [
     <section class="pt-32 pb-20">
       <div class="container">
         <div class="max-w-3xl">
-          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Our Services</span>
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WordPress Hosting Services Ireland</span>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: var(--font-display);">
-            What's <span class="text-gradient-spark">Actually Included</span>
+            WordPress Maintenance <span class="text-gradient-spark">& Hosting Services</span>
           </h1>
           <p class="text-xl text-white/60 leading-relaxed">
-            No hidden fees. No surprise charges. Here's exactly what you get with SparkHost — and what you don't. Complete transparency, always.
+            No hidden fees. No surprise charges. Here's exactly what you get with SparkHost's <strong class="text-white/80">managed WordPress hosting</strong> — and what you don't. Complete transparency from an <a href="/about" class="text-[var(--color-spark-orange)] hover:underline">Irish hosting company</a>.
           </p>
         </div>
       </div>
@@ -104,8 +183,8 @@ const notIncluded = [
               <span class="w-2 h-2 rounded-full bg-green-400"></span>
               <span class="text-sm text-white/70">Most Popular for Small Businesses</span>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display);">Standard Plan</h2>
-            <p class="text-white/60">Professional hosting and maintenance for businesses that need reliability without complexity.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display);">Standard WordPress Hosting Plan</h2>
+            <p class="text-white/60">Professional <a href="/faq#hosting" class="text-white/80 hover:text-[var(--color-spark-orange)] transition-colors">WordPress hosting</a> and maintenance for Irish businesses that need reliability without complexity.</p>
           </div>
           <div class="text-left md:text-right">
             <div class="flex items-baseline gap-1">
@@ -126,7 +205,7 @@ const notIncluded = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Hosting & Infrastructure</h3>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Web Hosting Ireland Infrastructure</h3>
             </div>
             <ul class="space-y-2.5">
               {standardFeatures.hosting.map(item => (
@@ -148,7 +227,7 @@ const notIncluded = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Security & Maintenance</h3>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">WordPress Security & Maintenance</h3>
             </div>
             <ul class="space-y-2.5">
               {standardFeatures.security.map(item => (
@@ -170,7 +249,7 @@ const notIncluded = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Support</h3>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">WordPress Support Dublin</h3>
             </div>
             <ul class="space-y-2.5">
               {standardFeatures.support.map(item => (
@@ -215,8 +294,8 @@ const notIncluded = [
               </svg>
               <span class="text-sm text-[var(--color-spark-orange)]">Best for Growing Businesses</span>
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display);">Managed Plan</h2>
-            <p class="text-white/60">Everything in Standard, plus hands-on content management and advanced protection.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2" style="font-family: var(--font-display);">Managed WordPress Hosting Plan</h2>
+            <p class="text-white/60">Everything in Standard, plus hands-on <a href="/faq#content" class="text-white/80 hover:text-[var(--color-spark-orange)] transition-colors">content management</a> and advanced WordPress security protection.</p>
           </div>
           <div class="text-left md:text-right">
             <div class="flex items-baseline gap-1">
@@ -269,7 +348,7 @@ const notIncluded = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Advanced Security</h3>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Advanced WordPress Security</h3>
             </div>
             <ul class="space-y-2.5">
               {managedExtras.security.map(item => (
@@ -291,7 +370,7 @@ const notIncluded = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">Performance</h3>
+              <h3 class="text-lg font-semibold" style="font-family: var(--font-display);">WordPress Speed Optimisation</h3>
             </div>
             <ul class="space-y-2.5">
               {managedExtras.performance.map(item => (
@@ -366,12 +445,12 @@ const notIncluded = [
       <div class="container">
         <div class="container-narrow mx-auto">
           <div class="text-center mb-10">
-            <span class="inline-block text-white/50 text-sm font-semibold tracking-wider uppercase mb-4">Transparency</span>
+            <span class="inline-block text-white/50 text-sm font-semibold tracking-wider uppercase mb-4">Full Transparency</span>
             <h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">
-              What's <span class="text-white/50">Not</span> Included
+              What's <span class="text-white/50">Not</span> in Our Hosting Plans
             </h2>
             <p class="text-white/60">
-              We're honest about scope. These services are quoted separately.
+              We're honest about scope. These WordPress development services are quoted separately.
             </p>
           </div>
 
@@ -407,19 +486,19 @@ const notIncluded = [
       <div class="container">
         <div class="text-center">
           <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">
-            Ready to Get Started?
+            Ready for <span class="text-gradient-spark">Managed WordPress Hosting</span>?
           </h2>
           <p class="text-lg text-white/60 mb-8 max-w-xl mx-auto">
-            Compare plans side-by-side or book a free call to discuss your needs.
+            Compare our WordPress hosting plans side-by-side or book a free call with our Dublin team to discuss your website needs.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/pricing" class="btn-spark">
-              <span>Compare Plans</span>
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="/pricing" class="btn-spark" title="Compare WordPress hosting plans Ireland">
+              <span>Compare Hosting Plans</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Arrow right">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
-            <a href="/contact" class="btn-outline">
+            <a href="/contact" class="btn-outline" title="Contact SparkHost WordPress support">
               Book a Free Call
             </a>
           </div>

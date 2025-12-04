@@ -1,7 +1,7 @@
 ---
 title: "Choosing WordPress Hosting in Ireland: What Actually Matters"
 excerpt: "Not all hosting is equal. Here's what to look for when choosing a WordPress host for your Irish business — and what the marketing hype won't tell you."
-publishedDate: "2025-12-01"
+publishedDate: "2025-11-12"
 author: "SparkHost Team"
 featured: false
 ---

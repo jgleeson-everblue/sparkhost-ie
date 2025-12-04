@@ -1,7 +1,7 @@
 ---
 title: "Choosing a WordPress Theme for Performance: Stop Sabotaging Your Speed"
 excerpt: "Your theme choice can make or break your site's performance. Here's how to choose a theme that won't slow you down."
-publishedDate: "2025-11-11"
+publishedDate: "2025-06-18"
 author: "SparkHost Team"
 featured: false
 ---

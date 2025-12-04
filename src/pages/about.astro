@@ -15,12 +15,64 @@ const stats = [
   { value: '<4hrs', label: 'Response' },
   { value: 'Irish', label: 'Support' },
 ];
+
+// Organization schema for about page
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About SparkHost.ie",
+  "description": "SparkHost is an Irish WordPress hosting company providing managed hosting and maintenance services for businesses across Ireland.",
+  "url": "https://sparkhost.ie/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "url": "https://sparkhost.ie",
+    "logo": "https://sparkhost.ie/SparkHost-dark.svg",
+    "description": "Irish WordPress hosting and maintenance company based in Dublin, providing managed hosting services for Irish businesses.",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Dublin, Ireland"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Ireland"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Everblue Digital",
+      "url": "https://everbluedigital.com"
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://sparkhost.ie/about"
+    }
+  ]
+};
 ---
 
 <Layout
-  title="About SparkHost.ie | Irish WordPress Hosting Company"
-  description="SparkHost is a WordPress hosting and maintenance service by Everblue Digital, built for Irish businesses who need reliable, hands-off website management."
+  title="About SparkHost | Irish WordPress Hosting Company | Dublin, Ireland"
+  description="SparkHost.ie is an Irish WordPress hosting company based in Dublin. We provide managed WordPress hosting with local support for Irish businesses."
 >
+  <!-- Structured Data / Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(aboutPageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
   <Header currentPath="/about" />
 
   <main>
@@ -29,12 +81,12 @@ const stats = [
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Our Story</span>
+            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Irish WordPress Hosting Company</span>
             <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
-              The Story Behind <span class="text-gradient-spark">SparkHost</span>
+              About <span class="text-gradient-spark">SparkHost.ie</span>
             </h1>
             <p class="text-xl text-white/60 leading-relaxed">
-              SparkHost is a service by Everblue Digital, built from years of managing WordPress sites for Irish businesses.
+              SparkHost is a Dublin-based <strong class="text-white/80">WordPress hosting company</strong>, built from years of managing WordPress sites for Irish businesses. We provide <a href="/services" class="text-[var(--color-spark-orange)] hover:underline">managed WordPress hosting</a> with real Irish support.
             </p>
           </div>
           <div class="grid grid-cols-3 gap-4">
@@ -54,7 +106,7 @@ const stats = [
       <div class="container">
         <div class="container-narrow mx-auto">
           <div class="card-glass p-6 md:p-8">
-            <h2 class="text-2xl font-bold mb-5" style="font-family: var(--font-display);">The Problem We Kept Seeing</h2>
+            <h2 class="text-2xl font-bold mb-5" style="font-family: var(--font-display);">Why Irish Businesses Need Better WordPress Hosting</h2>
             <div class="space-y-4 text-white/70 leading-relaxed">
               <p>Business owners stuck maintaining their own sites, paying agency rates for basic updates, or dealing with hosting companies that treat support as an afterthought.</p>
               <p><strong class="text-white">Agencies</strong> charge €150+/hour for basic content changes. <strong class="text-white">DIY maintenance</strong> eats into time you don't have. <strong class="text-white">Budget hosting</strong> means slow sites and security issues.</p>
@@ -70,10 +122,10 @@ const stats = [
       <div class="container">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold mb-4" style="font-family: var(--font-display);">
-            So We Built <span class="text-gradient-spark">SparkHost</span>
+            Our <span class="text-gradient-spark">WordPress Hosting Values</span>
           </h2>
           <p class="text-lg text-white/60 max-w-xl mx-auto">
-            Fixed monthly pricing, genuine security, and support from people who actually answer.
+            Fixed monthly <a href="/pricing" class="text-[var(--color-spark-orange)] hover:underline">WordPress hosting pricing</a>, genuine security, and support from people who actually answer.
           </p>
         </div>
 
@@ -83,22 +135,22 @@ const stats = [
               <div class="flex items-start gap-4">
                 <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-spark-red)]/20 to-[var(--color-spark-orange)]/20 flex items-center justify-center flex-shrink-0">
                   {value.icon === 'target' && (
-                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                     </svg>
                   )}
                   {value.icon === 'shield' && (
-                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   )}
                   {value.icon === 'clock' && (
-                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   )}
                   {value.icon === 'ireland' && (
-                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-[var(--color-spark-orange)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -120,11 +172,11 @@ const stats = [
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-10 items-start">
           <div>
-            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Our Approach</span>
-            <h2 class="text-3xl font-bold mb-6" style="font-family: var(--font-display);">One Thing, Done Well</h2>
+            <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WordPress Hosting Specialists</span>
+            <h2 class="text-3xl font-bold mb-6" style="font-family: var(--font-display);">WordPress Maintenance Done Right</h2>
             <div class="space-y-4 text-white/70 leading-relaxed">
-              <p>We're not a design agency, a marketing firm, or a development shop. We're your website maintenance team.</p>
-              <p>That focus means every process is refined. Every security measure is proven. Every support response is fast.</p>
+              <p>We're not a design agency, a marketing firm, or a development shop. We're your <strong class="text-white/80">WordPress maintenance team</strong>.</p>
+              <p>That focus means every process is refined. Every <a href="/faq#security" class="text-[var(--color-spark-orange)] hover:underline">security measure</a> is proven. Every support response is fast.</p>
               <p>This isn't a limitation — it's how we keep prices fair and quality high.</p>
             </div>
           </div>
@@ -157,11 +209,11 @@ const stats = [
             </svg>
           </div>
           <h2 class="text-3xl font-bold mb-6" style="font-family: var(--font-display);">
-            Why <span class="text-gradient-spark">Ireland</span>?
+            Why Choose <span class="text-gradient-spark">Irish WordPress Hosting</span>?
           </h2>
           <div class="space-y-4 text-white/70 leading-relaxed">
-            <p>We're based in Ireland. We work Irish hours. We understand GDPR, Irish business practices, and the specific needs of SMEs in this market.</p>
-            <p>When you email or WhatsApp us, you're talking to someone who gets it — not a call centre reading from a script.</p>
+            <p>We're based in <strong class="text-white/80">Dublin, Ireland</strong>. We work Irish hours. We understand GDPR, Irish business practices, and the specific needs of SMEs in this market.</p>
+            <p>When you <a href="/contact" class="text-[var(--color-spark-orange)] hover:underline">contact our team</a> via email or WhatsApp, you're talking to someone who gets it — not a call centre reading from a script.</p>
           </div>
         </div>
       </div>
@@ -201,18 +253,18 @@ const stats = [
     <section class="py-16">
       <div class="container">
         <div class="text-center">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">Ready to Work With Us?</h2>
+          <h2 class="text-2xl md:text-3xl font-bold mb-6" style="font-family: var(--font-display);">Ready for <span class="text-gradient-spark">Managed WordPress Hosting</span>?</h2>
           <p class="text-lg text-white/60 mb-8 max-w-xl mx-auto">
-            Book a free call to discuss your website. We'll give you an honest assessment.
+            Book a free call to discuss your WordPress site. We'll give you an honest assessment of your <a href="/services" class="text-[var(--color-spark-orange)] hover:underline">hosting needs</a>.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/get-started" class="btn-spark">
-              <span>Get Started</span>
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="/get-started" class="btn-spark" title="Get started with WordPress hosting Ireland">
+              <span>Start WordPress Hosting</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Arrow right">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
-            <a href="/contact" class="btn-outline">Book a Free Call</a>
+            <a href="/contact" class="btn-outline" title="Book a free WordPress consultation">Book a Free Call</a>
           </div>
         </div>
       </div>

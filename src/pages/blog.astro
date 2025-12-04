@@ -67,12 +67,62 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   Hosting: { bg: 'rgba(34, 197, 94, 0.15)', text: '#22C55E' },
   Compliance: { bg: 'rgba(168, 85, 247, 0.15)', text: '#A855F7' },
 };
+
+// Blog/CollectionPage schema for SEO
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "SparkHost.ie WordPress Blog",
+  "description": "Expert WordPress hosting tips, security guides, and performance optimization advice for Irish businesses.",
+  "url": "https://sparkhost.ie/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SparkHost.ie",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sparkhost.ie/SparkHost-dark.svg"
+    }
+  },
+  "inLanguage": "en-IE",
+  "blogPost": posts.slice(0, 10).map(post => ({
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.date,
+    "url": `https://sparkhost.ie/blog/${post.slug}`,
+    "articleSection": post.category
+  }))
+};
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sparkhost.ie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://sparkhost.ie/blog"
+    }
+  ]
+};
 ---
 
 <Layout
-  title="Blog | SparkHost.ie - WordPress Hosting & Maintenance Tips"
-  description="Practical WordPress tips for Irish businesses. Security, performance, maintenance, and hosting advice you can actually use."
+  title="WordPress Hosting Blog Ireland | Security, Speed & Maintenance Tips | SparkHost.ie"
+  description="Expert WordPress hosting tips for Irish businesses. Learn about WordPress security, speed optimization, maintenance best practices, and managed hosting in Ireland."
 >
+  <!-- Blog Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Header currentPath="/blog" />
 
   <main>
@@ -80,12 +130,12 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
     <section class="pt-32 pb-12">
       <div class="container">
         <div class="text-center max-w-2xl mx-auto" data-animate="fade-up">
-          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Blog</span>
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">WordPress Hosting Blog Ireland</span>
           <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
-            WordPress <span class="text-gradient-spark">Insights</span>
+            WordPress Hosting <span class="text-gradient-spark">Tips & Guides</span>
           </h1>
           <p class="text-xl text-white/60">
-            Practical tips for Irish businesses. No fluff, just actionable advice.
+            Expert <strong class="text-white/80">WordPress hosting advice</strong> for Irish businesses. Learn about <a href="/services" class="text-[var(--color-spark-orange)] hover:underline">managed WordPress hosting</a>, security, performance, and maintenance.
           </p>
         </div>
       </div>
@@ -136,7 +186,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
                   </p>
                   <span class="inline-flex items-center gap-2 text-[var(--color-spark-orange)] text-sm font-medium group-hover:gap-3 transition-all">
                     Read more
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
@@ -153,10 +203,10 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
       <div class="container">
         <div class="text-center">
           <h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family: var(--font-display);">
-            Get WordPress Tips in Your Inbox
+            Get WordPress Hosting <span class="text-gradient-spark">Tips in Your Inbox</span>
           </h2>
           <p class="text-lg text-white/60 mb-8 max-w-lg mx-auto">
-            Occasional updates on WordPress security, performance, and maintenance. No spam.
+            Occasional updates on <strong class="text-white/80">WordPress security</strong>, performance optimisation, and <a href="/faq#maintenance" class="text-[var(--color-spark-orange)] hover:underline">maintenance best practices</a>. No spam.
           </p>
           <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
@@ -164,7 +214,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
               placeholder="your@email.ie"
               class="flex-1 px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-[var(--color-spark-orange)] focus:outline-none transition-colors"
             />
-            <button type="submit" class="btn-spark">
+            <button type="submit" class="btn-spark" title="Subscribe to WordPress hosting tips newsletter">
               <span>Subscribe</span>
             </button>
           </form>
@@ -178,7 +228,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
 
 <script>
   // Simple category filter (client-side)
-  const buttons = document.querySelectorAll('[data-category]') as NodeListOf<HTMLButtonElement>;
+  const buttons = document.querySelectorAll('button[data-category]') as NodeListOf<HTMLButtonElement>;
   const articles = document.querySelectorAll('article[data-category]') as NodeListOf<HTMLElement>;
 
   // After initial animation, mark all articles as "no-animate" so filtering doesn't cause opacity issues

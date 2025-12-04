@@ -1,7 +1,7 @@
 ---
 title: "WordPress Caching Explained: How to Make Your Site Seriously Fast"
 excerpt: "Caching can transform a sluggish WordPress site into a speed demon. Here's how it works and which caching solution is right for your Irish business."
-publishedDate: "2025-11-27"
+publishedDate: "2025-10-08"
 author: "SparkHost Team"
 featured: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: "GDPR and Your WordPress Website: A Practical Guide for Irish Businesses"
 excerpt: "GDPR compliance isn't optional for Irish businesses. Here's what your WordPress website actually needs to comply — without the legal jargon."
-publishedDate: "2025-11-29"
+publishedDate: "2025-10-22"
 author: "SparkHost Team"
 featured: false
 ---
