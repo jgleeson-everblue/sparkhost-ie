@@ -40,8 +40,8 @@ For Irish businesses serving Irish customers, your server should be in Ireland o
 ### 2. WordPress-Specific Optimisation
 Generic hosting runs WordPress. Managed WordPress hosting runs it well. Look for:
 
-- LiteSpeed or nginx (not just Apache)
-- Server-level caching
+- [LiteSpeed or nginx](/blog/litespeed-vs-apache-nginx) (not just Apache)
+- [Server-level caching](/blog/wordpress-caching-explained)
 - PHP 8.x support
 - WordPress-aware security rules
 
@@ -52,7 +52,7 @@ Generic hosting runs WordPress. Managed WordPress hosting runs it well. Look for
 - Quick response times (test before you commit)
 - Direct access (not endless ticket queues)
 
-### 4. Backup and Recovery
+### 4. [Backup and Recovery](/blog/wordpress-backup-strategy)
 Your host should include:
 
 - Automatic daily backups
@@ -60,12 +60,12 @@ Your host should include:
 - Easy one-click restore
 - Off-server backup storage
 
-### 5. Security Features
+### 5. [Security Features](/blog/wordpress-security-basics)
 At minimum:
 
 - Free SSL certificates
-- Basic firewall/DDoS protection
-- Malware scanning
+- Basic [firewall/DDoS protection](/blog/wordpress-firewall-guide)
+- [Malware scanning](/blog/wordpress-malware-removal)
 
 Better hosts add:
 

@@ -121,7 +121,7 @@ SparkHost sites typically achieve 100-200ms TTFB thanks to LiteSpeed servers and
 The LCP element is usually your hero image or largest heading. Focus optimisation there:
 
 **For images:**
-- Compress aggressively (under 200KB for hero images)
+- [Compress aggressively](/blog/image-optimisation-wordpress) (under 200KB for hero images)
 - Use WebP format
 - Add preload hints for above-the-fold images
 - Avoid lazy loading the LCP image
@@ -223,7 +223,7 @@ Your choice of theme has enormous impact on Core Web Vitals:
 
 **Problematic:** Avada, Divi, BeTheme — powerful but heavy
 
-Page builders add significant JavaScript. If you're serious about performance, consider Gutenberg with a lightweight theme.
+Page builders add significant JavaScript. If you're serious about performance, [choose your theme carefully](/blog/choosing-wordpress-theme-performance) and consider Gutenberg with a lightweight theme.
 
 ### Optimisation Plugins
 
@@ -240,8 +240,8 @@ Managed WordPress hosting with:
 - LiteSpeed or modern Nginx configuration
 - SSD/NVMe storage
 - Adequate resources
-- Server-level caching
-- CDN integration
+- [Server-level caching](/blog/wordpress-caching-explained)
+- [CDN integration](/blog/cdn-content-delivery-network-wordpress)
 
 SparkHost is specifically optimised for Core Web Vitals, with sites typically achieving green scores without extensive optimisation.
 

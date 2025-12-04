@@ -88,19 +88,19 @@ High abandonment often indicates checkout problems.
 ### Analyze Performance
 
 **Check:**
-- Page load times (especially product and checkout pages)
+- Page load times (especially product and checkout pages) — see our [speed guide](/blog/speed-up-wordpress-site)
 - Database query times
 - Server response times
-- Any new performance issues
+- Any new [Core Web Vitals](/blog/core-web-vitals-wordpress) issues
 
 Slow stores have higher abandonment rates.
 
-### Update WooCommerce and Extensions
+### [Update WooCommerce and Extensions](/blog/wordpress-updates-why-matter)
 
 **Weekly update routine:**
-1. Backup store first
+1. [Backup](/blog/wordpress-backup-strategy) store first
 2. Check extension compatibility notes
-3. Test on staging if possible
+3. [Test on staging](/blog/wordpress-staging-sites) if possible
 4. Update during low-traffic period
 5. Verify checkout works after updating
 
@@ -132,7 +132,7 @@ Customer complaints often reveal issues you haven't noticed.
 
 Do this as a real customer would, including on mobile.
 
-### Review and Clean Database
+### Review and [Clean Database](/blog/database-optimisation-wordpress)
 
 WooCommerce generates significant database activity:
 
@@ -157,14 +157,14 @@ WooCommerce generates significant database activity:
 - Pricing accuracy
 - Category organization
 
-### Security Review
+### [Security Review](/blog/wordpress-security-basics)
 
 **Monthly security tasks:**
 - Review admin user accounts
 - Check for unauthorized changes
-- Scan for malware
+- [Scan for malware](/blog/wordpress-malware-removal)
 - Review security logs
-- Verify backups are working
+- Verify [backups](/blog/wordpress-backup-strategy) are working
 
 ### Financial Reconciliation
 
@@ -267,10 +267,10 @@ Review all paid extensions:
 ### Legal and Compliance Review
 
 **Verify:**
-- Privacy policy is current
+- [Privacy policy](/blog/gdpr-wordpress-irish-businesses) is current
 - Terms and conditions accurate
-- Cookie consent working properly
-- Accessibility compliance
+- [Cookie consent](/blog/cookie-consent-wordpress-ireland) working properly
+- [Accessibility compliance](/blog/website-accessibility-ireland)
 - Data retention appropriate
 
 ### Disaster Recovery Test
@@ -339,7 +339,7 @@ Review all paid extensions:
 
 ### Useful Tools
 
-**Monitoring:**
+**[Monitoring](/blog/website-monitoring-uptime):**
 - UptimeRobot (uptime)
 - Pingdom (transaction monitoring)
 - Google Search Console (SEO issues)

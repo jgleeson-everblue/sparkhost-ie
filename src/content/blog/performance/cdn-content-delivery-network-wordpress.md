@@ -73,7 +73,7 @@ When content goes viral or marketing campaigns drive traffic, your origin server
 
 ### DDoS Protection
 
-CDN networks are designed to handle massive traffic. This inherently protects against distributed denial-of-service attacks:
+CDN networks are designed to handle massive traffic. This inherently [protects against distributed denial-of-service attacks](/blog/wordpress-firewall-guide):
 - Attack traffic distributed across PoPs
 - Origin server IP hidden
 - Malicious traffic filtered
@@ -198,7 +198,7 @@ Configure caching headers to maximize CDN effectiveness:
 
 ### Use a Caching Plugin
 
-Combine CDN with page caching:
+Combine CDN with [page caching](/blog/wordpress-caching-explained):
 1. LiteSpeed Cache (for LiteSpeed servers)
 2. WP Rocket
 3. W3 Total Cache
@@ -343,4 +343,4 @@ We configure CDN settings optimally for WordPress, so you get benefits without t
 
 CDNs are no longer optional for serious websites. The performance benefits, security protections, and reliability improvements are too significant to ignore.
 
-For Irish businesses serving global audiences — or just wanting the fastest possible experience for local visitors — a CDN should be on your priority list.
+For Irish businesses serving global audiences — or just wanting the fastest possible experience for local visitors — a CDN should be on your priority list. For the complete picture on WordPress performance, see our [speed guide](/blog/speed-up-wordpress-site) and [Core Web Vitals guide](/blog/core-web-vitals-wordpress).

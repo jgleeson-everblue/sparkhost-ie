@@ -75,7 +75,7 @@ Managed hosts configure their servers specifically for WordPress:
 - PHP optimised for WordPress requirements
 - Server-level caching (not just plugins)
 - Memory allocation suited for WordPress
-- Database tuning for WordPress patterns
+- [Database tuning](/blog/database-optimisation-wordpress) for WordPress patterns
 
 The result: faster performance without plugin configuration.
 
@@ -94,7 +94,7 @@ You don't need to buy separate security plugins or services.
 
 Core WordPress, themes, and plugins stay updated automatically. Updates are tested before deployment, with rollback capability if problems occur.
 
-### Staging Environments
+### [Staging Environments](/blog/wordpress-staging-sites)
 
 Make changes on a copy of your site first. Test thoroughly. Then push to production with confidence.
 
@@ -108,7 +108,7 @@ Support staff who know WordPress:
 
 No more generic "have you tried clearing cache?" responses.
 
-### Regular Backups
+### [Regular Backups](/blog/wordpress-backup-strategy)
 
 Daily automatic backups stored off-server, with easy one-click restoration. Often including 30+ days of backup history.
 
@@ -194,7 +194,7 @@ Not all managed hosts are equal. Evaluate:
 
 ### Server Technology
 
-- **LiteSpeed or Nginx** — Faster than Apache
+- **[LiteSpeed or Nginx](/blog/litespeed-vs-apache-nginx)** — Faster than Apache
 - **SSD/NVMe storage** — Faster than traditional drives
 - **PHP 8.x** — Latest version support
 - **HTTP/3** — Modern protocol support
@@ -217,9 +217,9 @@ For Irish businesses serving Irish customers:
 
 - Daily backups with retention
 - Staging environments
-- CDN integration
+- [CDN](/blog/cdn-content-delivery-network-wordpress) integration
 - SSL certificates
-- Malware scanning and removal
+- [Malware scanning](/blog/wordpress-malware-removal) and removal
 - Update management
 
 ### Reliability

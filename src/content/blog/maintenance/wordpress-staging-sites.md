@@ -35,7 +35,7 @@ When you discover these problems on production, your visitors discover them too.
 
 Made a database change that broke something? Deleted a file you needed? Production doesn't have a time machine.
 
-Sure, you have backups (you do have backups, right?). But restoring from backup means losing any legitimate changes made since. And downtime while you restore.
+Sure, you have [backups](/blog/wordpress-backup-strategy) (you do have backups, right?). But restoring from backup means losing any legitimate changes made since. And downtime while you restore.
 
 ### Pressure Leads to Mistakes
 
@@ -141,7 +141,7 @@ Check everything, not just what you changed:
 - Shopping cart and checkout function (WooCommerce)
 - Mobile display is correct
 - No console errors in browser developer tools
-- Performance hasn't degraded
+- [Performance](/blog/speed-up-wordpress-site) hasn't degraded
 
 ### 4. Document What You Changed
 
@@ -252,8 +252,8 @@ Not everything needs staging. Use judgement:
 - Adding new pages (that aren't linked yet)
 
 **Always use staging:**
-- Theme updates (major or minor)
-- Plugin updates (especially complex plugins)
+- [Theme updates](/blog/choosing-wordpress-theme-performance) (major or minor)
+- [Plugin updates](/blog/plugin-management-best-practices) (especially complex plugins)
 - PHP version changes
 - Any code modifications
 - Major content restructuring

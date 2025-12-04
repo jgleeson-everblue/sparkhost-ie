@@ -22,7 +22,7 @@ Think of it like a bouncer at a club. The bouncer checks everyone at the door, l
 - **Cross-Site Scripting (XSS):** Injecting malicious scripts
 - **File Inclusion:** Attempts to access unauthorized files
 - **Known Exploit Patterns:** Attacks targeting specific vulnerabilities
-- **Brute Force Attacks:** Mass login attempts
+- **[Brute Force Attacks](/blog/brute-force-attacks-prevention):** Mass login attempts
 - **Bad Bots:** Scrapers, spammers, scanners
 - **DDoS Attacks:** Overwhelming traffic floods
 
@@ -250,6 +250,7 @@ Block admin access from unexpected locations:
 - Require authentication for wp-admin
 - IP whitelist for /wp-login.php if practical
 - Rate limit login attempts
+- Enable [two-factor authentication](/blog/two-factor-authentication-wordpress) for all admin accounts
 
 ### Block Known Bad Actors
 
@@ -388,4 +389,4 @@ This layered approach provides enterprise-grade protection for businesses that c
 3. Keep firewall software updated
 4. Stay informed about threats
 
-Your website is under constant attack. A properly configured firewall ensures those attacks fail, protecting your business and your customers.
+Your website is under constant attack. A properly configured firewall ensures those attacks fail, protecting your business and your customers. For a complete security setup, see our [WordPress security basics guide](/blog/wordpress-security-basics-irish-businesses).

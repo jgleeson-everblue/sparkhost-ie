@@ -35,7 +35,7 @@ Cheap shared hosting puts hundreds of sites on one server. When your neighbour's
 
 ### 2. Use a Caching Plugin (Properly Configured)
 
-Caching stores pre-built versions of your pages so WordPress doesn't have to build them from scratch for each visitor.
+[Caching](/blog/wordpress-caching-explained) stores pre-built versions of your pages so WordPress doesn't have to build them from scratch for each visitor.
 
 **Recommended:** LiteSpeed Cache (if your host uses LiteSpeed) or WP Rocket (paid, but worth it).
 
@@ -43,7 +43,7 @@ Caching stores pre-built versions of your pages so WordPress doesn't have to bui
 
 ### 3. Optimise Your Images
 
-Images are usually the biggest files on any webpage. Before uploading:
+[Images are usually the biggest files](/blog/image-optimisation-wordpress) on any webpage. Before uploading:
 
 - Resize to the actual display size (don't upload a 4000px image to display at 800px)
 - Compress using tools like TinyPNG or ShortPixel
@@ -60,7 +60,7 @@ Common offenders:
 
 ### 5. Use a CDN
 
-A Content Delivery Network stores copies of your files on servers worldwide. Visitors download from the nearest server, reducing load times.
+A [Content Delivery Network](/blog/cdn-content-delivery-network-wordpress) stores copies of your files on servers worldwide. Visitors download from the nearest server, reducing load times.
 
 Cloudflare's free tier is excellent for Irish businesses. It also adds security benefits.
 
@@ -82,4 +82,4 @@ Our Starter plan handles most business sites easily. The Professional plan adds 
 3. **Check your hosting** — if you're on €5/month hosting, that's your bottleneck
 4. **Compress your images** — run existing images through ShortPixel
 
-Speed improvements compound. A 20% improvement here, 30% there, and suddenly your site loads in 2 seconds instead of 6.
+Speed improvements compound. A 20% improvement here, 30% there, and suddenly your site loads in 2 seconds instead of 6. For a complete guide to what Google measures, see our [Core Web Vitals guide](/blog/core-web-vitals-wordpress).

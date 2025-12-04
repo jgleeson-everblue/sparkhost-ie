@@ -195,7 +195,7 @@ Link text should describe the destination:
 
 ### Choose an Accessible Theme
 
-Some themes are built with accessibility in mind:
+Some themes are built with accessibility in mind — see our guide to [choosing a WordPress theme for performance](/blog/choosing-wordpress-theme-performance):
 - **GeneratePress** — Excellent accessibility standards
 - **Astra** — Good accessibility features
 - **Theme by developer tag** — Search for "accessibility-ready" on wordpress.org
@@ -203,6 +203,8 @@ Some themes are built with accessibility in mind:
 Check the theme's accessibility documentation. Test before committing.
 
 ### Use Accessibility Plugins
+
+When choosing plugins, follow our [plugin management best practices](/blog/plugin-management-best-practices) to avoid conflicts.
 
 **WP Accessibility:**
 - Fixes common issues
@@ -371,7 +373,7 @@ Beyond compliance, accessibility makes business sense:
 
 ### SEO Benefits
 
-Many accessibility improvements also help SEO:
+Many accessibility improvements also help [SEO](/blog/speed-up-wordpress-site):
 - Proper heading structure
 - Alt text for images
 - Descriptive link text

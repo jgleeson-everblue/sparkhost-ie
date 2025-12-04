@@ -178,7 +178,7 @@ Properly configured, these three work together to:
 
 ## WordPress and Email
 
-WordPress needs to send emails:
+WordPress needs to send emails — see our [WooCommerce maintenance checklist](/blog/woocommerce-maintenance-checklist) for more on order email testing:
 - Contact form submissions
 - Password resets
 - Order confirmations (WooCommerce)

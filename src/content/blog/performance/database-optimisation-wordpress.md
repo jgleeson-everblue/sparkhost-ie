@@ -288,11 +288,11 @@ A well-optimised database can significantly improve performance:
 
 ### Query Speed
 
-Smaller tables = faster queries. Removing 100,000 revisions can halve query times for post-related operations.
+Smaller tables = faster queries. Removing 100,000 revisions can halve query times for post-related operations. This directly impacts your [Core Web Vitals](/blog/core-web-vitals-wordpress).
 
 ### Backup Time
 
-Smaller database = faster backups. Going from 500MB to 100MB means backups complete 5x faster and use less storage.
+Smaller database = faster [backups](/blog/wordpress-backup-strategy). Going from 500MB to 100MB means backups complete 5x faster and use less storage.
 
 ### Memory Usage
 
@@ -327,4 +327,4 @@ For sites with significant database issues, we help clean up during migration.
 3. Clean up properly when removing plugins
 4. Monitor database size monthly
 
-A clean database is a fast database. Take the time to clean yours, set up automation, and enjoy the performance benefits.
+A clean database is a fast database. Take the time to clean yours, set up automation, and enjoy the performance benefits. For more ways to speed up your site, see our [complete WordPress speed guide](/blog/speed-up-wordpress-site).

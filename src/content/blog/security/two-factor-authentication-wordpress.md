@@ -29,13 +29,13 @@ In 2023, over 8 million Irish records were exposed in data breaches. If you or y
 
 ### Brute Force Attacks Are Automated
 
-Hackers don't sit at keyboards trying passwords manually. They use automated tools that can attempt thousands of combinations per minute. A weak password can be cracked in seconds. Even a strong password is vulnerable if it's been leaked elsewhere.
+Hackers don't sit at keyboards trying passwords manually. They use automated tools that can attempt thousands of combinations per minute. A weak password can be cracked in seconds. Even a strong password is vulnerable if it's been leaked elsewhere. Learn more about how [brute force attacks work and how to stop them](/blog/brute-force-attacks-prevention).
 
 2FA stops these attacks cold. Even if the attacker guesses your password correctly, they can't proceed without access to your phone or security key.
 
 ### GDPR Compliance Considerations
 
-While GDPR doesn't specifically mandate 2FA, it does require "appropriate technical measures" to protect personal data. If your WordPress site handles customer information — contact forms, e-commerce orders, membership data — 2FA demonstrates you're taking security seriously.
+While [GDPR doesn't specifically mandate 2FA](/blog/gdpr-wordpress-compliance), it does require "appropriate technical measures" to protect personal data. If your WordPress site handles customer information — contact forms, e-commerce orders, membership data — 2FA demonstrates you're taking security seriously.
 
 In the event of a breach, being able to show you had 2FA in place could be the difference between a warning and a significant fine.
 
@@ -202,7 +202,7 @@ Recovery codes exist for exactly this situation. Store them securely and you'll 
 
 ### "We're too small to be targeted"
 
-Small businesses are actually prime targets because they're often less protected. Attackers use automated tools that don't discriminate by company size.
+Small businesses are actually prime targets because they're often less protected. Attackers use automated tools that don't discriminate by company size. Read our [WordPress security basics guide](/blog/wordpress-security-basics-irish-businesses) to understand why every site is a target.
 
 ## The SparkHost Approach
 
@@ -223,4 +223,4 @@ Security isn't something you set and forget. It's an ongoing commitment, and 2FA
 4. **Save your recovery codes** — Print them or store in a password manager
 5. **Require 2FA for all administrators** — Don't leave any gaps
 
-Every day without 2FA is a day your site is more vulnerable than it needs to be. The setup takes minutes. The protection lasts forever.
+Every day without 2FA is a day your site is more vulnerable than it needs to be. The setup takes minutes. The protection lasts forever. For more security measures, see our complete [WordPress security audit checklist](/blog/wordpress-security-audit-checklist).

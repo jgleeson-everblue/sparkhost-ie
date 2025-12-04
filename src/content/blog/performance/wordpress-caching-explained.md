@@ -56,7 +56,7 @@ Object caching stores database query results in memory (RAM). When WordPress nee
 
 ### CDN Caching
 
-Content Delivery Network caching stores copies of your static files on servers worldwide. Visitors download files from nearby servers rather than your origin server.
+[Content Delivery Network caching](/blog/cdn-content-delivery-network-wordpress) stores copies of your static files on servers worldwide. Visitors download files from nearby servers rather than your origin server.
 
 **Impact:** Faster global delivery, reduced server load, better handling of traffic spikes.
 
@@ -158,7 +158,7 @@ Most caching plugins configure this automatically. To verify it's working:
 
 ## CDN Setup for WordPress
 
-A CDN caches your static files on edge servers worldwide. For Irish visitors, files come from European servers. For American visitors, American servers.
+A [CDN](/blog/cdn-content-delivery-network-wordpress) caches your static files on edge servers worldwide. For Irish visitors, files come from European servers. For American visitors, American servers.
 
 ### Cloudflare (Recommended for Most)
 
@@ -255,4 +255,4 @@ We handle the technical configuration so you can focus on your business. Sites m
 4. **Set up CDN** — Cloudflare's free tier is an easy win
 5. **Test and measure** — Compare before and after performance
 
-Caching isn't optional for a fast WordPress site. It's fundamental. Get it right, and your site transforms from sluggish to snappy.
+Caching isn't optional for a fast WordPress site. It's fundamental. Get it right, and your site transforms from sluggish to snappy. For the full picture on site speed, see our [complete WordPress speed guide](/blog/speed-up-wordpress-site) and [Core Web Vitals guide](/blog/core-web-vitals-wordpress).

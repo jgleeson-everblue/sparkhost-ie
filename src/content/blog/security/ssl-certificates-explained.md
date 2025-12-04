@@ -35,7 +35,7 @@ SSL protects data in transit, but it doesn't:
 - Prevent malware infections
 - Replace other security measures
 
-SSL is essential, but it's one layer of security, not a complete solution.
+SSL is essential, but it's one layer of security, not a complete solution. For comprehensive protection, see our [WordPress security basics guide](/blog/wordpress-security-basics-irish-businesses).
 
 ## Why SSL Matters for Irish Businesses
 
@@ -53,7 +53,7 @@ More importantly, user behaviour signals matter. When visitors bounce from your 
 
 ### GDPR Requires Appropriate Security
 
-The General Data Protection Regulation requires "appropriate technical and organisational measures" to protect personal data. For any website collecting EU citizen data, SSL encryption is considered a baseline expectation.
+The General Data Protection Regulation requires "appropriate technical and organisational measures" to protect personal data. For any website collecting EU citizen data, SSL encryption is considered a baseline expectation. Read our [GDPR compliance guide for WordPress](/blog/gdpr-wordpress-website) for more details.
 
 While GDPR doesn't specifically mandate SSL, regulators expect it. Operating without it while collecting personal data would be difficult to defend in any compliance review.
 
@@ -258,4 +258,4 @@ We don't charge extra for SSL because it's not optional anymore — it's a basel
 3. Verify no mixed content warnings
 4. Ensure TLS 1.2+ is enabled
 
-The padlock isn't just an icon. It's a statement to your visitors that you take their security seriously. Make sure you're making the right statement.
+The padlock isn't just an icon. It's a statement to your visitors that you take their security seriously. Make sure you're making the right statement. For a complete overview of what you need to secure your WordPress site, see our [security audit checklist](/blog/wordpress-security-audit-checklist).

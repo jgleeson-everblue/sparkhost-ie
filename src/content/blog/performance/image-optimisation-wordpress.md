@@ -26,7 +26,7 @@ Consider two identical Irish websites selling the same products:
 **Site B:** Optimised images, 2-second load time
 
 Site B will have:
-- Higher Google rankings (speed is a ranking factor)
+- Higher Google rankings ([speed is a ranking factor](/blog/core-web-vitals-wordpress))
 - Lower bounce rates (visitors stay longer)
 - Better conversion rates (faster sites convert better)
 - Lower hosting costs (less bandwidth usage)
@@ -194,7 +194,7 @@ For more control, plugins offer additional features:
 
 ## CDN Integration for Images
 
-A Content Delivery Network stores copies of your images on servers worldwide. Irish visitors get images from nearby European servers; Australian visitors get images from Oceanian servers.
+A [Content Delivery Network](/blog/cdn-content-delivery-network-wordpress) stores copies of your images on servers worldwide. Irish visitors get images from nearby European servers; Australian visitors get images from Oceanian servers.
 
 ### Benefits
 
@@ -298,4 +298,4 @@ We often achieve 60-80% reduction in image-related page weight during site migra
 4. **Enable WebP** — Serve modern formats
 5. **Test your results** — Compare before and after metrics
 
-Image optimisation isn't a one-time task. Build good habits, use automation, and your site will stay fast as you add more content.
+Image optimisation isn't a one-time task. Build good habits, use automation, and your site will stay fast as you add more content. For a complete overview of performance optimisation, see our [speed guide](/blog/speed-up-wordpress-site).

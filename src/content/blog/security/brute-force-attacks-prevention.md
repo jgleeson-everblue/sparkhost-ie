@@ -123,7 +123,7 @@ This dramatically slows brute force attacks. Instead of trying 1,000 passwords p
 
 ### 4. Two-Factor Authentication
 
-Even if password is compromised, 2FA requires a second verification factor.
+Even if password is compromised, [2FA requires a second verification factor](/blog/two-factor-authentication-wordpress).
 
 **Recommended plugins:**
 - Wordfence Login Security
@@ -188,7 +188,7 @@ Or use a security plugin to disable it.
 
 ### 9. Web Application Firewall
 
-A WAF blocks malicious requests before they reach WordPress.
+A [WAF blocks malicious requests](/blog/wordpress-firewall-guide) before they reach WordPress.
 
 **Options:**
 - Cloudflare (free tier available)
@@ -255,6 +255,8 @@ If attacks have been ongoing:
 - Check for backdoors
 - Review recent file changes
 
+If you suspect your site has been compromised, follow our [WordPress malware removal guide](/blog/wordpress-malware-removal-guide).
+
 ## The SparkHost Security Stack
 
 Our Managed hosting includes multiple brute force protections:
@@ -299,4 +301,4 @@ Each layer catches what previous layers miss.
 3. Review and remove unused accounts
 4. Stay informed about new threats
 
-Brute force attacks are inevitable. Successful ones don't have to be.
+Brute force attacks are inevitable. Successful ones don't have to be. For a comprehensive overview of all security measures, see our [WordPress security audit checklist](/blog/wordpress-security-audit-checklist).

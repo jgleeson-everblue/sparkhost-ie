@@ -58,7 +58,7 @@ Avoid plugins that:
 Nulled plugins are pirated versions of premium plugins, distributed free on shady websites. They often contain:
 - Hidden backdoors for hackers
 - Cryptocurrency miners
-- SEO spam injection
+- [SEO spam injection](/blog/wordpress-malware-removal)
 - Malware downloaders
 
 There's no legitimate reason to use nulled plugins. Either pay for premium plugins or use free alternatives.
@@ -97,14 +97,14 @@ Essential for any WordPress site:
 - **Solid Security (iThemes Security)** — User-friendly
 - **Patchstack** — Focuses on virtual patching (what SparkHost uses)
 
-### Backup (Pick One)
+### [Backup](/blog/wordpress-backup-strategy) (Pick One)
 
 Never rely solely on host backups:
 - **UpdraftPlus** — Reliable, good free version
 - **BlogVault** — Premium but excellent
 - **Duplicator** — Also good for migrations
 
-### Caching (Pick One if Not Server-Level)
+### [Caching](/blog/wordpress-caching-explained) (Pick One if Not Server-Level)
 
 For performance improvement:
 - **LiteSpeed Cache** — If on LiteSpeed server (SparkHost)
@@ -160,7 +160,7 @@ Outdated plugins are the #1 way WordPress sites get hacked. Most successful atta
 ### Testing Updates
 
 For important sites:
-1. Update on staging first
+1. [Update on staging](/blog/wordpress-staging-sites) first
 2. Test critical functionality
 3. Wait a few days (others find bugs)
 4. Apply to production
@@ -243,7 +243,7 @@ Subscribe to WordFence weekly security reports or Patchstack alerts. Know when y
 
 ### Use Firewalls
 
-Web Application Firewalls (like Cloudflare, Wordfence, or Patchstack) can block attacks against known vulnerabilities while you update.
+[Web Application Firewalls](/blog/wordpress-firewall-guide) (like Cloudflare, Wordfence, or Patchstack) can block attacks against known vulnerabilities while you update.
 
 ## The SparkHost Plugin Approach
 

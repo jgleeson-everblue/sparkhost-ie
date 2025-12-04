@@ -28,14 +28,14 @@ Here's what happens when you ignore updates:
 1. **Vulnerability disclosed** — Security researchers publish details of the flaw
 2. **Hackers notice** — Automated tools start scanning for vulnerable sites
 3. **Your site gets hit** — Without the patch, you're an easy target
-4. **Damage done** — Malware installed, data stolen, SEO rankings destroyed
+4. **Damage done** — [Malware installed](/blog/wordpress-malware-removal), data stolen, SEO rankings destroyed
 
 The window between vulnerability disclosure and active exploitation is often just hours. Not days, not weeks — hours.
 
 ## Why People Don't Update (And Why Those Reasons Don't Hold Up)
 
 ### "Updates break my site"
-Sometimes, yes. That's why you test updates on a staging site first. But you know what breaks sites more reliably? Getting hacked.
+Sometimes, yes. That's why you [test updates on a staging site](/blog/wordpress-staging-sites) first. But you know what breaks sites more reliably? Getting hacked.
 
 ### "I don't have time"
 Updates take minutes. Recovering from a hack takes days or weeks, plus the cost of lost business and reputation.
@@ -52,7 +52,7 @@ Every hacked site owner said this at some point.
 Major updates should be tested on a staging copy of your site. This catches compatibility issues before they affect your live site.
 
 ### 2. Back Up Before Updating
-Always have a recent backup before any update. If something goes wrong, you can roll back.
+Always have a [recent backup](/blog/wordpress-backup-strategy) before any update. If something goes wrong, you can roll back.
 
 ### 3. Update Regularly
 Don't let updates pile up. A site 6 months behind on updates is much harder (and riskier) to bring current than one that's updated weekly.

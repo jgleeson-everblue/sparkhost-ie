@@ -203,7 +203,7 @@ Before installing, check theme size on wordpress.org. Themes over 10MB usually i
 - **Page weight:** Total MB transferred
 - **HTTP requests:** Fewer is better
 - **JavaScript execution time:** Check in Performance tab
-- **LCP (Largest Contentful Paint):** Under 2.5s target
+- **LCP (Largest Contentful Paint):** Under 2.5s target — see our [Core Web Vitals guide](/blog/core-web-vitals-wordpress) for details
 - **CLS (Cumulative Layout Shift):** Under 0.1 target
 - **INP (Interaction to Next Paint):** Under 200ms target
 
@@ -229,6 +229,8 @@ Disable everything you're not using.
 - Remove unused CSS
 - Defer or eliminate jQuery
 - Unload unnecessary features
+
+Combine with proper [caching](/blog/wordpress-caching-explained) and a [CDN](/blog/cdn-content-delivery-network-wordpress) for best results.
 
 ### Replace Theme Components
 
@@ -341,4 +343,4 @@ When clients ask for theme advice, we recommend:
 3. Replace heavy components with lightweight alternatives
 4. Consider migration if performance remains poor
 
-Your theme sets the performance ceiling for your site. Choose wisely, and everything else becomes easier. Choose poorly, and you'll fight an uphill battle forever.
+Your theme sets the performance ceiling for your site. Choose wisely, and everything else becomes easier. Choose poorly, and you'll fight an uphill battle forever. For more performance optimisation techniques, see our [complete WordPress speed guide](/blog/speed-up-wordpress-site).

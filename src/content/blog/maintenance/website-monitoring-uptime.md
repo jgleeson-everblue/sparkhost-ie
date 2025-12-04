@@ -34,7 +34,7 @@ Without monitoring, weekend downtime could go unnoticed until Monday morning —
 ### Early Warning Prevents Bigger Problems
 
 Good monitoring catches issues early:
-- Slow response times before complete failure
+- Slow response times before complete failure (see our [speed guide](/blog/speed-up-wordpress-site))
 - Certificate expiration before it blocks access
 - Resource exhaustion before crashes
 - Error rates increasing before total breakdown
@@ -66,9 +66,9 @@ Tracks how long your site takes to respond, not just whether it responds.
 
 **What it catches:**
 - Performance degradation before failure
-- Database slowdowns
+- [Database slowdowns](/blog/database-optimisation-wordpress)
 - Hosting resource issues
-- CDN problems
+- [CDN](/blog/cdn-content-delivery-network-wordpress) problems
 
 **Example alerts:**
 - Response time exceeded 3 seconds
@@ -263,7 +263,7 @@ If your monitoring service supports it, acknowledge to prevent escalation and le
 
 ### 4. Diagnose and Fix
 
-Common causes of downtime:
+Common causes of downtime — see our full [troubleshooting guide](/blog/wordpress-troubleshooting-guide):
 - Hosting server issues — Contact host
 - Plugin/theme conflict — Deactivate recent changes
 - Resource exhaustion — Check for attacks or traffic spikes

@@ -235,11 +235,11 @@ Checkout and cart operations need fast response. Slow servers mean abandoned car
 
 ## The Caching Factor
 
-Modern WordPress hosting mitigates raw server differences through caching:
+Modern WordPress hosting mitigates raw server differences through [caching](/blog/wordpress-caching-explained):
 
 **Page caching** stores generated HTML, bypassing PHP entirely
 **Object caching** stores database queries in memory
-**CDN caching** serves content from edge servers globally
+**[CDN](/blog/cdn-content-delivery-network-wordpress) caching** serves content from edge servers globally
 
 With aggressive caching, server choice matters less — most requests never touch PHP or database.
 
@@ -261,7 +261,7 @@ Combined with Redis object caching and Cloudflare CDN, our stack is optimised sp
 
 Sites migrated to SparkHost from Apache hosts typically see:
 - 40-60% faster page load times
-- Improved Core Web Vitals scores
+- Improved [Core Web Vitals](/blog/core-web-vitals-wordpress) scores
 - Better handling of traffic spikes
 - Lower server resource usage
 

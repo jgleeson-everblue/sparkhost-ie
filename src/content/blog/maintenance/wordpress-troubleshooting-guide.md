@@ -170,7 +170,7 @@ Check WordPress file permissions:
 
 **Security Plugin Rules:**
 
-Security plugins can block legitimate access. Try deactivating temporarily.
+[Security plugins](/blog/wordpress-firewall-guide) can block legitimate access. Try deactivating temporarily.
 
 **Server Security Rules:**
 
@@ -305,7 +305,7 @@ API calls to slow or down services can hang your site. Check:
 
 **Database issues:**
 
-Run database optimisation. Check for bloated tables.
+Run [database optimisation](/blog/database-optimisation-wordpress). Check for bloated tables.
 
 ## Mixed Content / SSL Issues
 
@@ -386,11 +386,11 @@ Get professional help if:
 
 Avoid future emergencies:
 
-1. **Keep regular backups** — Test that they work
-2. **Use staging for updates** — Never update on production without testing
+1. **[Keep regular backups](/blog/wordpress-backup-strategy)** — Test that they work
+2. **[Use staging for updates](/blog/wordpress-staging-sites)** — Never update on production without testing
 3. **One change at a time** — Easier to identify problems
-4. **Document your setup** — Know your plugins, theme, configurations
-5. **Monitor your site** — Know when problems start
+4. **Document your setup** — Know your [plugins](/blog/plugin-management-best-practices), theme, configurations
+5. **[Monitor your site](/blog/website-monitoring-uptime)** — Know when problems start
 
 ## The SparkHost Advantage
 

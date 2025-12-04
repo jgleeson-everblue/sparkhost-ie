@@ -23,7 +23,7 @@ The 2002 ePrivacy Directive, updated in 2009, specifically addresses cookies. It
 - Obtaining consent before setting non-essential cookies
 - Making consent voluntary and specific
 
-### GDPR
+### [GDPR](/blog/gdpr-wordpress-irish-businesses)
 
 The General Data Protection Regulation applies when cookies collect personal data:
 - Cookie consent must meet GDPR consent standards
@@ -153,6 +153,8 @@ Refusing access entirely unless cookies are accepted is increasingly scrutinised
 Collecting data anyway when users reject is obviously wrong but surprisingly common in poorly implemented solutions.
 
 ## Implementing Cookie Consent on WordPress
+
+For general plugin guidance, see our [plugin management best practices](/blog/plugin-management-best-practices).
 
 ### Recommended Plugins
 

@@ -40,7 +40,7 @@ Record:
 - Email setup (MX records, email hosting)
 - Subdomains or additional domains
 
-### 2. Create a Full Backup
+### 2. [Create a Full Backup](/blog/wordpress-backup-strategy)
 
 Make a complete backup of:
 - All WordPress files
@@ -240,6 +240,8 @@ After migration, verify everything:
 ## Common Migration Problems
 
 ### White Screen of Death
+
+See our full [WordPress troubleshooting guide](/blog/wordpress-troubleshooting-guide) for more on the WSOD and other common issues.
 
 **Causes:**
 - PHP version mismatch

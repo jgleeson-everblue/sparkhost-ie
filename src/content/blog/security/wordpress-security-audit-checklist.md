@@ -38,7 +38,7 @@ Use a password manager. WordPress's built-in password generator creates strong p
 
 **Check:** Is 2FA enabled for all administrator accounts?
 
-Two-factor authentication is your safety net when passwords fail. At minimum, enable for:
+[Two-factor authentication](/blog/two-factor-authentication-wordpress) is your safety net when passwords fail. At minimum, enable for:
 - Administrators
 - Editors
 - Anyone who can modify the site
@@ -60,7 +60,7 @@ Review all users. Remove unused accounts. Apply principle of least privilege.
 
 **Check:** Are login attempts limited?
 
-Without limits, attackers can try thousands of passwords. Configure:
+Without limits, attackers can try thousands of passwords via [brute force attacks](/blog/brute-force-attacks-prevention). Configure:
 - Lock out after 5-10 failed attempts
 - Lock duration of 15-30 minutes
 - Longer lockout after repeated failures
@@ -228,7 +228,7 @@ Verify:
 
 ### SSL Certificate
 
-**Check:** Is HTTPS enforced?
+**Check:** Is [HTTPS enforced](/blog/ssl-certificates-explained)?
 
 Visit your site via HTTP. It should redirect to HTTPS. All pages should load securely without mixed content warnings.
 
@@ -351,7 +351,7 @@ Set up external monitoring (UptimeRobot, Pingdom) to alert you immediately when 
 
 ### Backup Frequency
 
-**Check:** How often are backups created?
+**Check:** How often are [backups](/blog/wordpress-backup-strategy) created?
 
 Minimum: Daily
 Better: Multiple times daily for active sites
@@ -389,7 +389,7 @@ Know what to do when things go wrong:
 
 ### Web Application Firewall
 
-**Check:** Is a WAF active?
+**Check:** Is a [WAF active](/blog/wordpress-firewall-guide)?
 
 WAFs block common attacks before they reach WordPress:
 - SQL injection
@@ -452,4 +452,4 @@ Print this checklist. Work through it systematically. Fix issues as you find the
 
 Then schedule regular security audits. Put it in your calendar. Make it a habit.
 
-The best time to improve security was before you got hacked. The second best time is now.
+The best time to improve security was before you got hacked. The second best time is now. If you suspect your site has been compromised, see our [malware removal guide](/blog/wordpress-malware-removal-guide).

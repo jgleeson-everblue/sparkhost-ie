@@ -12,8 +12,8 @@ I've had the phone call too many times: "Our website is completely gone. Do you 
 
 Websites die in many ways:
 
-- **Hacking** — Malware destroys files or database
-- **Human error** — Accidental deletion, bad plugin update
+- **[Hacking](/blog/wordpress-malware-removal-guide)** — Malware destroys files or database
+- **Human error** — Accidental deletion, bad [plugin update](/blog/wordpress-updates-why-matter)
 - **Server failure** — Hardware dies, data centres have problems
 - **Host issues** — Not every host is reliable
 
@@ -133,4 +133,4 @@ For Managed plans, we also run backups before every update and keep 30-day reten
 4. **Set up off-site backup** — UpdraftPlus to Google Drive takes 10 minutes
 5. **Document the process** — Make sure you're not the only one who knows how to restore
 
-The time to sort out backups is before you need them. After is too late.
+The time to sort out backups is before you need them. After is too late. For a complete security setup including backups, see our [WordPress security basics guide](/blog/wordpress-security-basics-irish-businesses).

@@ -17,7 +17,7 @@ At its core, GDPR requires you to:
 1. Only collect personal data you genuinely need
 2. Tell people what you're collecting and why
 3. Get proper consent before collecting it
-4. Keep that data secure
+4. [Keep that data secure](/blog/wordpress-security-basics)
 5. Delete it when you no longer need it
 6. Let people access, correct, or delete their data on request
 
@@ -34,7 +34,7 @@ You must have one. It must explain:
 
 Link to it from your footer, forms, and cookie notice.
 
-### 2. Cookie Consent
+### 2. [Cookie Consent](/blog/cookie-consent-wordpress-ireland)
 If you use cookies beyond what's strictly necessary (and you almost certainly do), you need:
 
 - A cookie notice that appears before non-essential cookies load
@@ -72,7 +72,7 @@ If you collect email addresses for marketing:
 - Records of consent (when, how, what they agreed to)
 
 ### 6. E-commerce (WooCommerce)
-Online shops have additional requirements:
+Online shops have additional requirements — see our [WooCommerce maintenance checklist](/blog/woocommerce-maintenance-checklist) for more:
 
 - Clear data retention policies
 - Secure handling of payment data
