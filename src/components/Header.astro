@@ -13,7 +13,6 @@ const services = [
   { href: '/services/wordpress-migration', label: 'WordPress Migration', description: 'Free site transfer to SparkHost' },
   { href: '/services/woocommerce-hosting', label: 'WooCommerce Hosting', description: 'E-commerce optimised hosting' },
   { href: '/services/wordpress-support', label: 'WordPress Support', description: 'Expert help via WhatsApp & email' },
-  { href: '/services/gdpr-compliance', label: 'GDPR Compliance', description: 'EU data storage & privacy setup' },
 ];
 
 const navLinks = [
@@ -147,18 +146,19 @@ const navLinks = [
     class="lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-[var(--color-deep-navy)]/98 backdrop-blur-2xl translate-x-full transition-transform duration-500 ease-out overflow-y-auto"
   >
     <div class="flex flex-col p-6 gap-2">
-      <!-- Services Section -->
+      <!-- Services Section (Collapsible) -->
       <div class="border-b border-white/5 pb-2 mb-2">
-        <a
-          href="/services"
-          class="group relative py-3 px-4 text-lg font-semibold text-white/90 hover:text-white transition-all duration-300 flex items-center justify-between"
+        <button
+          id="mobile-services-toggle"
+          class="w-full group relative py-3 px-4 text-lg font-semibold text-white/90 hover:text-white transition-all duration-300 flex items-center justify-between"
+          aria-expanded="false"
         >
           <span>Services</span>
-          <svg class="w-5 h-5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <svg id="mobile-services-chevron" class="w-5 h-5 text-white/40 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
-        </a>
-        <div class="pl-4 space-y-1">
+        </button>
+        <div id="mobile-services-list" class="pl-4 space-y-1 hidden overflow-hidden">
           {services.map((service, i) => (
             <a
               href={service.href}
@@ -170,6 +170,15 @@ const navLinks = [
               <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-spark-red)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
             </a>
           ))}
+          <a
+            href="/services"
+            class="group relative py-2.5 px-4 text-base text-[var(--color-spark-orange)] hover:text-white transition-all duration-300 flex items-center gap-2"
+          >
+            <span class="relative z-10">View All Services</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -198,7 +207,11 @@ const navLinks = [
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const hamburger = document.getElementById('hamburger');
+  const servicesToggle = document.getElementById('mobile-services-toggle');
+  const servicesList = document.getElementById('mobile-services-list');
+  const servicesChevron = document.getElementById('mobile-services-chevron');
   let isOpen = false;
+  let servicesOpen = false;
 
   menuBtn?.addEventListener('click', () => {
     isOpen = !isOpen;
@@ -223,6 +236,26 @@ const navLinks = [
         spans[1].style.opacity = '1';
         spans[2].style.transform = '';
       }
+      // Also collapse services when closing menu
+      servicesOpen = false;
+      servicesList?.classList.add('hidden');
+      servicesChevron?.classList.remove('rotate-180');
+      servicesToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Services toggle
+  servicesToggle?.addEventListener('click', () => {
+    servicesOpen = !servicesOpen;
+
+    if (servicesOpen) {
+      servicesList?.classList.remove('hidden');
+      servicesChevron?.classList.add('rotate-180');
+      servicesToggle?.setAttribute('aria-expanded', 'true');
+    } else {
+      servicesList?.classList.add('hidden');
+      servicesChevron?.classList.remove('rotate-180');
+      servicesToggle?.setAttribute('aria-expanded', 'false');
     }
   });
 </script>
