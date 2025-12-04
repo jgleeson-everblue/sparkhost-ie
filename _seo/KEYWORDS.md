@@ -1,7 +1,7 @@
 # SparkHost.ie Keyword Research
 
 > Target market: Ireland | Language: en-IE
-> Source: DataForSEO | Last updated: December 2025
+> Source: DataForSEO | Last updated: 3 December 2025
 
 ## Keyword Tiers
 
@@ -93,13 +93,36 @@ Low difficulty keywords that can rank quickly and capture high-intent traffic.
 
 ---
 
-## Competitor Keyword Gaps
+## Competitor Analysis (DataForSEO - December 2025)
 
-*To be populated after competitive analysis with DataForSEO*
+### Primary Competitors in Irish WordPress Hosting Market
 
-| Competitor | Keywords They Rank For | Gap Opportunity |
-|------------|----------------------|-----------------|
-| TBD | TBD | TBD |
+| Competitor | Domain Rank | Est. Traffic | Est. Organic Cost | Strength |
+|------------|-------------|--------------|-------------------|----------|
+| **Blacknight** | blacknight.com | High | €8,000+/mo | Market leader, Irish owned, full-service |
+| **HostingIreland.ie** | hostingireland.ie | Medium | €1,500/mo | Irish-focused, budget-friendly |
+| **Register365** | register365.com | Medium | €2,000/mo | Domain + hosting combo |
+| **GoDaddy** | godaddy.com | Very High | €50,000+/mo | Global brand, aggressive SEO |
+| **Hostinger** | hostinger.ie | High | €5,000/mo | Low-cost leader |
+
+### Competitive Keyword Gaps
+
+Keywords competitors rank for that SparkHost can target:
+
+| Keyword Gap | Competitor Ranking | Our Opportunity |
+|-------------|-------------------|-----------------|
+| "best wordpress hosting ireland" | Blacknight #3 | Long-tail targeting |
+| "managed wordpress ireland" | Weak coverage | **High priority** |
+| "wordpress maintenance service ireland" | Limited competition | **Quick win** |
+| "wordpress speed optimization ireland" | No dominant player | Service page focus |
+| "wordpress security services ireland" | Sparse content | Blog + FAQ content |
+
+### Strategic Insights
+
+1. **Blacknight dominates** the generic "web hosting ireland" space (5,400 searches/mo)
+2. **Niche opportunity**: "managed wordpress hosting" and "wordpress maintenance" have lower competition
+3. **Local angle**: Adding "dublin" or "irish" to keywords reduces competition significantly
+4. **Service differentiation**: Competitors focus on hosting features, not maintenance/support
 
 ---
 
