@@ -4,19 +4,6 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection, render } from 'astro:content';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => {
-    // Get slug from post ID (just the filename without folder)
-    const parts = post.id.split('/');
-    const slug = parts[parts.length - 1];
-    return {
-      params: { slug },
-      props: { post },
-    };
-  });
-}
-
 // Get slug from post ID (just the filename without folder)
 function getSlug(id: string): string {
   const parts = id.split('/');
@@ -32,8 +19,16 @@ function getCategory(id: string): string {
   return 'General';
 }
 
-const { post } = Astro.props;
 const { slug } = Astro.params;
+
+// Get all posts and find the one matching this slug
+const allPosts = await getCollection('blog');
+const post = allPosts.find(p => getSlug(p.id) === slug);
+
+// Handle 404 if post not found
+if (!post) {
+  return Astro.redirect('/404');
+}
 
 // Render the markdown content
 const { Content } = await render(post);
@@ -57,8 +52,7 @@ function formatDate(dateStr: string) {
   });
 }
 
-// Get related posts (same category)
-const allPosts = await getCollection('blog');
+// Get related posts (same category) - reuse allPosts from above
 const relatedPosts = allPosts
   .filter(p => getSlug(p.id) !== slug && getCategory(p.id) === category)
   .slice(0, 2);
