@@ -1,0 +1,344 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = '3 December 2024';
+---
+
+<Layout
+  title="GDPR Policy | SparkHost.ie"
+  description="Your GDPR rights and how SparkHost.ie protects your personal data under EU data protection law."
+>
+  <Header currentPath="/gdpr" />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <span class="inline-block text-[var(--color-spark-orange)] text-sm font-semibold tracking-wider uppercase mb-4">Legal</span>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: var(--font-display);">
+            GDPR Policy
+          </h1>
+          <p class="text-white/60 mb-4">
+            Your rights under the General Data Protection Regulation
+          </p>
+          <p class="text-white/40 text-sm">
+            Last updated: {lastUpdated}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="pb-16">
+      <div class="container">
+        <div class="container-narrow mx-auto">
+          <div class="prose prose-invert max-w-none space-y-8">
+
+            <!-- Introduction -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">About This Policy</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>This GDPR Policy explains your rights under the <strong class="text-white">General Data Protection Regulation (EU) 2016/679</strong> and how SparkHost.ie complies with EU data protection law.</p>
+                <p>This policy should be read alongside our <a href="/privacy" class="text-[var(--color-spark-orange)] hover:underline">Privacy Policy</a>, which details what data we collect and how we use it.</p>
+                <p>SparkHost.ie is committed to protecting your personal data and being transparent about how we handle it.</p>
+              </div>
+            </div>
+
+            <!-- Data Controller -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data Controller</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>Under GDPR, the <strong class="text-white">data controller</strong> is the organisation that determines the purposes and means of processing personal data.</p>
+                <div class="mt-4 p-4 bg-white/5 rounded-lg">
+                  <p><strong class="text-white">Everblue Digital</strong> (trading as SparkHost.ie)</p>
+                  <p>Dublin, Ireland</p>
+                  <p>Email: <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a></p>
+                </div>
+                <p class="mt-4">Everblue Digital is the data controller responsible for your personal data when you use SparkHost.ie services.</p>
+              </div>
+            </div>
+
+            <!-- Legal Basis -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Legal Basis for Processing (Article 6)</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>GDPR requires us to have a valid legal basis before processing your personal data. We rely on the following:</p>
+
+                <div class="mt-4 space-y-4">
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <h3 class="text-white font-semibold mb-2">Contract (Article 6(1)(b))</h3>
+                    <p>Processing necessary to provide our hosting and maintenance services, process payments, and fulfil our contractual obligations to you.</p>
+                  </div>
+
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <h3 class="text-white font-semibold mb-2">Legitimate Interests (Article 6(1)(f))</h3>
+                    <p>Processing for our legitimate business interests, such as improving our services, website analytics, fraud prevention, and responding to enquiries. We always balance our interests against your rights and freedoms.</p>
+                  </div>
+
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <h3 class="text-white font-semibold mb-2">Consent (Article 6(1)(a))</h3>
+                    <p>Where you've explicitly consented, such as subscribing to our newsletter or accepting non-essential cookies. You can withdraw consent at any time.</p>
+                  </div>
+
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <h3 class="text-white font-semibold mb-2">Legal Obligation (Article 6(1)(c))</h3>
+                    <p>Where we're required to process data by law, such as tax records and anti-money laundering requirements.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Your Rights -->
+            <div class="card-glass p-6 border-l-4 border-l-[var(--color-spark-orange)]">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Your Rights Under GDPR</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-4">
+                <p>As an EU/EEA resident, you have the following rights regarding your personal data:</p>
+
+                <div class="space-y-4 mt-4">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">15</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Right of Access</h3>
+                      <p>Request a copy of all personal data we hold about you (Subject Access Request).</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">16</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Right to Rectification</h3>
+                      <p>Correct any inaccurate or incomplete personal data we hold about you.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">17</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Right to Erasure ("Right to be Forgotten")</h3>
+                      <p>Request deletion of your personal data where there's no compelling reason for continued processing.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">18</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Right to Restrict Processing</h3>
+                      <p>Limit how we use your data in certain circumstances.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">20</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Right to Data Portability</h3>
+                      <p>Receive your data in a structured, machine-readable format and transfer it to another controller.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">21</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Right to Object</h3>
+                      <p>Object to processing based on legitimate interests or for direct marketing purposes.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-spark-orange)]/20 flex items-center justify-center">
+                      <span class="text-[var(--color-spark-orange)] text-xs font-bold">22</span>
+                    </div>
+                    <div>
+                      <h3 class="text-white font-semibold">Rights Related to Automated Decision-Making</h3>
+                      <p>Not be subject to decisions based solely on automated processing. Note: We do not use automated decision-making or profiling that significantly affects you.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-[var(--color-spark-orange)]/10 rounded-lg border border-[var(--color-spark-orange)]/20">
+                  <p class="text-white font-semibold mb-2">How to Exercise Your Rights</p>
+                  <p>Email us at <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a> with your request. We will respond within <strong class="text-white">30 days</strong> as required by GDPR. We may need to verify your identity before processing your request.</p>
+                </div>
+
+                <p class="text-white/50 text-xs mt-4">Note: These rights may be limited in certain circumstances, such as where we have a legal obligation to retain data or where your request affects the rights of others.</p>
+              </div>
+            </div>
+
+            <!-- International Transfers -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">International Data Transfers</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We primarily store and process data within the <strong class="text-white">European Economic Area (EEA)</strong>. Our servers are located in EU data centres (Germany and Finland).</p>
+                <p>Where we use service providers based outside the EEA, we ensure appropriate safeguards are in place as required by GDPR Chapter V:</p>
+
+                <div class="mt-4 space-y-3">
+                  <div class="p-3 bg-white/5 rounded-lg flex items-start gap-3">
+                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p class="text-white font-semibold">EU-US Data Privacy Framework</p>
+                      <p>For US-based providers certified under the framework (successor to Privacy Shield)</p>
+                    </div>
+                  </div>
+
+                  <div class="p-3 bg-white/5 rounded-lg flex items-start gap-3">
+                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p class="text-white font-semibold">Standard Contractual Clauses (SCCs)</p>
+                      <p>EU-approved contract terms for international transfers</p>
+                    </div>
+                  </div>
+
+                  <div class="p-3 bg-white/5 rounded-lg flex items-start gap-3">
+                    <svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p class="text-white font-semibold">Adequacy Decisions</p>
+                      <p>For countries deemed to have adequate data protection by the EU Commission</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Security -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data Security (Article 32)</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We implement appropriate technical and organisational measures to protect your data:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2 mt-4">
+                  <li>SSL/TLS encryption for all data in transit (HTTPS everywhere)</li>
+                  <li>Encryption at rest for sensitive data and backups</li>
+                  <li>Secure password hashing and two-factor authentication</li>
+                  <li>Role-based access controls (principle of least privilege)</li>
+                  <li>Regular security updates and vulnerability patching</li>
+                  <li>Web Application Firewall (WAF) and DDoS protection</li>
+                  <li>Daily automated backups stored in separate EU locations</li>
+                  <li>Regular security audits and monitoring</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Data Breach -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data Breach Notification (Articles 33-34)</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>In the unlikely event of a personal data breach that poses a risk to your rights and freedoms:</p>
+                <ul class="list-disc list-inside space-y-2 ml-2 mt-4">
+                  <li>We will notify the <strong class="text-white">Data Protection Commission within 72 hours</strong> of becoming aware of the breach</li>
+                  <li>We will notify <strong class="text-white">affected individuals without undue delay</strong> if the breach is likely to result in a high risk to their rights and freedoms</li>
+                  <li>We will document all breaches, including facts, effects, and remedial actions taken</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Data Retention -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Data Retention</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We retain your personal data only for as long as necessary for the purposes for which it was collected, in line with GDPR's data minimisation principle.</p>
+                <div class="overflow-x-auto mt-4">
+                  <table class="w-full text-xs">
+                    <thead>
+                      <tr class="border-b border-white/10">
+                        <th class="text-left py-2 pr-4 text-white">Data Type</th>
+                        <th class="text-left py-2 text-white">Retention Period</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-b border-white/5">
+                        <td class="py-2 pr-4">Account & billing data</td>
+                        <td class="py-2">Duration of service + 7 years (Irish tax law)</td>
+                      </tr>
+                      <tr class="border-b border-white/5">
+                        <td class="py-2 pr-4">Support communications</td>
+                        <td class="py-2">3 years after last contact</td>
+                      </tr>
+                      <tr class="border-b border-white/5">
+                        <td class="py-2 pr-4">Contact form submissions</td>
+                        <td class="py-2">2 years (or until you become a client)</td>
+                      </tr>
+                      <tr class="border-b border-white/5">
+                        <td class="py-2 pr-4">Website analytics</td>
+                        <td class="py-2">26 months (anonymised)</td>
+                      </tr>
+                      <tr class="border-b border-white/5">
+                        <td class="py-2 pr-4">Website backups</td>
+                        <td class="py-2">30-90 days (as per your plan)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="mt-4">After these periods, data is securely deleted or anonymised.</p>
+              </div>
+            </div>
+
+            <!-- DPC & Complaints -->
+            <div class="card-glass p-6">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Supervisory Authority & Complaints</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>We aim to resolve all privacy-related complaints internally. However, you have the right to lodge a complaint with the supervisory authority in your country of residence.</p>
+                <p>As we are based in Ireland, our lead supervisory authority is:</p>
+                <div class="mt-4 p-4 bg-white/5 rounded-lg">
+                  <p><strong class="text-white">Data Protection Commission (DPC)</strong></p>
+                  <p>21 Fitzwilliam Square South</p>
+                  <p>Dublin 2, D02 RD28</p>
+                  <p>Ireland</p>
+                  <p class="mt-2">Website: <a href="https://www.dataprotection.ie" target="_blank" rel="noopener" class="text-[var(--color-spark-orange)] hover:underline">www.dataprotection.ie</a></p>
+                  <p>Phone: +353 1 765 0100 / 1800 437 737 (Freephone)</p>
+                  <p>Email: <a href="mailto:info@dataprotection.ie" class="text-[var(--color-spark-orange)] hover:underline">info@dataprotection.ie</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="card-glass p-6 bg-gradient-to-r from-[var(--color-spark-red)]/10 to-[var(--color-spark-orange)]/10">
+              <h2 class="text-xl font-bold mb-4" style="font-family: var(--font-display);">Contact Us</h2>
+              <div class="text-white/70 text-sm leading-relaxed space-y-3">
+                <p>For any GDPR-related questions, to exercise your rights, or to make a complaint:</p>
+                <div class="mt-4 p-4 bg-white/5 rounded-lg">
+                  <p><strong class="text-white">Everblue Digital (SparkHost.ie)</strong></p>
+                  <p>Email: <a href="mailto:hello@sparkhost.ie" class="text-[var(--color-spark-orange)] hover:underline">hello@sparkhost.ie</a></p>
+                  <p class="mt-2 text-white/50">Please include "GDPR Request" in your subject line for faster processing.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Related Policies -->
+            <div class="text-center pt-8 border-t border-white/10">
+              <p class="text-white/50 text-sm mb-4">Related Policies</p>
+              <div class="flex flex-wrap justify-center gap-4">
+                <a href="/privacy" class="text-[var(--color-spark-orange)] hover:underline text-sm">Privacy Policy</a>
+                <span class="text-white/20">|</span>
+                <a href="/cookies" class="text-[var(--color-spark-orange)] hover:underline text-sm">Cookie Policy</a>
+                <span class="text-white/20">|</span>
+                <a href="/terms" class="text-[var(--color-spark-orange)] hover:underline text-sm">Terms of Service</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
