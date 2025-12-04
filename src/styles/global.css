@@ -258,7 +258,6 @@ body {
 
 .card-glass:hover {
   border-color: rgba(244, 54, 84, 0.3);
-  transform: translateY(-8px);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(244, 54, 84, 0.1);
@@ -331,7 +330,6 @@ h3, .h3 {
 
 .card-light:hover {
   border-color: rgba(244, 54, 84, 0.2);
-  transform: translateY(-8px);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(244, 54, 84, 0.1);

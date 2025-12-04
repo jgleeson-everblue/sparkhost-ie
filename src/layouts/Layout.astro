@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title?: string;
@@ -31,6 +32,8 @@ const {
     <div id="page-loader" class="page-loader"></div>
 
     <slot />
+
+    <CookieConsent />
 
     <!-- Page loader script - quick fade reveal -->
     <script is:inline>
